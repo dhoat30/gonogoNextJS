@@ -1,8 +1,15 @@
 import React from 'react'
 
-function Layout() {
+function Layout(props) {
   return (
-    <div>Layout</div>
+    <div>
+    <header></header>
+        <div>{props.children}
+        <div>hello</div>
+        </div>
+
+    <footer></footer> 
+</div>
   )
 }
 
