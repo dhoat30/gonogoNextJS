@@ -1,15 +1,13 @@
 import Head from 'next/head'
+import HomePage from '../Components/Pages/HomePage/HomePage'
 import getPage from '../util/get-page'
-import styles from '../styles/Home.module.css'
 
 export default function Home({homePageData}) {
-  console.log(homePageData)
   return (
     <div >
-      
+      <HomePage homePageData={homePageData} />
 
-     
-
+    
     </div>
   )
 }
