@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './Pages/HomePage/UI/Header/Header'
+import Header from './UI/Header/Header'
 function Layout(props) {
   return (
     <div>

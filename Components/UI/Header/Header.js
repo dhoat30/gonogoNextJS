@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
+import Link from 'next/link'
+
 function Header() {
   return (
     <section className="light-blue-bk">
@@ -16,26 +18,26 @@ function Header() {
             </LogoContainer>
             <nav className="top-nav">
               <ul>
-                <li>
+                {/* <li>
                   <a href="/">Home</a>
-                </li>
+                </li> */}
                 {/* <li><a href="/">Modules<span><Image src="http://test.webduel.co.nz/wp-content/uploads/2022/09/gonog-logo.png" alt="" layout='fill'/></span></a></li> */}
-                <li>
+                {/* <li>
                   <a href="/">Case Studies</a>
                 </li>
                 <li>
                   <a href="/">Support</a>
                 </li>
                 <li>
-                  <a href="/">Testimonials</a>
-                </li>
+                  <a href="/">Testimonials</a> */}
+                {/* </li> */}
               </ul>
             </nav>
           </NavContainer>
 
-          <a href="/" className="primary-btn">
+          {/* <a href="/" className="primary-btn">
             book a demo
-          </a>
+          </a> */}
         </HeaderStyle>
       </div>
     </section>

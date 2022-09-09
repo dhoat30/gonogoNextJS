@@ -1,12 +1,24 @@
 import React from "react";
 import VideoIcon from '../Icons/VideoIcon'
 import styled from "styled-components";
+import Link from 'next/link'
 function SecondaryAnchor({ text, link, icon }) {
   return (
-    <a href={link} className="secondary-btn">
-       {icon === "videoIcon" &&  <VideoIconStyle/> }
-      {text}
-    </a>
+    <>
+    {icon === "videoIcon" ? 
+    <button className="secondary-btn"><VideoIconStyle/>{text} </button>
+    : 
+    <Link href={link} passHref>
+        <a  className="secondary-btn">
+          
+         {text}
+       </a>
+       </Link>
+}
+   
+    </>
+   
+   
   );
 }
 

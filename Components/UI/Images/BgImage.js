@@ -46,7 +46,7 @@ function BgImage({desktopImage, mobileImage}) {
         <ImageStyle
           src={desktopImage}
           width={width}
-          height={height-100}
+          height={height}
         />
       </Box>
     );

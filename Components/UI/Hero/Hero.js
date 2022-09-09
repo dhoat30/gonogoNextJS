@@ -6,7 +6,6 @@ import styled from "styled-components";
 import BgImage from "../Images/BgImage";
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
-  console.log(window)
   return {
     width,
     height,
@@ -34,16 +33,14 @@ function Hero({
 
       setheight(height);
     }
-
-    window.addEventListener("load", handleResize);
+    handleResize() 
+    // window.addEventListener("load", handleResize);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
     
   }, []);
-  console.log(width)
-  console.log(height)
   return (
-    <HeroContainer className="hero-section" widht={width} height={height}>
+    <HeroContainer className="hero-section" width={width} height={`${height}px`}>
       <BgImage 
       mobileImage={mobileImage}
       desktopImage={desktopImage}/> 
@@ -68,11 +65,13 @@ function Hero({
 
 export default Hero;
 const HeroContainer = styled.div`
+overflow: hidden;
+
 position: relative;
 display: flex; 
 justify-content: center; 
 align-items:center; 
-height: calc(${props=> props.height && props.height}px - 90px) ; 
+height: ${props=> props.height && props.height} ; 
 width: ${props=> props.width && props.width}px; 
 text-align: center; 
 
