@@ -1,13 +1,22 @@
 import React from 'react'
 import Hero from '../../UI/Hero/Hero'
 import RowLayout from '../../UI/RowLayout/RowLayout'
+import TwoColumnLayout from '../../UI/ColumnLayout/TwoColumnLayout'
 
 function IssuesIdeasIncidents({moduleData}) {
     // console.log(moduleData.acf.sections)
     const sections = moduleData.acf.sections.map((data, index)=> { 
-            // console.log(data.layout)
+            console.log(data.layout)
             if(data.layout.layout_type === "Row"){ 
                 return <RowLayout
+                key={index}
+                title={data.layout.title}
+                content={data.layout.content}
+                images={data.layout.images}
+                /> 
+            }
+            else if(data.layout.layout_type === "Two Column" && data.layout.two_column_graphics_alignment === "Left"){ 
+                return <TwoColumnLayout
                 key={index}
                 title={data.layout.title}
                 content={data.layout.content}

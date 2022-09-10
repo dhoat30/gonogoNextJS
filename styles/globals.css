@@ -52,7 +52,7 @@ a {
 .max-width{ 
   max-width: 1520px; 
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 .primary-btn {
   background-color: #FF9734;
@@ -80,7 +80,20 @@ a {
   align-items: center;
   justify-content: center;
 }
-
+.box-shadow{ 
+  box-shadow: var(--boxShadow);
+background: white; 
+border-radius: 20px; 
+padding: 50px 70px;
+}
+@media(max-width: 600px){ 
+  .box-shadow{ 
+    box-shadow: var(--boxShadow);
+  background: white; 
+  border-radius: 20px; 
+  padding: 50px 20px;
+  }
+}
 h1 {
   font-weight: 700;
   font-size: 3.5rem;
@@ -520,57 +533,23 @@ p {
   /* background-image: url(images/issues-page-hero.092e7080.png); */
 }
 
-.issues-first-section {
-  height: 1255px;
-  background-color: #F4F7FE;
-}
-.issues-first-section .row-container {
-  flex-direction: column;
-  gap: 6%;
-  text-align: center;
-}
-.issues-first-section .row-container .issues-first-section-text {
-  width: 54%;
-  color: #053152;
-}
 
-.issues-second-section {
-  height: 942px;
-}
-.issues-second-section .row-container {
-  justify-content: space-evenly;
-}
-.issues-second-section .row-container .issues-second-section-text {
-  width: 40%;
-}
-.issues-second-section .row-container .issues-second-section-text h3 {
-  color: #053152;
-}
-.issues-second-section .row-container .issues-second-section-img {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.issues-second-section .row-container .issues-second-section-img .ellipse {
-  max-width: 760px;
-  max-height: 642px;
-  padding: 0 5%;
-}
-.issues-second-section .row-container .issues-second-section-img .ellipse img {
+
+
+ .issues-second-section-img .ellipse img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.issues-second-section .row-container .issues-second-section-img .laptop {
+ .issues-second-section-img .laptop {
   position: absolute;
   top: 9%;
   left: 0;
   max-width: 760px;
   max-height: 534px;
 }
-.issues-second-section .row-container .issues-second-section-img .laptop img {
+ .issues-second-section-img .laptop img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
