@@ -2,7 +2,7 @@ import React from 'react'
 import YoutubeVideo from './YoutubeVideo'
 import styled from 'styled-components'
 import PrimaryAnchor from '../Anchor/PrimaryAnchor'
-function StillThinkingTwoColumn() {
+function Still() {
   return (
     <Section className="still-thinking">
       <FlexBox className="max-width">
@@ -29,36 +29,23 @@ function StillThinkingTwoColumn() {
   )
 }
 
-export default StillThinkingTwoColumn
+export default Still
 const Section = styled.section`
 padding: 70px 0;
- 
+display: flex; 
+justify-content: center; 
+text-align:center; 
 `
 const FlexBox = styled.div`
-display: flex; 
-justify-content: space-around;
-align-items: center; 
-gap: 20px; 
+max-width: 640px;
 
-@media(max-width: 1150px){ 
-    flex-direction: column; 
-
-}
 `
 const VideoContainer = styled.div`
-width: 45%; 
-@media(max-width: 1150px){ 
-    width: 100%; 
-    max-width: 640px;
-}
+
 `
 const ContentContainer = styled.div`
-width: 40%; 
- 
-@media(max-width: 1150px){ 
-    width: 100%; 
-    max-width: 640px;
-}
+    margin: 20px auto 0 auto;
+    max-width: 800px;
 .still-thinking-btn{ 
     margin-top: 20px; 
 }

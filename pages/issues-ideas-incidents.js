@@ -2,10 +2,22 @@ import React from 'react'
 import getSingleCpt from '../util/get-single-cpt'
 import getCPT from '../util/get-cpt'
 import IssuesIdeasIncidents from '../Components/Pages/HomePage/IssuesIdeasIncidents'
+import SEO from '../Components/SEO'
 
 function issuesIdeasIncidents({moduleData}) {
+  const seo = {
+    title: moduleData[0].yoast_head_json.title,
+    description: moduleData[0].yoast_head_json.description,
+    imageSrc: moduleData[0].yoast_head_json.og_image.length > 0 &&  moduleData[0].yoast_head_json.og_image[0].url
+  }
   return (
+    <React.Fragment> 
+  <SEO
+    seo={seo}
+  /> 
     <IssuesIdeasIncidents moduleData={moduleData[0]} />
+    </React.Fragment>     
+
   )
 }
 

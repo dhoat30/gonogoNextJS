@@ -117,7 +117,7 @@ h1 {
 }
 h2 {
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 1.7rem;
   line-height: 42px;
   letter-spacing: 0.02em;
   color: var(--blue);
@@ -173,8 +173,8 @@ h6 {
 
 p {
   font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
   letter-spacing: -0.015em;
   color: var(--blue);
   margin-top: 5px; 

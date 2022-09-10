@@ -4,11 +4,21 @@ import RowLayout from '../../UI/RowLayout/RowLayout'
 import TwoColumnLayout from '../../UI/ColumnLayout/TwoColumnLayout'
 import TwoColumnLayoutRight from '../../UI/ColumnLayout/TwoColumnLayoutRight'
 import StillThinkingRow from '../../UI/Videos/StillThinkingRow'
-function IssuesIdeasIncidents({moduleData}) {
+import Features from '../../UI/Features/Features'
+import JustText from '../../UI/RowLayout/JustText'
+function HazardsRisks({moduleData, featuresData}) {
     console.log(moduleData.acf.sections)
     const sections = moduleData.acf.sections.map((data, index)=> { 
-            console.log(data.layout)
-            if(data.layout.layout_type === "Row"){ 
+      console.log(data.layout.images)
+       if(!data.layout.images ){ 
+        return <JustText 
+        key={index}
+            content={data.layout.content}
+
+        />
+
+      }
+           else if(data.layout.layout_type === "Row"){ 
                 return <RowLayout
                 key={index}
                 title={data.layout.title}
@@ -35,6 +45,7 @@ function IssuesIdeasIncidents({moduleData}) {
               /> 
         
           }
+         
     })
   return (
     <main>
@@ -52,11 +63,11 @@ function IssuesIdeasIncidents({moduleData}) {
         }
       />
         {sections}
-
+        <Features featuresData={featuresData}/> 
         {/* still thinking section */}
         <StillThinkingRow/> 
     </main>
   )
 }
 
-export default IssuesIdeasIncidents
+export default HazardsRisks

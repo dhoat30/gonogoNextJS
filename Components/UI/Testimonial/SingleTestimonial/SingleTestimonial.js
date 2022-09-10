@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 function SingleTestimonial({title, designation, content, imageData}) {
-  console.log(imageData)
   return (
     <div>
         <div className="testimonial-img">

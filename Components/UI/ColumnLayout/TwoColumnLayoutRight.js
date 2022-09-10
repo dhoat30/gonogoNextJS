@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
-function TwoColumnLayout({title, content, images, bgColor, two_column_graphics_alignment}) {
+function TwoColumnLayoutRight({title, content, images, dangerouslySetInnerHTML, two_column_graphics_alignment, bgColor}) {
   const imagesBox = images.map(imgData=> { 
     // if two images 
     if(images.length ===2 ){ 
@@ -22,7 +22,11 @@ function TwoColumnLayout({title, content, images, bgColor, two_column_graphics_a
   })  
   return (
     <Section bgColor={bgColor}>
-    <div className="max-width">
+    <div className="max-width" >
+    <ContentBox>
+             <h3>{title}</h3>
+            <div dangerouslySetInnerHTML={{ __html: content }}/>
+       </ContentBox>
       {
         images.length === 2  ? 
           <DoubleImagesContainer>   {imagesBox}</DoubleImagesContainer>
@@ -33,25 +37,19 @@ function TwoColumnLayout({title, content, images, bgColor, two_column_graphics_a
         }
       
       
-       <ContentBox>
-             <h3>{title}</h3>
-            <div dangerouslySetInnerHTML={{ __html: content }}/>
-       </ContentBox>
+    
     </div>
  </Section>
   )
 }
 
-export default TwoColumnLayout
+export default TwoColumnLayoutRight
 const Section = styled.section`
-background-color: ${props => props.bgColor === "Light Blue" && "var(--lightBlue)"}; 
-
 >div{ 
   padding: 70px 10px; 
-
   display: flex; 
-
-justify-content: space-around; 
+background-color: ${props => props.bgColor === "Light Blue" && "var(--lightBlue)"}; 
+justify-content: space-between; 
 align-items: center; 
 @media(max-width: 800px){ 
   flex-wrap: wrap-reverse; 
@@ -61,7 +59,6 @@ align-items: center;
 `
 const ImagesContainer = styled.div`
   width: 50%; 
-  max-width: 500px; 
   @media(max-width: 800px){ 
     width: 100%; 
     margin-top: 30px; 
@@ -78,14 +75,12 @@ grid-template-rows:repeat(6, auto);
 >div:nth-child(1){ 
   grid-column: 1/9;
   grid-row: 1/4;
-  padding: 20px !important; 
+
 }
 >div:nth-child(2){ 
   grid-column: 5/13;
   grid-row: 3/7;
 z-index: 4; 
-padding: 20px !important; 
-
 }
 @media(max-width: 800px){ 
   width: 100%; 
@@ -104,11 +99,11 @@ const ImageStyle = styled(Image)``
 
 const ContentBox = styled.div`
 width: 40%;
-@media(max-width: 800px){ 
-  width: 100%; 
-}
 P{ 
   margin-bottom: 10px; 
+}
+@media(max-width: 800px){ 
+  width: 100%; 
 }
 `
 const Content = styled.p`

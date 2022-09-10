@@ -1,15 +1,26 @@
-import Head from 'next/head'
+import React from 'react'
 import HomePage from '../Components/Pages/HomePage/HomePage'
+import SEO from '../Components/SEO'
 import getCPT from '../util/get-cpt'
 import getPage from '../util/get-page'
 
 export default function Home({homePageData, featuresData, testimonialsData}) {
+  const seo = {
+    title: homePageData[0].yoast_head_json.title,
+    description: homePageData[0].yoast_head_json.description,
+    imageSrc: homePageData[0].yoast_head_json.og_image.length > 0 &&  homePageData[0].yoast_head_json.og_image[0].url
+  }
+  console.log(homePageData)
   return (
-    <div >
+    
+<React.Fragment> 
+  <SEO
+    seo={seo}
+  /> 
       <HomePage homePageData={homePageData} featuresData={featuresData} testimonialsData={testimonialsData} />
 
     
-    </div>
+      </React.Fragment>     
   )
 }
 
