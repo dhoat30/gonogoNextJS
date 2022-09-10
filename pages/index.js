@@ -18,8 +18,6 @@ export default function Home({homePageData, featuresData, testimonialsData}) {
     seo={seo}
   /> 
       <HomePage homePageData={homePageData} featuresData={featuresData} testimonialsData={testimonialsData} />
-
-    
       </React.Fragment>     
   )
 }

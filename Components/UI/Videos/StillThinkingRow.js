@@ -35,6 +35,7 @@ padding: 70px 0;
 display: flex; 
 justify-content: center; 
 text-align:center; 
+background: var(--lightBlue); 
 `
 const FlexBox = styled.div`
 max-width: 640px;

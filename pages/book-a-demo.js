@@ -1,14 +1,16 @@
 import React from 'react'
-import getSingleCpt from '../util/get-single-cpt'
 import getCPT from '../util/get-cpt'
 import SEO from '../Components/SEO'
 import HazardsRisks from '../Components/Pages/HomePage/HazardsRisks'
+import getPage from '../util/get-page'
+import BookADemo from '../Components/Pages/BookADemo'
 
-function hazardRisks({moduleData, featuresData}) {
+function bookADemo({pageData, featuresData, testimonialsData}) {
+  console.log(pageData)
   const seo = {
-    title: moduleData[0].yoast_head_json.title && moduleData[0].yoast_head_json.title,
-    description: moduleData[0].yoast_head_json.description && moduleData[0].yoast_head_json.description,
-    imageSrc: moduleData[0].yoast_head_json.og_image &&  moduleData[0].yoast_head_json.og_image[0].url
+    title: pageData[0].yoast_head_json.title && pageData[0].yoast_head_json.title,
+    description: pageData[0].yoast_head_json.description && pageData[0].yoast_head_json.description,
+    imageSrc: pageData[0].yoast_head_json.og_image &&  pageData[0].yoast_head_json.og_image[0].url
   }
   return (
     <React.Fragment> 
@@ -18,24 +20,25 @@ function hazardRisks({moduleData, featuresData}) {
     seo={seo}
   /> 
     }
+    <BookADemo
+    pageData={pageData[0]}
+    testimonialsData={testimonialsData}
+    /> 
 
-  <HazardsRisks 
-  featuresData={featuresData}
-  moduleData={moduleData[0]} /> 
     </React.Fragment>     
 
   )
 }
 
-export default hazardRisks
+export default bookADemo
 export async function getStaticProps(context) {
   // get home page data using category from hero images 
-  const moduleData = await getSingleCpt('modules', 'hazards-risks')
+  const pageData = await getPage("book-a-demo")
   const featuresData = await getCPT("features")
   const testimonialsData = await getCPT("testimonials")
   return {
     props: {
-     moduleData: moduleData, 
+     pageData: pageData, 
      featuresData: featuresData, 
      testimonialsData: testimonialsData
     },

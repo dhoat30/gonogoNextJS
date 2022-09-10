@@ -45,11 +45,13 @@ function TwoColumnLayoutRight({title, content, images, dangerouslySetInnerHTML, 
 
 export default TwoColumnLayoutRight
 const Section = styled.section`
+background-color: ${props => props.bgColor === "Light Blue" && "var(--lightBlue)"}; 
+
 >div{ 
   padding: 70px 10px; 
   display: flex; 
-background-color: ${props => props.bgColor === "Light Blue" && "var(--lightBlue)"}; 
-justify-content: space-between; 
+  justify-content: space-around; 
+
 align-items: center; 
 @media(max-width: 800px){ 
   flex-wrap: wrap-reverse; 
@@ -59,6 +61,7 @@ align-items: center;
 `
 const ImagesContainer = styled.div`
   width: 50%; 
+  max-width: 500px; 
   @media(max-width: 800px){ 
     width: 100%; 
     margin-top: 30px; 

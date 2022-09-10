@@ -4,11 +4,11 @@ import Image from "next/image";
 function RowLayout({ title, content, images }) {
   return (
     <Section>
-      <FlexBox className="max-width">
-        <div>
+      <FlexBox>
+        <ContentBox>
           <h3>{title}</h3>
           <div dangerouslySetInnerHTML={{ __html: content }} />
-        </div>
+        </ContentBox>
         <ImageContainer className="box-shadow">
           {images[0] && (
             <Image
@@ -27,16 +27,13 @@ function RowLayout({ title, content, images }) {
 // width={images[0].image.width} height={images[0].image.height}
 export default RowLayout;
 const Section = styled.section`
-  background-color: var(--lightBlue);
-  padding: 70px 0 300px 0;
-  margin-bottom: 350px;
+
+
   text-align: center;
   position: relative;
-  @media (max-width: 600px) {
-    padding-bottom: calc(400px - 5%);
-  }
+
   @media (max-width: 500px) {
-    margin-bottom: 0;
+
     padding: 40px 0 40px 0;
   }
 `;
@@ -45,18 +42,27 @@ const FlexBox = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  max-width: 1000px;
+  margin: 0 auto; 
+  border: solid red; 
+  display: grid; 
+  grid-template-columns:repeat(12, 1fr); 
+  grid-template-rows:repeat(6, auto); 
 `;
 
+
+const ContentBox = styled.div`
+grid-column: 1/13;
+grid-row: 1/6;
+background-color: var(--lightBlue);
+padding: 70px 0 150px 0;
+
+`
 const ImageContainer = styled.div`
   display: block;
   max-width: 700px;
   width: 100%;
   margin: 20px auto;
-  position: absolute;
-  bottom: -230px;
-  @media (max-width: 500px) {
-    position: static;
-    bottom: 0;
-  }
+  grid-column: 1/13;
+  grid-row: 5/8;
+  padding: 20px !important; 
 `;

@@ -50,7 +50,7 @@ a {
   line-height: normal;
 }
 .max-width{ 
-  max-width: 1520px; 
+  max-width: 1200px; 
   margin: 0 auto;
   padding: 0 10px;
 }
@@ -64,8 +64,15 @@ a {
   text-decoration: none;
   font-size: 0.8rem; 
   letter-spacing: 0.05rem;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
 }
+.primary-btn:hover {
+  background-color: #fd7a00;
 
+  border: 1px solid #fd7a00;
+
+}
 .secondary-btn {
   background-color: #FFFFFF;
   padding: 11px 22.5px;
@@ -79,6 +86,13 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.5s ease-in-out;
+
+}
+.secondary-btn:hover {
+  background-color: #fd7a00;
+
+  border: 1px solid #fd7a00;
 }
 .box-shadow{ 
   box-shadow: var(--boxShadow);
@@ -118,7 +132,7 @@ h1 {
 h2 {
   font-weight: 400;
   font-size: 1.7rem;
-  line-height: 42px;
+  line-height: 2.2rem;
   letter-spacing: 0.02em;
   color: var(--blue);
 }
@@ -163,8 +177,8 @@ h5 {
 
 h6 {
   font-weight: 400;
-  font-size: 1.25rem;
-  line-height: 36px;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
   letter-spacing: -0.015em;
   color: var(--blue);
 }
@@ -1008,11 +1022,13 @@ p {
   justify-content: flex-start;
   padding-top: 10%;
   gap: 6%;
-  text-align: center;
+ 
 }
 .book-demo-hero .row-container .book-demo-hero-text {
-  width: 54%;
+  width: 100%;
   color: #FFFFFF;
+  max-width: 800px;
+  text-align:center;
 }
 .book-demo-hero .row-container .book-demo-form {
   text-align: start;
@@ -1039,7 +1055,7 @@ p {
 }
 
 .contact-hero {
-  margin-bottom: 550px;
+  margin-bottom: 300px;
 }
 
 .blog-hero {
