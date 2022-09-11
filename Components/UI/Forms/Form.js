@@ -1,7 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from "styled-components";
 
 function Form() {
+    const [enteredFirstName, setEnteredFirstName] = useState('')
+    const [enteredFirstNameTouched, setEnteredFirstNameTouched] = useState(false)
+
+    const [enteredLastName, setEnteredLastName] = useState('')
+    const [enteredLastNameTouched, setEnteredLastNameTouched] = useState(false)
+
+    const [enteredEmail, setEnteredEmail] = useState('')
+    const [enteredEmailTouched, setEnteredEmailTouched] = useState(false) 
+    
+    const [enteredPhone, setEnteredPhone] = useState('')
+    const [enteredPhoneTouched, setEnteredPhoneTouched] = useState(false)
+
+
+    const [enteredMessage, setEnteredMessage] = useState('')
   return (
     <FormStyle action="" className="box-shadow">
     <TwoColumn>
