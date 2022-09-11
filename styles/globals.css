@@ -197,23 +197,8 @@ p {
 /* BEM Blocks */
 
 
-.site-header .top-nav {
-  margin-left: 20px;
-}
-.site-header .top-nav ul li {
-  list-style-type: none;
-  display: inline-block;
-}
-.site-header .top-nav ul li a {
-  display: block;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9375rem;
-  line-height: 18px;
-  letter-spacing: -0.015em;
-  color: #053152;
-  padding-left: 30px;
-}
+
+
 .site-header .top-nav-btn {
   flex: 0.07 0 auto;
 }

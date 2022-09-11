@@ -8,9 +8,8 @@ function Header() {
   return (
     <section className="light-blue-bk">
       <div className="max-width">
-        <HeaderStyle className="site-header">
+        <DesktopHeader className="site-header">
           <NavContainer>
-          
             <LogoContainer>
               <Link href="/" passHref>
                 <a>
@@ -20,7 +19,6 @@ function Header() {
                     layout="fill"
                   />
                 </a>
-              
               </Link>
             </LogoContainer>
             <Navbar/>
@@ -29,8 +27,36 @@ function Header() {
           <a href="/book-a-demo" className="primary-btn">
             book a demo
           </a>
-        </HeaderStyle>
+        </DesktopHeader>
+        <MobileHeader className="site-header">
+          <NavContainer>
+            <LogoContainer>
+              <Link href="/" passHref>
+                <a>
+                <ImageStyle
+                    src="http://test.webduel.co.nz/wp-content/uploads/2022/09/gonog-logo.png"
+                    alt="logo"
+                    layout="fill"
+                  />
+                </a>
+              </Link>
+              
+            </LogoContainer>
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line y1="0.5" x2="18" y2="0.5" stroke="#053152"/>
+              <path d="M0 6H18" stroke="#053152"/>
+              <path d="M0 11H18" stroke="#053152"/>
+            </svg>
+            <Navbar/>
+          </NavContainer>
+
+          <a href="/book-a-demo" className="primary-btn">
+            book a demo
+          </a>
+        </MobileHeader>
       </div>
+     
+
     </section>
   );
 }
@@ -48,9 +74,18 @@ const LogoContainer = styled.div`
 `;
 const ImageStyle = styled(Image)``;
 
-const HeaderStyle = styled.header`
+const DesktopHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
+  position: relative; 
+  @media(max-width: 1000px){ 
+    display: none; 
+  }
 `;
+const MobileHeader = styled.div`
+@media(min-width: 1000px){ 
+  display: block; 
+}
+`
