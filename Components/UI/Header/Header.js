@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
 import Navbar from "./Navbar/Navbar";
 import HamburgerMenu from "../Icons/HamburgerMenu";
-
+import ContactInfoContext from "../../../Store/contact-info-context";
 function Header() {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
-  console.log(toggleMobileMenu);
+  const contactInfoCtx = useContext(ContactInfoContext)
+  console.log(contactInfoCtx)
   return (
     <section className="light-blue-bk">
       <div className="max-width">
