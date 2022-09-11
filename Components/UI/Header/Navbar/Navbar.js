@@ -75,20 +75,39 @@ ul{
     display: flex; 
     width: 100%;
     justify-content: space-between; 
-    border: solid red; 
 }
 li{ 
 }
-    .has-submenu{ 
+   
 
+@media(max-width: 1000px){ 
+    position: absolute; 
+    top: 50px;
+    left: 0; 
+    z-index: 20; 
+    background: var(--lightBlue); 
+    width: 100%; 
+    margin-left: 10px; 
+    >ul{ 
+        display: flex; 
+        width: 100%;
+        justify-content: space-between; 
+        flex-direction: column; 
+        >li{ 
+            >a{ 
+                padding: 20px 10px; 
+                display: block; 
+                border-bottom: 1px solid var(--blue); 
+            }
+        }
     }
+}
 `
 const Arrow = styled.span`
 margin: 0 0 0 5px; 
 `
 const SubMenu = styled.ul`
 position: absolute; 
-border: solid red; 
 width: 250px; 
 bottom: -110px;
 background: var(--lightBlue); 

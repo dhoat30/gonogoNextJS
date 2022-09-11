@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Link from 'next/link'
 import Navbar from "./Navbar/Navbar";
+import HamburgerMenu from "../Icons/HamburgerMenu";
 
 function Header() {
+  const [toggleMobileMenu, setToggleMobileMenu] = useState(true)
+  console.log(toggleMobileMenu)
   return (
     <section className="light-blue-bk">
       <div className="max-width">
@@ -29,7 +32,9 @@ function Header() {
           </a>
         </DesktopHeader>
         <MobileHeader className="site-header">
-          <NavContainer>
+
+            <HamburgerMenu clickHandler={()=> setToggleMobileMenu(toggleMobileMenu ? false : true)}/>
+        
             <LogoContainer>
               <Link href="/" passHref>
                 <a>
@@ -40,15 +45,12 @@ function Header() {
                   />
                 </a>
               </Link>
-              
             </LogoContainer>
-            <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line y1="0.5" x2="18" y2="0.5" stroke="#053152"/>
-              <path d="M0 6H18" stroke="#053152"/>
-              <path d="M0 11H18" stroke="#053152"/>
-            </svg>
-            <Navbar/>
-          </NavContainer>
+            
+            
+       
+            {toggleMobileMenu && <Navbar/>}
+         
 
           <a href="/book-a-demo" className="primary-btn">
             book a demo
@@ -80,12 +82,17 @@ const DesktopHeader = styled.header`
   align-items: center;
   padding: 10px 0;
   position: relative; 
+  
   @media(max-width: 1000px){ 
     display: none; 
   }
 `;
 const MobileHeader = styled.div`
-@media(min-width: 1000px){ 
-  display: block; 
+display: none;
+height: 50px; 
+justify-content: space-between; 
+align-items: center; 
+@media(max-width: 1000px){ 
+  display: flex; 
 }
 `
