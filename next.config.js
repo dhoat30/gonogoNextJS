@@ -25,7 +25,7 @@ module.exports = (phase, { defaultConfig }) => {
     },
     env: {
       url: "https://test.webduel.co.nz",
-      SITE_URL: "https://test.webduel.co.nz"
+      SITE_URL: "https://vercel.com/webduel/gonogo"
     },
     reactStrictMode: true,
     images: {

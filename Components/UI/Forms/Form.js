@@ -20,32 +20,32 @@ function Form() {
     <FormStyle action="" className="box-shadow">
     <TwoColumn>
       <div>
-        <label for="given-name">First name* </label>
+        <label htmlFor="given-name">First name* </label>
         <input type="text" id="given-name" name="given-name" required />
       </div>
 
       <div>
-        <label for="">Last name* </label>
+        <label htmlFor="">Last name* </label>
         <input type="text" name="family-name" required />
       </div>
     </TwoColumn>
     <TwoColumn>
       <div>
-        <label for="email">Email* </label>
+        <label htmlFor="email">Email* </label>
         <input type="email" id="email" name="email" required />
       </div>
       <div>
-        <label for="tel">Phone Number* </label>
+        <label htmlFor="tel">Phone Number* </label>
         <input type="tel" name="tel" id="tel" required />
       </div>
     </TwoColumn>
     <TwoColumn>
       <div>
-        <label for="organization">Company Name </label>
+        <label htmlFor="organization">Company Name </label>
         <input type="text" name="organization" id="organization" />
       </div>
       <div>
-        <label for="">Best contact time? </label>
+        <label htmlFor="">Best contact time? </label>
         <input
           type="datetime-local"
           id="meeting-time"
@@ -55,7 +55,7 @@ function Form() {
     </TwoColumn>
 
     <div>
-      <label for="message">Message </label>
+      <label htmlFor="message">Message </label>
       <textarea name="message"></textarea>
     </div>
 
