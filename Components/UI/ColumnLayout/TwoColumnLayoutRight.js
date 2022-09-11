@@ -51,7 +51,7 @@ background-color: ${props => props.bgColor === "Light Blue" && "var(--lightBlue)
   padding: 70px 10px; 
   display: flex; 
   justify-content: space-around; 
-
+  min-height: 90vh;
 align-items: center; 
 @media(max-width: 800px){ 
   flex-wrap: wrap-reverse; 

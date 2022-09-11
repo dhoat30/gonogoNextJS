@@ -44,6 +44,7 @@ function BgImage({desktopImage, mobileImage}) {
     return (
       <Box>
         <ImageStyle
+        priority
           src={desktopImage}
           width={width}
           height={height}
@@ -55,6 +56,7 @@ function BgImage({desktopImage, mobileImage}) {
     return(
         <Box>
         <ImageStyle
+        priority
           src={mobileImage}
           width={width}
           height={height}

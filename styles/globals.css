@@ -73,6 +73,14 @@ a {
   border: 1px solid #fd7a00;
 
 }
+@media(max-width: 500px){ 
+  .primary-btn {
+    padding: 10px 15px;
+
+    font-size: 0.6rem; 
+
+  }
+}
 .secondary-btn {
   background-color: #FFFFFF;
   padding: 11px 22.5px;
@@ -88,6 +96,13 @@ a {
   justify-content: center;
   transition: 0.5s ease-in-out;
 
+}
+@media(max-width: 500px){ 
+  .secondary-btn {
+    font-size: 0.6rem; 
+    padding: 10px 15px;
+
+  }
 }
 .secondary-btn:hover {
   background-color: #fd7a00;

@@ -72,11 +72,7 @@ function HomePage({ homePageData, featuresData, testimonialsData }) {
 
 export default HomePage;
 const SecondSection = styled.section`
-  margin-top: -11px;
-  @media (max-width: 1000px) {
-    margin-top: -21px;
 
-  }
   background-color: ${(props) =>
     props.imageAlignment === "Right" && "var(--lightBlue);"};
   > div {
