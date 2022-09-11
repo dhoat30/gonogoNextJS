@@ -10,12 +10,18 @@ function Header() {
       <div className="max-width">
         <HeaderStyle className="site-header">
           <NavContainer>
+          
             <LogoContainer>
-              <ImageStyle
-                src="http://test.webduel.co.nz/wp-content/uploads/2022/09/gonog-logo.png"
-                alt="logo"
-                layout="fill"
-              />
+              <Link href="/" passHref>
+                <a>
+                <ImageStyle
+                    src="http://test.webduel.co.nz/wp-content/uploads/2022/09/gonog-logo.png"
+                    alt="logo"
+                    layout="fill"
+                  />
+                </a>
+              
+              </Link>
             </LogoContainer>
             <Navbar/>
           </NavContainer>
