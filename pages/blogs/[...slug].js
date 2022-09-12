@@ -3,37 +3,36 @@ import getSingleCpt from '../../util/get-single-cpt'
 import getCPT from '../../util/get-cpt'
 import Module from '../../Components/Pages/HomePage/Modules/Module'
 import getContact from '../../util/get-contact'
-function modules({moduleData, featuresData, stillThinkingData}) {
+import BlogPage from '../../Components/Pages/Blogs/BlogPage'
+function blogs({blogData, featuresData, stillThinkingData}) {
   return (
-
-    <Module
-    featuresData={featuresData}
-    moduleData={moduleData[0]}
-    stillThinkingData={stillThinkingData[0]}
-    /> 
-  
+   <BlogPage
+   blogData={blogData[0]}
+   featuresData={featuresData}
+   stillThinkingData={stillThinkingData}
+   />
   )
 }
 
-export default modules
+export default blogs
 export async function getServerSideProps(context) {
   const {params} = context
   const slug = params.slug
   // get home page data using category from hero images 
-  const moduleData = await getSingleCpt('modules', slug)
+  const blogData = await getSingleCpt('posts', slug)
   const featuresData = await getCPT("features")
   const contactData = await getContact();
   const stillThinkingData = await getSingleCpt('videos', "still-thinking")
   const allModulesData = await getCPT('modules')
-
+const allBlogData = await getCPT("posts")
   return {
     props: {
-     moduleData: moduleData, 
+     blogData: blogData, 
      featuresData: featuresData, 
      contactData: contactData,
      stillThinkingData: stillThinkingData, 
-     allModulesData: allModulesData
-
+     allModulesData: allModulesData,
+      allBlogData: allBlogData
     }
   }
 }

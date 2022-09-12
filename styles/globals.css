@@ -1076,46 +1076,8 @@ p {
   margin-bottom: 300px;
 }
 
-.blog-hero {
-  display: flex;
-  height: 760px;
-}
-.blog-hero .blog-text-section {
-  flex: 1;
-  background-color: #F4F7FE;
-}
-.blog-hero .blog-text-section .blog-hero-text {
-  margin: 0 auto;
-  width: 80%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-  padding: 0 30px;
-  color: #053152;
-}
-.blog-hero .blog-text-section .blog-hero-text h1 {
-  font-weight: 600;
-  font-size: 3.5rem !important;
-  line-height: 80px;
-  letter-spacing: -0.015em;
-}
-.blog-hero .blog-text-section .blog-hero-text .author {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 22px;
-  letter-spacing: -0.015em;
-}
-.blog-hero .blog-hero-img {
-  flex: 1;
-}
-.blog-hero .blog-hero-img img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
+/* blog */
+
 
 main {
   width: 100%;
@@ -1124,46 +1086,15 @@ main .blog-content-wrapper {
   width: 70%;
   margin: 0 auto;
 }
-main .blog-content-wrapper .blog-first-section {
-  margin-top: 50px;
-}
-main .blog-content-wrapper .blog-first-section h2 {
-  font-weight: 700;
-  font-size: 2.5rem;
-  line-height: 58px;
-  letter-spacing: 0.02em;
-  color: #263238;
-}
-main .blog-content-wrapper .blog-first-section ul li {
-  list-style-type: none;
-  margin-top: 15px;
-}
-main .blog-content-wrapper .blog-first-section ul li a {
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 40px;
-  letter-spacing: -0.015em;
-  color: #000000;
-}
+
+
 main .blog-content-wrapper .blog-second-section, main .blog-content-wrapper .blog-third-section, main .blog-content-wrapper .blog-fifth-section {
   background-color: #F4F7FE;
   padding: 40px;
   margin-top: 50px;
   color: #053152;
 }
-main .blog-content-wrapper .blog-second-section .heading, main .blog-content-wrapper .blog-third-section .heading, main .blog-content-wrapper .blog-fifth-section .heading {
-  display: flex;
-  background-color: #FFFFFF;
-  padding: 20px 30px;
-  gap: 25px;
-}
-main .blog-content-wrapper .blog-second-section .heading h2, main .blog-content-wrapper .blog-third-section .heading h2, main .blog-content-wrapper .blog-fifth-section .heading h2 {
-  font-weight: 700;
-  font-size: 1.875rem;
-  line-height: 58px;
-  letter-spacing: 0.02em;
-}
+
 main .blog-content-wrapper .blog-second-section ul li, main .blog-content-wrapper .blog-third-section ul li, main .blog-content-wrapper .blog-fifth-section ul li {
   list-style-type: none;
   margin-top: 15px;
@@ -1214,3 +1145,88 @@ main .blog-content-wrapper .book-demo-btn {
 }
 
 /*# sourceMappingURL=style-index.css.map*/
+
+
+/* loading animation */
+.ring
+{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:150px;
+  height:150px;
+  background:transparent;
+  border:3px solid #3c3c3c;
+  border-radius:50%;
+  text-align:center;
+  line-height:150px;
+  font-family:sans-serif;
+  font-size:20px;
+  color: var(--yellow);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  text-shadow:0 0 10px var(--yellow);
+  box-shadow:0 0 20px rgba(0,0,0,.5);
+  z-index: 30;
+}
+.ring:before
+{
+  content:'';
+  position:absolute;
+  top:-3px;
+  left:-3px;
+  width:100%;
+  height:100%;
+  border:3px solid transparent;
+  border-top:3px solid var(--yellow);
+  border-right:3px solid var(--yellow);
+  border-radius:50%;
+  animation:animateC 2s linear infinite;
+}
+.ring span
+{
+  display:block;
+  position:absolute;
+  top:calc(50% - 2px);
+  left:50%;
+  width:50%;
+  height:4px;
+  background:transparent;
+  transform-origin:left;
+  animation:animate 2s linear infinite;
+}
+.ring span:before
+{
+  content:'';
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:var(--yellow);
+  top:-6px;
+  right:-8px;
+  box-shadow:0 0 20px var(--yellow);
+}
+@keyframes animateC
+{
+  0%
+  {
+    transform:rotate(0deg);
+  }
+  100%
+  {
+    transform:rotate(360deg);
+  }
+}
+@keyframes animate
+{
+  0%
+  {
+    transform:rotate(45deg);
+  }
+  100%
+  {
+    transform:rotate(405deg);
+  }
+}

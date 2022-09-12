@@ -35,11 +35,15 @@ export async function getStaticProps(context) {
   const pageData = await getPage("book-a-demo")
   const featuresData = await getCPT("features")
   const testimonialsData = await getCPT("testimonials")
+  const allModulesData = await getCPT('modules')
+
   return {
     props: {
      pageData: pageData, 
      featuresData: featuresData, 
-     testimonialsData: testimonialsData
+     testimonialsData: testimonialsData,
+     allModulesData: allModulesData
+
     },
     revalidate: 8600
   }

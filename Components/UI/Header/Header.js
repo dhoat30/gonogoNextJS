@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import Navbar from "./Navbar/Navbar";
 import HamburgerMenu from "../Icons/HamburgerMenu";
-function Header({logo, allModulesData}) {
+function Header({ logo, allModulesData, allBlogData }) {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
 
   return (
@@ -15,19 +15,19 @@ function Header({logo, allModulesData}) {
             <LogoContainer>
               <Link href="/" passHref>
                 <a>
-                {logo &&
-                  <ImageStyle
-                    src={logo.url}
-                    alt="GonoGo logo"
-                    layout="fixed"
-                    width="100px"
-                    height="41px"
-                  />
-                }
+                  {logo && (
+                    <ImageStyle
+                      src={logo.url}
+                      alt="GonoGo logo"
+                      layout="fixed"
+                      width="100px"
+                      height="41px"
+                    />
+                  )}
                 </a>
               </Link>
             </LogoContainer>
-            <Navbar allModulesData={allModulesData}/>
+            <Navbar allModulesData={allModulesData} allBlogData={allBlogData} />
           </NavContainer>
           <Link href="/book-a-demo" passHref>
             <a className="primary-btn">book a demo</a>
@@ -43,20 +43,22 @@ function Header({logo, allModulesData}) {
           <MobileLogoContainer>
             <Link href="/" passHref>
               <a>
-                {logo &&
+                {logo && (
                   <ImageStyle
-                  src={logo.url}
-                  alt="GonoGo logo"
-                  layout="fixed"
-                  width="80px"
-                  height="33px"
-                />
-                 }
+                    src={logo.url}
+                    alt="GonoGo logo"
+                    layout="fixed"
+                    width="80px"
+                    height="33px"
+                  />
+                )}
               </a>
             </Link>
           </MobileLogoContainer>
 
-          {toggleMobileMenu && <Navbar allModulesData={allModulesData}/>}
+          {toggleMobileMenu && (
+            <Navbar allModulesData={allModulesData} allBlogData={allBlogData} />
+          )}
 
           <Link href="/book-a-demo" passHref>
             <a className="primary-btn">book a demo</a>

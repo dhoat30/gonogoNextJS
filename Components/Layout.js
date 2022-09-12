@@ -1,32 +1,69 @@
-import React, {useContext, useEffect} from 'react'
-import Header from './UI/Header/Header'
-import VideoContext from '../Store/video-context'
-import Overlay from './UI/Overlay/Overlay'
-import YoutubeVideo from './UI/Videos/YoutubeVideo'
-import Footer from './UI/Footer/Footer'
+import React, { useContext, useEffect, useState } from "react";
+import Header from "./UI/Header/Header";
+import { useRouter } from "next/router";
+
+import VideoContext from "../Store/video-context";
+import Overlay from "./UI/Overlay/Overlay";
+import YoutubeVideo from "./UI/Videos/YoutubeVideo";
+import Footer from "./UI/Footer/Footer";
+import LoadingAnimation from "./UI/LoadingAnimation/LoadingAnimation";
 function Layout(props) {
   // console.log(props.children.props.allModulesData)
-  const videoCtx = useContext(VideoContext)
-  useEffect(()=> { 
+  //get video contex for youtube modal
+  const videoCtx = useContext(VideoContext);
 
-  }, [videoCtx.videoModal])
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const handleStart = (url) => url !== router.asPath && setLoading(true);
+    const handleComplete = (url) => url === router.asPath && setLoading(false);
+
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
+
+    return () => {
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
+    };
+  });
+  console.log("loading");
   return (
     <div>
-      <Header logo={props.children.props.contactData && props.children.props.contactData.logo}
-      allModulesData={props.children.props.allModulesData}/>
-        <div>{props.children}</div>
-
-        {videoCtx.videoModal && 
-        <>
-        <YoutubeVideo videoID={props.children.props.stillThinkingData[0].acf.video_id}/> 
-        <Overlay onClick={()=> {         videoCtx.getVideoModal(false)}}/> 
-        </>
+      <Header
+        logo={
+          props.children.props.contactData &&
+          props.children.props.contactData.logo
         }
-  <Footer  allModulesData={props.children.props.allModulesData}/> 
+        allModulesData={props.children.props.allModulesData}
+        allBlogData={props.children.props.allBlogData}
+      />
+      <div>{props.children}</div>
 
-</div>
-  )
+      {videoCtx.videoModal && (
+        <>
+          <YoutubeVideo
+            videoID={props.children.props.stillThinkingData[0].acf.video_id}
+          />
+          <Overlay
+            onClick={() => {
+              videoCtx.getVideoModal(false);
+            }}
+          />
+        </>
+      )}
+      {loading && (
+        <>
+          <Overlay />
+          <LoadingAnimation />
+        </>
+      )}
+
+      <Footer allModulesData={props.children.props.allModulesData} />
+    </div>
+  );
 }
 
-export default Layout
-
+export default Layout;
