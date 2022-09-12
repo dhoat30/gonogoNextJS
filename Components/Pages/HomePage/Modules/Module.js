@@ -6,10 +6,9 @@ import TwoColumnLayoutRight from '../../../UI/ColumnLayout/TwoColumnLayoutRight'
 import StillThinkingRow from '../../../UI/Videos/StillThinkingRow'
 import Features from '../../../UI/Features/Features'
 import JustText from '../../../UI/RowLayout/JustText'
-function Module({moduleData, featuresData}) {
-    console.log(moduleData.acf.sections)
+function Module({moduleData, featuresData, stillThinkingData}) {
+  console.log(stillThinkingData)
     const sections = moduleData.acf.sections.map((data, index)=> { 
-      console.log(data.layout.images)
        if(!data.layout.images ){ 
         return <JustText 
         key={index}
@@ -65,7 +64,7 @@ function Module({moduleData, featuresData}) {
         {sections}
         <Features featuresData={featuresData}/> 
         {/* still thinking section */}
-        <StillThinkingRow/> 
+        <StillThinkingRow stillThinkingData={stillThinkingData}/> 
     </main>
   )
 }

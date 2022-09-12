@@ -38,15 +38,14 @@ const Section = styled.section`
   }
 `;
 const FlexBox = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+
+
+ 
   margin: 0 auto; 
   border: solid red; 
   display: grid; 
   grid-template-columns:repeat(12, 1fr); 
-  grid-template-rows:repeat(6, auto); 
+  grid-template-rows:repeat(12, 100px); 
 `;
 
 
@@ -63,6 +62,6 @@ const ImageContainer = styled.div`
   width: 100%;
   margin: 20px auto;
   grid-column: 1/13;
-  grid-row: 5/8;
+  grid-row: 5/12;
   padding: 20px !important; 
 `;

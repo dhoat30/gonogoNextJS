@@ -2,16 +2,13 @@ import React from 'react'
 import YoutubeVideo from './YoutubeVideo'
 import styled from 'styled-components'
 import PrimaryAnchor from '../Anchor/PrimaryAnchor'
-function Still() {
+import VideoTrigger from './VideoTrigger'
+function Still({stillThinkingData}) {
   return (
     <Section className="still-thinking">
       <FlexBox className="max-width">
         <VideoContainer className="still-thinking-img">
-             <YoutubeVideo/>
-            {/* <svg width="133" height="133" viewBox="0 0 133 133" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <circle cx="66.0371" cy="66.6914" r="66" fill="#FF9734"/>
-               <path d="M90.5371 63.5933C92.5371 64.748 92.5371 67.6348 90.5371 68.7895L55.2871 89.1411C53.2871 90.2958 50.7871 88.8524 50.7871 86.543V45.8398C50.7871 43.5304 53.2871 42.087 55.2871 43.2417L90.5371 63.5933Z" fill="white"/>
-            </svg> */}
+          <VideoTrigger thumbnail={stillThinkingData.acf.video_thumbnail}/> 
         </VideoContainer>
         <ContentContainer className="still-thinking-text">
             <h3>Still Thinking?</h3>

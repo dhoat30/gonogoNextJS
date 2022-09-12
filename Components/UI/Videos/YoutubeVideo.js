@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import YouTube from 'react-youtube';
 import styled from 'styled-components'
-import Image from 'next/image'
 function YoutubeVideo({thumbnail, videoID}) {
+
     const opts = {
-        height: '390',
+        height: '350',
         width: '100%',
         playerVars: {
           // https://developers.google.com/youtube/player_parameters
@@ -15,32 +15,26 @@ function YoutubeVideo({thumbnail, videoID}) {
         // access to player in all event handlers via event.target
         event.target.pauseVideo();
       }
+
+  
   return (
-    <>
-    <VideoThumbnailContainer>
-        <Image
-          src={thumbnail.url}
-          layout="responsive"
-          width="100%"
-          height="70%"
-          objectFit="cover"
-        /> 
-  </VideoThumbnailContainer>
+  
+   
     <YoutubeStyle videoId="Bf5osq4gvlY" opts={opts}  onReady={onPlayerReady}/>
-</>
+
     
   
   );
   
 }
 export default YoutubeVideo
-const VideoThumbnailContainer = styled.div`
-  display: block; 
-  width: 100%; 
-`
+
 const YoutubeStyle = styled(YouTube)`
-    display: flex; 
-    @media(max-width: 1150px){ 
-        justify-content: center;     }
-    
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  z-index: 30;
+    width: 95%; 
+    max-width: 700px; 
+    transform: translate(-50%, -50%);
 `

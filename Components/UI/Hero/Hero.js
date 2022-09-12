@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 
 import PrimaryAnchor from "../Anchor/PrimaryAnchor";
 import SecondaryAnchor from "../Anchor/SecondaryAnchor";
 import styled from "styled-components";
 import BgImage from "../Images/BgImage";
+import VideoContext from '../../../Store/video-context';
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
   return {
@@ -24,7 +25,8 @@ function Hero({
   
   const [width, setWidth] = useState();
   const [height, setheight] = useState();
-    
+  
+  const videoCtx = useContext(VideoContext)
   useEffect(() => {
     function handleResize() {
       const { width, height } = getWindowDimensions();
@@ -53,6 +55,7 @@ function Hero({
               text={primaryButtonData.text}
             />
             <SecondaryAnchor
+            onClick={()=>  videoCtx.getVideoModal(true)}
               icon="videoIcon"
               link={secondaryButtonData.link}
               text={secondaryButtonData.text}
