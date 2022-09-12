@@ -3,6 +3,7 @@ import HomePage from '../Components/Pages/HomePage/HomePage'
 import SEO from '../Components/SEO'
 import getContact from '../util/get-contact'
 import getCPT from '../util/get-cpt'
+import getMenu from '../util/get-menu'
 import getPage from '../util/get-page'
 import getSingleCpt from '../util/get-single-cpt'
 export default function Home({homePageData, featuresData, testimonialsData, contactData, stillThinkingData}) {
@@ -30,7 +31,7 @@ export async function getStaticProps(context) {
   const featuresData = await getCPT("features")
   const testimonialsData = await getCPT("testimonials")
   const stillThinkingData = await getSingleCpt('videos', "still-thinking")
-
+  const allModulesData = await getCPT('modules')
   const contactData = await getContact();
   return {
     props: {
@@ -38,7 +39,8 @@ export async function getStaticProps(context) {
      featuresData: featuresData, 
      testimonialsData: testimonialsData, 
      contactData: contactData, 
-     stillThinkingData: stillThinkingData
+     stillThinkingData: stillThinkingData,
+     allModulesData: allModulesData
     },
     revalidate: 8600
   }

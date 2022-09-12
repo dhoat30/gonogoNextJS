@@ -220,8 +220,8 @@ h6 {
 
 p {
   font-weight: 400;
-  font-size: 0.8rem;
-  line-height: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.7rem;
   letter-spacing: -0.015em;
   color: var(--blue);
   margin-top: 5px; 

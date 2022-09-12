@@ -1,8 +1,20 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import styled from "styled-components";
-function Navbar() {
+function Navbar({allModulesData}) {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const modulesSubmenu = allModulesData.map(data=> { 
+    console.log(data)
+    return ( 
+      <li 
+      key={data.id}
+      onClick={() => setToggleMenu(false)}>
+      <Link href="/modules/issues-ideas-incidents" passHref>
+        <a dangerouslySetInnerHTML={{ __html: data.title.rendered }}/>
+      </Link>
+    </li>
+    )
+  })
   const clickHandler = (e) => {
     console.log(toggleMenu);
     e.preventDefault();
@@ -38,7 +50,10 @@ function Navbar() {
             </a>
           </Link>
           <SubMenu toggleMenu={toggleMenu}>
-            <li onClick={() => setToggleMenu(false)}>
+            {
+              modulesSubmenu
+            }
+            {/* <li onClick={() => setToggleMenu(false)}>
               <Link href="/modules/issues-ideas-incidents" passHref>
                 <a>Issues, Ideas & Incidents</a>
               </Link>
@@ -62,7 +77,7 @@ function Navbar() {
               <Link href="/modules/more-solutions" passHref>
                 <a>More Solutions</a>
               </Link>
-            </li>
+            </li> */}
           </SubMenu>
         </li>
 

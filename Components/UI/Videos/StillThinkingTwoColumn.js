@@ -4,7 +4,6 @@ import styled from "styled-components";
 import PrimaryAnchor from "../Anchor/PrimaryAnchor";
 import VideoTrigger from "./VideoTrigger";
 function StillThinkingTwoColumn({ stillThinkingData }) {
-  console.log(stillThinkingData);
   return (
     <Section className="still-thinking">
       <FlexBox className="max-width">

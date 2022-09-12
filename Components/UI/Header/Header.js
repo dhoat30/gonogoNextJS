@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import Navbar from "./Navbar/Navbar";
 import HamburgerMenu from "../Icons/HamburgerMenu";
-function Header({logo}) {
+function Header({logo, allModulesData}) {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
 
   return (
@@ -27,7 +27,7 @@ function Header({logo}) {
                 </a>
               </Link>
             </LogoContainer>
-            <Navbar />
+            <Navbar allModulesData={allModulesData}/>
           </NavContainer>
           <Link href="/book-a-demo" passHref>
             <a className="primary-btn">book a demo</a>
@@ -52,12 +52,11 @@ function Header({logo}) {
                   height="33px"
                 />
                  }
-            
               </a>
             </Link>
           </MobileLogoContainer>
 
-          {toggleMobileMenu && <Navbar />}
+          {toggleMobileMenu && <Navbar allModulesData={allModulesData}/>}
 
           <Link href="/book-a-demo" passHref>
             <a className="primary-btn">book a demo</a>
