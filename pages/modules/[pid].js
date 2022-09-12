@@ -11,21 +11,21 @@ function modules({moduleData, featuresData, stillThinkingData}) {
     moduleData={moduleData[0]}
     stillThinkingData={stillThinkingData[0]}
     /> 
-  
+
   )
 }
 
 export default modules
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const {params} = context
-  const slug = params.slug
+  const slug = params.pid
   // get home page data using category from hero images 
   const moduleData = await getSingleCpt('modules', slug)
   const featuresData = await getCPT("features")
   const contactData = await getContact();
   const stillThinkingData = await getSingleCpt('videos', "still-thinking")
   const allModulesData = await getCPT('modules')
-
+  console.log(moduleData)
   return {
     props: {
      moduleData: moduleData, 
@@ -34,6 +34,18 @@ export async function getServerSideProps(context) {
      stillThinkingData: stillThinkingData, 
      allModulesData: allModulesData
 
-    }
+    },
+    revalidate: 8600
   }
+}
+export async function getStaticPaths(){ 
+     const allModulesData = await getCPT('modules')
+     console.log(allModulesData)
+     const params = allModulesData.map((item)=>({ params: {pid: item.slug} }))
+
+     return{ 
+      paths: params, 
+      fallback: false 
+     };
+
 }
