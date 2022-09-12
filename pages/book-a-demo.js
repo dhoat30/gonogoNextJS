@@ -1,7 +1,6 @@
 import React from 'react'
 import getCPT from '../util/get-cpt'
 import SEO from '../Components/SEO'
-import HazardsRisks from '../Components/Pages/HomePage/HazardsRisks'
 import getPage from '../util/get-page'
 import BookADemo from '../Components/Pages/BookADemo'
 

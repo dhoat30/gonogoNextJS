@@ -7,7 +7,7 @@ import Features from "../../UI/Features/Features";
 import Testimonial from "../../UI/Testimonial/Testimonial";
 import StillThinkingTwoColumn from "../../UI/Videos/StillThinkingTwoColumn";
 
-function HomePage({ homePageData, featuresData, testimonialsData }) {
+function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingData }) {
 
   const cloudData = homePageData[0].acf.cloud_section
   // second and third section
@@ -20,9 +20,9 @@ function HomePage({ homePageData, featuresData, testimonialsData }) {
             <ImageStyle
               src={data.images[0].image.url}
               alt=""
-              layout="fixed"
-              width="400px"
-              height="400px"
+              layout="responsive"
+              width="100%"
+              height={(data.images[0].image.height / data.images[0].image.width) * 100}
             />
           </ImgContainer>
           <div className="first-section-text">
@@ -65,7 +65,7 @@ function HomePage({ homePageData, featuresData, testimonialsData }) {
       <Testimonial testimonialsData={testimonialsData}/> 
 
       {/* still thinking  */}
-      <StillThinkingTwoColumn/> 
+      <StillThinkingTwoColumn stillThinkingData={stillThinkingData} /> 
     </main>
   );
 }
@@ -94,8 +94,12 @@ const SecondSection = styled.section`
   padding-bottom: 70px;
 `;
 const ImgContainer = styled.div`
-  display: flex; 
-  justify-content: center; 
+ 
+  display: block;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+
 `;
 const Heading3 = styled.h3`
   color: var(--midGrey) !important;

@@ -4,6 +4,7 @@
 --lightYellow: #FFC579; 
 --blue: #053152;
 --midGrey: #979A9D; 
+--lightGrey: #dbdbdb; 
 --boxShadow: 0 8px 24px 7px rgba(149, 157, 165, 0.2);
 }
 html,
@@ -66,6 +67,7 @@ a {
   letter-spacing: 0.05rem;
   cursor: pointer;
   transition: 0.5s ease-in-out;
+  text-align: center;
 }
 .primary-btn:hover {
   background-color: #fd7a00;
@@ -76,6 +78,14 @@ a {
 @media(max-width: 500px){ 
   .primary-btn {
     padding: 10px 15px;
+
+    font-size: 0.6rem; 
+
+  }
+}
+@media(max-width: 350px){ 
+  .primary-btn {
+    padding: 7px 10px;
 
     font-size: 0.6rem; 
 
@@ -102,6 +112,14 @@ cursor: pointer;
     font-size: 0.6rem; 
     padding: 10px 15px;
     
+  }
+}
+@media(max-width: 350px){ 
+  .secondary-btn {
+    padding: 7px 10px;
+
+    font-size: 0.6rem; 
+
   }
 }
 .secondary-btn:hover {

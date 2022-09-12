@@ -39,27 +39,27 @@ function Navbar() {
           </Link>
           <SubMenu toggleMenu={toggleMenu}>
             <li onClick={() => setToggleMenu(false)}>
-              <Link href="/issues-ideas-incidents" passHref>
+              <Link href="/modules/issues-ideas-incidents" passHref>
                 <a>Issues, Ideas & Incidents</a>
               </Link>
             </li>
             <li onClick={() => setToggleMenu(false)}>
-              <Link href="/hazards-risks" passHref>
+              <Link href="/modules/hazards-risks" passHref>
                 <a>Hazards & Risks</a>
               </Link>
             </li>
             <li onClick={() => setToggleMenu(false)}>
-              <Link href="/project-planner" passHref>
+              <Link href="/modules/project-planner" passHref>
                 <a>Project Planner</a>
               </Link>
             </li>
             <li onClick={() => setToggleMenu(false)}>
-              <Link href="/meetings" passHref>
+              <Link href="/modules/meetings" passHref>
                 <a>Meetings</a>
               </Link>
             </li>
             <li onClick={() => setToggleMenu(false)}>
-              <Link href="/more-solutions" passHref>
+              <Link href="/modules/more-solutions" passHref>
                 <a>More Solutions</a>
               </Link>
             </li>

@@ -1,14 +1,12 @@
-import React,{useContext} from 'react'
+import React from 'react'
 import HomePage from '../Components/Pages/HomePage/HomePage'
 import SEO from '../Components/SEO'
 import getContact from '../util/get-contact'
 import getCPT from '../util/get-cpt'
 import getPage from '../util/get-page'
-import ContactInfoContext from '../Store/contact-info-context'
-export default function Home({homePageData, featuresData, testimonialsData, contactData}) {
-  console.log(contactData.url)
-  const contactInfoCtx = useContext(ContactInfoContext)
-  contactInfoCtx.getContactData("hello")
+import getSingleCpt from '../util/get-single-cpt'
+export default function Home({homePageData, featuresData, testimonialsData, contactData, stillThinkingData}) {
+
   const seo = {
     title: homePageData[0].yoast_head_json.title,
     description: homePageData[0].yoast_head_json.description,
@@ -20,7 +18,9 @@ export default function Home({homePageData, featuresData, testimonialsData, cont
   <SEO
     seo={seo}
   /> 
-      <HomePage homePageData={homePageData} featuresData={featuresData} testimonialsData={testimonialsData} />
+      <HomePage 
+      stillThinkingData={stillThinkingData[0]}
+      homePageData={homePageData} featuresData={featuresData} testimonialsData={testimonialsData} />
       </React.Fragment>     
   )
 }
@@ -30,13 +30,16 @@ export async function getStaticProps(context) {
   const homePageData = await getPage('home-page')
   const featuresData = await getCPT("features")
   const testimonialsData = await getCPT("testimonials")
+  const stillThinkingData = await getSingleCpt('videos', "still-thinking")
+
   const contactData = await getContact();
   return {
     props: {
      homePageData: homePageData, 
      featuresData: featuresData, 
      testimonialsData: testimonialsData, 
-     contactData: contactData
+     contactData: contactData, 
+     stillThinkingData: stillThinkingData
     },
     revalidate: 8600
   }

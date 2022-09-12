@@ -1,14 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
 import Navbar from "./Navbar/Navbar";
 import HamburgerMenu from "../Icons/HamburgerMenu";
-import ContactInfoContext from "../../../Store/contact-info-context";
-function Header() {
+function Header({logo}) {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
-  const contactInfoCtx = useContext(ContactInfoContext)
-  console.log(contactInfoCtx)
+
   return (
     <section className="light-blue-bk">
       <div className="max-width">
@@ -17,11 +15,15 @@ function Header() {
             <LogoContainer>
               <Link href="/" passHref>
                 <a>
+                {logo &&
                   <ImageStyle
-                    src="http://test.webduel.co.nz/wp-content/uploads/2022/09/gonog-logo.png"
-                    alt="logo"
-                    layout="fill"
+                    src={logo.url}
+                    alt="GonoGo logo"
+                    layout="fixed"
+                    width="100px"
+                    height="41px"
                   />
+                }
                 </a>
               </Link>
             </LogoContainer>
@@ -38,17 +40,22 @@ function Header() {
             }
           />
 
-          <LogoContainer>
+          <MobileLogoContainer>
             <Link href="/" passHref>
               <a>
-                <ImageStyle
-                  src="http://test.webduel.co.nz/wp-content/uploads/2022/09/gonog-logo.png"
-                  alt="logo"
-                  layout="fill"
+                {logo &&
+                  <ImageStyle
+                  src={logo.url}
+                  alt="GonoGo logo"
+                  layout="fixed"
+                  width="80px"
+                  height="33px"
                 />
+                 }
+            
               </a>
             </Link>
-          </LogoContainer>
+          </MobileLogoContainer>
 
           {toggleMobileMenu && <Navbar />}
 
@@ -93,4 +100,10 @@ const MobileHeader = styled.div`
   @media (max-width: 1000px) {
     display: flex;
   }
+`;
+const MobileLogoContainer = styled.div`
+  position: relative;
+  width: 80px;
+  height: 40.98px;
+  top: 5px;
 `;

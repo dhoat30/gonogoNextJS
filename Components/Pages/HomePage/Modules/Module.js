@@ -1,12 +1,12 @@
 import React from 'react'
-import Hero from '../../UI/Hero/Hero'
-import RowLayout from '../../UI/RowLayout/RowLayout'
-import TwoColumnLayout from '../../UI/ColumnLayout/TwoColumnLayout'
-import TwoColumnLayoutRight from '../../UI/ColumnLayout/TwoColumnLayoutRight'
-import StillThinkingRow from '../../UI/Videos/StillThinkingRow'
-import Features from '../../UI/Features/Features'
-import JustText from '../../UI/RowLayout/JustText'
-function ProjectPlanner({moduleData, featuresData}) {
+import Hero from '../../../UI/Hero/Hero'
+import RowLayout from '../../../UI/RowLayout/RowLayout'
+import TwoColumnLayout from '../../../UI/ColumnLayout/TwoColumnLayout'
+import TwoColumnLayoutRight from '../../../UI/ColumnLayout/TwoColumnLayoutRight'
+import StillThinkingRow from '../../../UI/Videos/StillThinkingRow'
+import Features from '../../../UI/Features/Features'
+import JustText from '../../../UI/RowLayout/JustText'
+function Module({moduleData, featuresData}) {
     console.log(moduleData.acf.sections)
     const sections = moduleData.acf.sections.map((data, index)=> { 
       console.log(data.layout.images)
@@ -70,4 +70,4 @@ function ProjectPlanner({moduleData, featuresData}) {
   )
 }
 
-export default ProjectPlanner
+export default Module
