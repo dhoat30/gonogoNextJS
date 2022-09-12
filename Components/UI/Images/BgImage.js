@@ -6,6 +6,7 @@ const Box = styled.div`
   position: absolute;
   z-index: 0;
   top: 0;
+  display: block; 
 `;
 
 const ImageStyle = styled(Image)`
@@ -48,6 +49,7 @@ function BgImage({desktopImage, mobileImage}) {
           src={desktopImage}
           width={width}
           height={height}
+          layout="responsive"
         />
       </Box>
     );
@@ -60,6 +62,8 @@ function BgImage({desktopImage, mobileImage}) {
           src={mobileImage}
           width={width}
           height={height}
+                    layout="responsive"
+
         />
       </Box>
     )
