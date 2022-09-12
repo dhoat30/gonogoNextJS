@@ -18,18 +18,7 @@ function Navbar({allModulesData, allBlogData}) {
     )
   })
 
-  // blog menu 
-  const blogMenu = allBlogData.map(data=> { 
-    return ( 
-      <li 
-      key={data.id}
-      onClick={() => setToggleBlogMenu(false)}>
-      <Link href={`/blogs/${data.slug}`} passHref>
-        <a dangerouslySetInnerHTML={{ __html: data.title.rendered }}/>
-      </Link>
-    </li>
-    )
-  })
+
   
   const clickHandler = (e) => {
     e.preventDefault();
@@ -65,18 +54,12 @@ function Navbar({allModulesData, allBlogData}) {
         </li>
 
         <li>
-          <Link href="/contact-us" passHref className="has-submenu">
-            <a onClick={blogClickHandler}>
+          <Link href="/blogs" passHref className="has-submenu">
+            <a >
               Blogs
-              <ArrowDownIconStyle/>
             </a>
           </Link>
-          <SubMenu>
-            {toggleBlogMenu && 
-              blogMenu
-            }
-           
-          </SubMenu>
+     
         </li>
 
         <li>
@@ -96,7 +79,8 @@ const Nav = styled.nav`
   ul {
     list-style: none;
     a {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--blue);
     }
   }
   > ul {
@@ -106,7 +90,6 @@ const Nav = styled.nav`
   }
   li {
   }
-
   @media (max-width: 1000px) {
     position: absolute;
     top: 50px;
@@ -140,7 +123,6 @@ const SubMenu = styled.ul`
   background: var(--lightBlue);
   z-index: 20;
   box-shadow: var(--boxShadow);
-
   li {
     a {
       padding: 10px 20px;
