@@ -36,7 +36,7 @@ export async function getStaticProps(context) {
   const featuresData = await getCPT("features")
   const testimonialsData = await getCPT("testimonials")
   const allModulesData = await getCPT('modules')
-
+  
   return {
     props: {
      pageData: pageData, 

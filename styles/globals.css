@@ -235,11 +235,11 @@ p {
 
 
 .site-footer {
-  height: 336.44px;
+padding: 50px 0 ;
   background-color: #F7F7F7;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
 }
 .site-footer .footer_head_text {
   font-weight: 700;

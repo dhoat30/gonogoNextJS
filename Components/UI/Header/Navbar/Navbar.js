@@ -5,6 +5,9 @@ import ArrowDownIcon from "../../Icons/ArrowDownIcon";
 function Navbar({allModulesData, allBlogData}) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [toggleBlogMenu, setToggleBlogMenu] = useState(false)
+  if(!allModulesData){ 
+    return
+  }
   // module menu
   const modulesSubmenu = allModulesData.map(data=> { 
     return ( 

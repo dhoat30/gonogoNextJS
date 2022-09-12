@@ -4,7 +4,7 @@ import Image from "next/image";
 function RowLayout({ title, content, images }) {
   return (
     <Section>
-      <FlexBox>
+      <FlexBox className="max-width">
         <ContentBox>
           <h3>{title}</h3>
           <div dangerouslySetInnerHTML={{ __html: content }} />
@@ -39,6 +39,7 @@ background-color: var(--lightBlue);
 `;
 const FlexBox = styled.div`
   margin: 0 auto; 
+  max-width: 1000px;
 `;
 
 

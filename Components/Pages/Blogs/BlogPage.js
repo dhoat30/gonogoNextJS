@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 function BlogPage({ blogData }) {
-  console.log(blogData);
+  if(!blogData){ 
+    return
+  }
   return (
     <>
     <Main>

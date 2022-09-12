@@ -7,7 +7,9 @@ import StillThinkingRow from '../../../UI/Videos/StillThinkingRow'
 import Features from '../../../UI/Features/Features'
 import JustText from '../../../UI/RowLayout/JustText'
 function Module({moduleData, featuresData, stillThinkingData}) {
-  console.log(stillThinkingData)
+  if(!moduleData){ 
+    return
+  }
     const sections = moduleData.acf.sections.map((data, index)=> { 
        if(!data.layout.images ){ 
         return <JustText 
