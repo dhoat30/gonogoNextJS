@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Hero from '../../../UI/Hero/Hero'
 function ModuleArchive({allModulesData, pageData}) {
-    console.log(pageData)
     const blogCards = allModulesData.reverse().map(item=>{ 
         return (
             <Card key={item.id}>

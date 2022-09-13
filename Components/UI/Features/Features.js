@@ -27,6 +27,10 @@ function Features({ featuresData }) {
 export default Features;
 const Section = styled.section`
 padding: 70px 0 ;  
+min-height: 90vh;
+display: flex; 
+flex-direction: column; 
+justify-content: center; 
 `
 const FeatureContainer = styled.div`
 margin-top: 30px; 

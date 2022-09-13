@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 function BlogArchive({allBlogData}) {
     const blogCards = allBlogData.map(item=>{ 
-        console.log(item)
         return (
             <Card key={item.id}>
                 <Link href={`/blogs/${item.slug}`}>

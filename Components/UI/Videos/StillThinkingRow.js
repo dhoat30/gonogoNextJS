@@ -33,9 +33,13 @@ display: flex;
 justify-content: center; 
 text-align:center; 
 background: var(--lightBlue); 
+min-height: 90vh;
+display: flex; 
+flex-direction: column; 
+justify-content: center; 
 `
 const FlexBox = styled.div`
-max-width: 640px;
+max-width: 700px;
 
 `
 const VideoContainer = styled.div`

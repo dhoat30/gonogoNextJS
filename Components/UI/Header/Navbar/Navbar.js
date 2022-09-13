@@ -2,12 +2,38 @@ import React, { useState } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import ArrowDownIcon from "../../Icons/ArrowDownIcon";
+import Image from 'next/image'
+import { useRouter } from "next/router";
+
 function Navbar({allModulesData, allBlogData}) {
+  const router = useRouter();
+
   const [toggleMenu, setToggleMenu] = useState(false);
   const [toggleBlogMenu, setToggleBlogMenu] = useState(false)
   if(!allModulesData){ 
     return
   }
+  // module menu
+  const desktopSubMenu = allModulesData.map(data=> { 
+    return ( 
+      <li 
+      key={data.id}>
+         <Image src={data.acf.module_icon.url}
+          layout="fixed"
+          width="40px"
+          height="40px"
+        /> 
+      <Link href={`/modules/${data.slug}`} passHref>
+       
+       
+        <a dangerouslySetInnerHTML={{ __html: data.title.rendered }}
+        onClick={() => setToggleMenu(false)}
+        />
+      
+      </Link>
+    </li>
+    )
+  })
   // module menu
   const modulesSubmenu = allModulesData.map(data=> { 
     return ( 
@@ -54,6 +80,13 @@ function Navbar({allModulesData, allBlogData}) {
             }
            
           </SubMenu>
+          {toggleMenu && 
+             <DesktopSubMenu>
+              {desktopSubMenu}
+             </DesktopSubMenu>
+              
+            }
+       
         </li>
 
         <li>
@@ -112,8 +145,8 @@ const Nav = styled.nav`
       flex-direction: column;
       > li {
         > a {
-          padding: 20px 10px;
           display: block;
+          padding: 20px 10px;
           border-bottom: 1px solid var(--blue);
         }
       }
@@ -124,6 +157,7 @@ const ArrowDownIconStyle = styled(ArrowDownIcon)`
   margin: 0 0 0 5px;
 `;
 const SubMenu = styled.ul`
+display: none; 
   position: absolute;
   width: 250px;
   top: 50px;
@@ -132,14 +166,43 @@ const SubMenu = styled.ul`
   box-shadow: var(--boxShadow);
   li {
     a {
-      padding: 10px 20px;
+      padding: 20px 20px;
       border-bottom: 1px solid var(--midGrey);
       width: 100%;
       display: block;
+      &:hover{ 
+        background: var(--blue); 
+        color: white; 
+      }
     }
   }
   @media (max-width: 1000px) {
     width: 100%;
     position: static;
+    display: block;
   }
 `;
+
+const DesktopSubMenu = styled.ul`
+  position: absolute; 
+  background: var(--lightBlue);
+  width: 100%;
+  top: 60px; 
+  left: 0;
+  z-index: 1;  
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  align-items: center;  
+  height: 200px;
+  li{ 
+    width: 300px;
+    padding: 20px;  
+    display: flex; 
+    align-items: center; 
+    cursor: pointer; 
+    a{ 
+     margin-left: 10px;
+    }
+  }
+`

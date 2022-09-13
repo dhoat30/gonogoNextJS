@@ -28,6 +28,10 @@ function RowLayout({ title, content, images }) {
 export default RowLayout;
 const Section = styled.section`
 padding: 70px 0;
+min-height: 90vh;
+display: flex; 
+flex-direction: column; 
+justify-content: center; 
 background-color: var(--lightBlue);
   text-align: center;
   position: relative;

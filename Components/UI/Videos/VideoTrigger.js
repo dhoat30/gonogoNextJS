@@ -19,8 +19,9 @@ function VideoTrigger({thumbnail, videoID}) {
           src={thumbnail.url}
           layout="responsive"
           width="100%"
-          height="70%"
+          height="60%"
           objectFit="cover"
+          alt="video thumbnail"
         /> 
         <VideoIconStyle onClick={clickHandler}/> 
   </VideoThumbnailContainer>

@@ -57,7 +57,7 @@ function Hero({
         <h2>{subtitle}</h2>
         <HeroBtnContainer >
             <PrimaryAnchor
-              link={primaryButtonData.link}
+              link="/contact-us"
               text={primaryButtonData.text}
             />
             <SecondaryAnchor

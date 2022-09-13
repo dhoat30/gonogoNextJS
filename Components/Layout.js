@@ -29,7 +29,6 @@ function Layout(props) {
       router.events.off("routeChangeError", handleComplete);
     };
   });
-  console.log("loading");
   return (
     <div>
       <Header

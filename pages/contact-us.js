@@ -5,7 +5,6 @@ import getPage from '../util/get-page'
 import ContactUs from '../Components/Pages/ContactUs'
 
 function contactUs({pageData, featuresData, testimonialsData}) {
-  console.log(pageData)
   const seo = {
     title: pageData[0].yoast_head_json.title && pageData[0].yoast_head_json.title,
     description: pageData[0].yoast_head_json.description && pageData[0].yoast_head_json.description,

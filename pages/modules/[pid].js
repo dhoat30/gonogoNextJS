@@ -25,7 +25,6 @@ export async function getStaticProps(context) {
   const contactData = await getContact();
   const stillThinkingData = await getSingleCpt('videos', "still-thinking")
   const allModulesData = await getCPT('modules')
-  console.log(moduleData)
   return {
     props: {
      moduleData: moduleData, 
@@ -40,7 +39,6 @@ export async function getStaticProps(context) {
 }
 export async function getStaticPaths(){ 
      const allModulesData = await getCPT('modules')
-     console.log(allModulesData)
      const params = allModulesData.map((item)=>({ params: {pid: item.slug} }))
 
      return{ 

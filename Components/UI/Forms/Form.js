@@ -34,7 +34,6 @@ function Form({emailTo, emailRouteUrl, formName, cta}) {
         emailTo: emailTo
        }
       setShowLoading(true) 
-   console.log(emailRouteUrl)
       fetch(emailRouteUrl, {
           method: "POST",
           headers: {
@@ -44,7 +43,6 @@ function Form({emailTo, emailRouteUrl, formName, cta}) {
       })
           .then(res => res.json())
           .then(res => {
-              console.log(res)
               if (res === 200) {
                 setShowLoading(false) 
                 setResponse("Sent!")

@@ -7,7 +7,6 @@ import getCPT from '../../util/get-cpt'
 import getPage from '../../util/get-page'
 import getSingleCpt from '../../util/get-single-cpt'
 export default function Home({pageData, featuresData, testimonialsData, contactData, stillThinkingData, allBlogData, allModulesData}) {
- console.log(pageData[0])
   const seo = {
     title: pageData[0].yoast_head_json.title,
     description: pageData[0].yoast_head_json.description,

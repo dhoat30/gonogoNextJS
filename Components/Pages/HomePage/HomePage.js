@@ -20,7 +20,7 @@ function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingD
           <ImgContainer className="first-section-img">
             <ImageStyle
               src={data.images[0].image.url}
-              alt=""
+              alt="Safety Managment"
               layout="responsive"
               width="100%"
               height={(data.images[0].image.height / data.images[0].image.width) * 100}
