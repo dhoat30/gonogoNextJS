@@ -34,8 +34,9 @@ function BgImage({desktopImage, mobileImage}) {
 
       setheight(height);
     }
+    handleResize() 
 
-    window.addEventListener("load", handleResize);
+    // window.addEventListener("load", handleResize);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
     
@@ -49,7 +50,8 @@ function BgImage({desktopImage, mobileImage}) {
           src={desktopImage}
           width={width}
           height={height}
-          layout="responsive"
+                              layout="fill"
+
         />
       </Box>
     );
@@ -62,7 +64,7 @@ function BgImage({desktopImage, mobileImage}) {
           src={mobileImage}
           width={width}
           height={height}
-                    layout="responsive"
+                    layout="fill"
 
         />
       </Box>

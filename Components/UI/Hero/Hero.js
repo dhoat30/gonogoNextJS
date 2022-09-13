@@ -5,6 +5,7 @@ import SecondaryAnchor from "../Anchor/SecondaryAnchor";
 import styled from "styled-components";
 import BgImage from "../Images/BgImage";
 import VideoContext from '../../../Store/video-context';
+import Image from 'next/image';
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
   return {
@@ -43,9 +44,14 @@ function Hero({
   }, []);
   return (
     <HeroContainer className="hero-section" width={width} height={`${height}px`}>
-      <BgImage 
+      {/* <BgImage 
       mobileImage={mobileImage}
-      desktopImage={desktopImage}/> 
+      desktopImage={desktopImage}/>  */}
+      <ImageStyle
+      src={desktopImage}
+      layout="fill"
+      objectFit="cover"
+      /> 
       <div className="hero-text">
         <h1>{title}</h1>
         <h2>{subtitle}</h2>
@@ -74,11 +80,12 @@ position: relative;
 display: flex; 
 justify-content: center; 
 align-items:center; 
-height: ${props=> props.height && props.height} ; 
-width: ${props=> props.width && props.width}px; 
+height:95vh; 
+width: 100%; 
 text-align: center; 
 
 `;
+const ImageStyle = styled(Image)``
 const HeroBtnContainer = styled.div`
 display: flex;
 justify-content: center;

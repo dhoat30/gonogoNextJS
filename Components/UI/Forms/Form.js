@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import styled from "styled-components";
+import Input from '../Input/Input'
 
 function Form() {
     const [enteredFirstName, setEnteredFirstName] = useState('')
@@ -16,27 +17,38 @@ function Form() {
 
 
     const [enteredMessage, setEnteredMessage] = useState('')
+
   return (
     <FormStyle action="" className="box-shadow">
     <TwoColumn>
       <div>
         <label htmlFor="given-name">First name* </label>
-        <input type="text" id="given-name" name="given-name" required />
+        <Input
+            isInvalid={phoneInputIsInvalid}
+            type="text"
+            placeholder="*Phone Number"
+            value={enteredPhone}
+            inputChange={(e) => setEnteredPhone(e.target.value)}
+            blurChange={() => setEnteredPhoneTouched(true)}
+        />
+        <input type="text" id="given-name" name="given-name" 
+              
+        />
       </div>
 
       <div>
         <label htmlFor="">Last name* </label>
-        <input type="text" name="family-name" required />
+        <input type="text" name="family-name" />
       </div>
     </TwoColumn>
     <TwoColumn>
       <div>
         <label htmlFor="email">Email* </label>
-        <input type="email" id="email" name="email" required />
+        <input type="email" id="email" name="email" />
       </div>
       <div>
         <label htmlFor="tel">Phone Number* </label>
-        <input type="tel" name="tel" id="tel" required />
+        <input type="tel" name="tel" id="tel" />
       </div>
     </TwoColumn>
     <TwoColumn>

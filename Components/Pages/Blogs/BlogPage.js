@@ -65,7 +65,7 @@ height: 100%;
 const MainContent=styled.section`
 max-width: 900px; 
 margin: 0 auto;
-padding: 0 10px; 
+padding: 0 10px 70px 10px; 
   margin-top: 100px; 
   h2 {
     font-weight: 700;

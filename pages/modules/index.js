@@ -1,29 +1,34 @@
 import React, {useEffect} from 'react'
 import BlogArchive from '../../Components/Pages/Blogs/BlogArchive'
+import ModuleArchive from '../../Components/Pages/HomePage/Modules/ModuleArchive'
 import SEO from '../../Components/SEO'
 import getContact from '../../util/get-contact'
 import getCPT from '../../util/get-cpt'
 import getPage from '../../util/get-page'
 import getSingleCpt from '../../util/get-single-cpt'
-export default function Home({homePageData, featuresData, testimonialsData, contactData, stillThinkingData, allBlogData}) {
+export default function Home({pageData, featuresData, testimonialsData, contactData, stillThinkingData, allBlogData, allModulesData}) {
+ console.log(pageData[0])
   const seo = {
-    title: homePageData[0].yoast_head_json.title,
-    description: homePageData[0].yoast_head_json.description,
-    imageSrc: homePageData[0].yoast_head_json.og_image.length > 0 &&  homePageData[0].yoast_head_json.og_image[0].url
+    title: pageData[0].yoast_head_json.title,
+    description: pageData[0].yoast_head_json.description,
+    imageSrc: pageData[0].yoast_head_json.og_image &&  homePageData[0].yoast_head_json.og_image[0].url
   }
   return (
   <React.Fragment> 
     <SEO
       seo={seo}
     /> 
-    <BlogArchive allBlogData={allBlogData} />
+    <ModuleArchive
+      allModulesData={allModulesData}
+      pageData={pageData[0]}
+    /> 
     </React.Fragment> 
   )
 }
 
 export async function getStaticProps(context) {
   // get home page data using category from hero images 
-  const homePageData = await getPage('home-page')
+  const pageData = await getPage('modules-page')
   const featuresData = await getCPT("features")
   const testimonialsData = await getCPT("testimonials")
   const stillThinkingData = await getSingleCpt('videos', "still-thinking")
@@ -32,7 +37,7 @@ export async function getStaticProps(context) {
   const allBlogData = await getCPT('posts')
   return {
     props: {
-     homePageData: homePageData, 
+     pageData: pageData, 
      featuresData: featuresData, 
      testimonialsData: testimonialsData, 
      contactData: contactData, 

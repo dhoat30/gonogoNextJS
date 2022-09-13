@@ -5,7 +5,7 @@ import Image from 'next/image'
 function Cloud({title, content, link, image}) {
   return (
     <section className="third-section">
-      <div className="container">
+      <div className="container max-width">
          <div className="third-section-text">
             <h3>{title}</h3>
             <div dangerouslySetInnerHTML={{__html: content}}/>

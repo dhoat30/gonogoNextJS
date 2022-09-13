@@ -6,9 +6,10 @@ import Cloud from "../../UI/Cloud/Cloud";
 import Features from "../../UI/Features/Features";
 import Testimonial from "../../UI/Testimonial/Testimonial";
 import StillThinkingTwoColumn from "../../UI/Videos/StillThinkingTwoColumn";
+import ModulesFilters from "../../UI/Filters/ModulesFilters";
 
-function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingData }) {
-
+function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingData, allModulesData }) {
+  
   const cloudData = homePageData[0].acf.cloud_section
   // second and third section
   const twoColumnLayout = homePageData[0].acf.layout.map((data, index) => {
@@ -57,9 +58,31 @@ function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingD
       link={cloudData.video_link}
       image={cloudData.image}
       /> 
-
+      <ModulesFilters
+      allModulesData={allModulesData}
+      /> 
       {/* features  */}
       <Features featuresData={featuresData} /> 
+
+        {/* about us */}
+        <AboutSection>
+        <div className="max-width">
+          <ImgContainer className="first-section-img">
+            <ImageStyle className="img"
+              src={homePageData[0].acf.about_us.image.url}
+              alt="Craig Anderson"
+              layout="fixed"
+              width="300px"
+              height="300px"
+              objectFit="cover" 
+            />
+          </ImgContainer>
+          <div className="first-section-text">
+            <Heading3><strong>{homePageData[0].acf.about_us.title}</strong></Heading3>
+            <div dangerouslySetInnerHTML={{ __html: homePageData[0].acf.about_us.content }}/> 
+          </div>
+        </div>
+      </AboutSection>
 
       {/*  testimonial section */}
       <Testimonial testimonialsData={testimonialsData}/> 
@@ -112,4 +135,45 @@ const Heading3 = styled.h3`
 `;
 const ImageStyle = styled(Image)`
  
+`;
+const AboutSection = styled.section`
+  background-color: var(--lightBlue);
+  > div {
+    min-height: 70vh; 
+
+    display: flex;
+    align-items: center; 
+  
+    flex-wrap: wrap; 
+ 
+    > div {
+      
+      width: 50%;
+      @media (max-width: 1000px) {
+        width: 100%; 
+      }
+    }
+  }
+  .first-section-text{ 
+    padding-bottom: 40px; 
+    @media(max-width: 1000px){ 
+      h3{ 
+        margin-top: 20px; 
+      }
+      p{ 
+        text-align: center;   
+      }
+    }
+   
+  }
+  .first-section-img{ 
+    display: flex; 
+    justify-content: center; 
+    .img{ 
+      border-radius: 50%; 
+     
+    }
+
+  }
+  padding: 70px 0;
 `;

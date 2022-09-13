@@ -5,7 +5,7 @@ import Module from '../../Components/Pages/HomePage/Modules/Module'
 import getContact from '../../util/get-contact'
 function modules({moduleData, featuresData, stillThinkingData}) {
   return (
-
+    
     <Module
     featuresData={featuresData}
     moduleData={moduleData[0]}

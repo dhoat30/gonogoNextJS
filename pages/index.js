@@ -6,7 +6,7 @@ import getCPT from '../util/get-cpt'
 import getMenu from '../util/get-menu'
 import getPage from '../util/get-page'
 import getSingleCpt from '../util/get-single-cpt'
-export default function Home({homePageData, featuresData, testimonialsData, contactData, stillThinkingData}) {
+export default function Home({homePageData, featuresData, testimonialsData, contactData, stillThinkingData, allModulesData}) {
 
   const seo = {
     title: homePageData[0].yoast_head_json.title,
@@ -19,6 +19,7 @@ export default function Home({homePageData, featuresData, testimonialsData, cont
       seo={seo}
     /> 
       <HomePage 
+      allModulesData={allModulesData}
       stillThinkingData={stillThinkingData[0]}
       homePageData={homePageData} featuresData={featuresData} testimonialsData={testimonialsData} />
       </React.Fragment>     
