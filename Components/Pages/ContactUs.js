@@ -13,7 +13,12 @@ function ContactUs({ pageData, testimonialsData }) {
           <div dangerouslySetInnerHTML={{ __html: pageData.content.rendered }}/>
    
         </div>
-        <Form /> 
+        <Form 
+        emailRouteUrl={`${process.env.url}/wp-json/webduel/v1/contact-form`}
+        formName="Contact Form"
+        emailTo="designer@webduel.co.nz"
+        cta="Send Now"
+        /> 
       </div>
     </Section>
     <Testimonial

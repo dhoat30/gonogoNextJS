@@ -65,7 +65,7 @@ function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingD
       <Features featuresData={featuresData} /> 
 
         {/* about us */}
-        <AboutSection>
+        <AboutSection id="about-us">
         <div className="max-width">
           <ImgContainer className="first-section-img">
             <ImageStyle className="img"

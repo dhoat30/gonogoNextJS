@@ -11,9 +11,13 @@ function BookADemo({ pageData, testimonialsData }) {
         <div className="book-demo-hero-text">
           <h1>{pageData.title.rendered}</h1>
           <div dangerouslySetInnerHTML={{ __html: pageData.content.rendered }}/>
-   
         </div>
-        <Form /> 
+        <Form 
+        emailRouteUrl={`${process.env.url}/wp-json/webduel/v1/contact-form`}
+        formName="Book a Demo Form"
+        emailTo="designer@webduel.co.nz"
+        cta="BOOK A DEMO"
+        /> 
       </div>
     </Section>
     <Testimonial

@@ -1,54 +1,83 @@
 import React, {useState} from 'react'
 import styled from "styled-components";
-import Input from '../Input/Input'
 
-function Form() {
-    const [enteredFirstName, setEnteredFirstName] = useState('')
-    const [enteredFirstNameTouched, setEnteredFirstNameTouched] = useState(false)
+function Form({emailTo, emailRouteUrl, formName, cta}) {
+  
+    // const [enteredFirstName, setEnteredFirstName] = useState('')
+    // const [enteredFirstNameTouched, setEnteredFirstNameTouched] = useState(false)
 
-    const [enteredLastName, setEnteredLastName] = useState('')
-    const [enteredLastNameTouched, setEnteredLastNameTouched] = useState(false)
+    // const [enteredLastName, setEnteredLastName] = useState('')
+    // const [enteredLastNameTouched, setEnteredLastNameTouched] = useState(false)
 
-    const [enteredEmail, setEnteredEmail] = useState('')
-    const [enteredEmailTouched, setEnteredEmailTouched] = useState(false) 
+    // const [enteredEmail, setEnteredEmail] = useState('')
+    // const [enteredEmailTouched, setEnteredEmailTouched] = useState(false) 
     
-    const [enteredPhone, setEnteredPhone] = useState('')
-    const [enteredPhoneTouched, setEnteredPhoneTouched] = useState(false)
+    // const [enteredPhone, setEnteredPhone] = useState('')
+    // const [enteredPhoneTouched, setEnteredPhoneTouched] = useState(false)
 
 
-    const [enteredMessage, setEnteredMessage] = useState('')
+    // const [enteredMessage, setEnteredMessage] = useState('')
+  const [showLoading, setShowLoading] = useState(false)
+    const [response, setResponse] = useState('')
+    // submit handler
+    const submitHandler = (e) => {
+      e.preventDefault()
+       const body = { 
+        firstName: e.target[0].value, 
+        lastName: e.target[1].value, 
+        email: e.target[2].value, 
+        phoneNumber: e.target[3].value, 
+        companyName: e.target[4].value, 
+        dateTime: e.target[5].value, 
+        message: e.target[6].value, 
+        formName: formName, 
+        emailTo: emailTo
+       }
+      setShowLoading(true) 
+   console.log(emailRouteUrl)
+      fetch(emailRouteUrl, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(body)
+      })
+          .then(res => res.json())
+          .then(res => {
+              console.log(res)
+              if (res === 200) {
+                setShowLoading(false) 
+                setResponse("Sent!")
+              }
+              else if (res === 400) {
+                  setResponse("Error!")
+                  setShowLoading(false) 
 
+              }
+          })
+          .catch(err => console.log(err))
+  }
   return (
-    <FormStyle action="" className="box-shadow">
+    <FormStyle action="" className="box-shadow" onSubmit={submitHandler}>
     <TwoColumn>
       <div>
         <label htmlFor="given-name">First name* </label>
-        <Input
-            isInvalid={phoneInputIsInvalid}
-            type="text"
-            placeholder="*Phone Number"
-            value={enteredPhone}
-            inputChange={(e) => setEnteredPhone(e.target.value)}
-            blurChange={() => setEnteredPhoneTouched(true)}
-        />
-        <input type="text" id="given-name" name="given-name" 
-              
-        />
+        <input type="text" id="given-name" name="given-name"  />
       </div>
 
       <div>
         <label htmlFor="">Last name* </label>
-        <input type="text" name="family-name" />
+        <input type="text" name="family-name" id="family-name" required />
       </div>
     </TwoColumn>
     <TwoColumn>
       <div>
         <label htmlFor="email">Email* </label>
-        <input type="email" id="email" name="email" />
+        <input type="email" id="email" name="email" required />
       </div>
       <div>
         <label htmlFor="tel">Phone Number* </label>
-        <input type="tel" name="tel" id="tel" />
+        <input type="tel" name="tel" id="tel" required />
       </div>
     </TwoColumn>
     <TwoColumn>
@@ -62,6 +91,7 @@ function Form() {
           type="datetime-local"
           id="meeting-time"
           name="meeting-time"
+          min="2018-06-07T00:00" 
         />
       </div>
     </TwoColumn>
@@ -73,9 +103,13 @@ function Form() {
 
     <div className="book-demo-btn">
       <button className="primary-btn" type="submit">
-        book a demo
+       
+        {showLoading ? "Sending..." : cta}
+
       </button>
+      
     </div>
+    
   </FormStyle>
   )
 }

@@ -64,7 +64,11 @@ function Navbar({allModulesData, allBlogData}) {
           </Link>
      
         </li>
-
+        <li>
+          <Link href="/#about-us" passHref>
+            <a>About Us</a>
+          </Link>
+        </li>
         <li>
           <Link href="/contact-us" passHref>
             <a>Contact Us</a>
