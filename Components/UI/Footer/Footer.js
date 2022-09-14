@@ -59,20 +59,7 @@ function Footer({ allModulesData }) {
         </div>
         <div className="legal">
           <span className="footer_head_text">Legal</span>
-          <ul>
-            {/* <li>
-              <a href="/">Terms of use</a>
-            </li>
-            <li>
-              <a href="/">Terms and conditions</a>
-            </li>
-            <li>
-              <a href="/">Privacy policy</a>
-            </li>
-            <li>
-              <a href="/">Cookie policy</a>
-            </li> */}
-          </ul>
+          
         </div>
       </div>
 

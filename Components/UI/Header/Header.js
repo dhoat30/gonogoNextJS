@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import Navbar from "./Navbar/Navbar";
 import HamburgerMenu from "../Icons/HamburgerMenu";
+import CloseIcon from "../Icons/CloseIcon";
 function Header({ logo, allModulesData, allBlogData }) {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
 
@@ -34,11 +35,18 @@ function Header({ logo, allModulesData, allBlogData }) {
           </Link>
         </DesktopHeader>
         <MobileHeader className="site-header">
-          <HamburgerMenu
-            clickHandler={() =>
+          {toggleMobileMenu ? 
+             <CloseIcon  clickHandler={() =>
               setToggleMobileMenu(toggleMobileMenu ? false : true)
-            }
-          />
+            }/> 
+           : 
+           <HamburgerMenu
+           clickHandler={() =>
+             setToggleMobileMenu(toggleMobileMenu ? false : true)
+           }
+         /> 
+        }
+        
 
           <MobileLogoContainer>
             <Link href="/" passHref>
@@ -57,7 +65,7 @@ function Header({ logo, allModulesData, allBlogData }) {
           </MobileLogoContainer>
 
           {toggleMobileMenu && (
-            <Navbar allModulesData={allModulesData} allBlogData={allBlogData} />
+            <Navbar allModulesData={allModulesData} allBlogData={allBlogData} onClick={()=> setToggleMobileMenu(false)}/>
           )}
 
           <Link href="/book-a-demo" passHref>
@@ -70,6 +78,7 @@ function Header({ logo, allModulesData, allBlogData }) {
 }
 
 export default Header;
+
 const NavContainer = styled.div`
   display: flex;
   align-items: center;
@@ -77,7 +86,7 @@ const NavContainer = styled.div`
 const LogoContainer = styled.div`
   position: relative;
   width: 100px;
-  height: 40.98px;
+  
   top: 5px;
 `;
 const ImageStyle = styled(Image)``;
@@ -86,7 +95,7 @@ const DesktopHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+
   position: relative;
 
   @media (max-width: 1000px) {

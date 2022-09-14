@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import ArrowDownIcon from "../../Icons/ArrowDownIcon";
 import Image from 'next/image'
-import { useRouter } from "next/router";
 
-function Navbar({allModulesData, allBlogData}) {
-  const router = useRouter();
+function Navbar({allModulesData, allBlogData, onClick}) {
 
   const [toggleMenu, setToggleMenu] = useState(false);
-  const [toggleBlogMenu, setToggleBlogMenu] = useState(false)
+  // const [toggleBlogMenu, setToggleBlogMenu] = useState(false)
+  
   if(!allModulesData){ 
     return
   }
@@ -18,17 +17,16 @@ function Navbar({allModulesData, allBlogData}) {
     return ( 
       <li 
       key={data.id}>
-         <Image src={data.acf.module_icon.url}
+      
+      <Link href={`/modules/${data.slug}`} passHref>
+        <a onClick={() => setToggleMenu(false)}>
+        <Image src={data.acf.module_icon.url}
           layout="fixed"
           width="40px"
           height="40px"
-        /> 
-      <Link href={`/modules/${data.slug}`} passHref>
-       
-       
-        <a dangerouslySetInnerHTML={{ __html: data.title.rendered }}
-        onClick={() => setToggleMenu(false)}
         />
+          <span dangerouslySetInnerHTML={{ __html: data.title.rendered }}/> 
+        </a>
       
       </Link>
     </li>
@@ -39,9 +37,11 @@ function Navbar({allModulesData, allBlogData}) {
     return ( 
       <li 
       key={data.id}
-      onClick={() => setToggleMenu(false)}>
+      onClick={onClick }>
       <Link href={`/modules/${data.slug}`} passHref>
-        <a dangerouslySetInnerHTML={{ __html: data.title.rendered }}/>
+        <a dangerouslySetInnerHTML={{ __html: data.title.rendered }}
+          onClick={() => setToggleMenu(false)}
+        />
       </Link>
     </li>
     )
@@ -54,21 +54,18 @@ function Navbar({allModulesData, allBlogData}) {
     setToggleMenu(toggleMenu ? false : true);
   };
 
-  const blogClickHandler =( e)=>{ 
-    e.preventDefault();
-    setToggleBlogMenu(toggleMenu ? false : true);
-  }
+
   return (
-    <Nav className="top-nav">
+    <Nav className="top-nav" >
       <ul>
-        <li>
+        <li onClick={onClick}>
           <Link href="/" passHref>
             <a>Home</a>
           </Link>
         </li>
 
-        <li>
-          <Link href="/contact-us" passHref className="has-submenu">
+        <li onMouseEnter={()=> setToggleMenu(true)} onMouseLeave={()=> setToggleMenu(false)}>
+          <Link href="/modules" passHref className="has-submenu">
             <a onClick={clickHandler}>
               Modules
               <ArrowDownIconStyle/>
@@ -76,20 +73,20 @@ function Navbar({allModulesData, allBlogData}) {
           </Link>
           <SubMenu>
             {toggleMenu && 
-              modulesSubmenu
+            modulesSubmenu
             }
            
           </SubMenu>
+          
           {toggleMenu && 
              <DesktopSubMenu>
               {desktopSubMenu}
              </DesktopSubMenu>
-              
             }
        
         </li>
 
-        <li>
+        <li onClick={onClick}>
           <Link href="/blogs" passHref className="has-submenu">
             <a >
               Blogs
@@ -97,12 +94,12 @@ function Navbar({allModulesData, allBlogData}) {
           </Link>
      
         </li>
-        <li>
+        <li onClick={onClick}>
           <Link href="/#about-us" passHref>
             <a>About Us</a>
           </Link>
         </li>
-        <li>
+        <li onClick={onClick}>
           <Link href="/contact-us" passHref>
             <a>Contact Us</a>
           </Link>
@@ -129,6 +126,10 @@ const Nav = styled.nav`
     justify-content: space-between;
   }
   li {
+    padding: 20px 0; 
+    @media(max-width: 1000px){ 
+      padding: 0; 
+    }
   }
   @media (max-width: 1000px) {
     position: absolute;
@@ -136,7 +137,8 @@ const Nav = styled.nav`
     left: 0;
     z-index: 20;
     background: var(--lightBlue);
-    width: 100%;
+    width: calc(100% - 20px);
+
     margin-left: 10px;
     > ul {
       display: flex;
@@ -144,6 +146,7 @@ const Nav = styled.nav`
       justify-content: space-between;
       flex-direction: column;
       > li {
+
         > a {
           display: block;
           padding: 20px 10px;
@@ -165,11 +168,13 @@ display: none;
   z-index: 20;
   box-shadow: var(--boxShadow);
   li {
+    background: var(--blue); 
     a {
       padding: 20px 20px;
       border-bottom: 1px solid var(--midGrey);
       width: 100%;
       display: block;
+      color: white; 
       &:hover{ 
         background: var(--blue); 
         color: white; 
@@ -184,25 +189,34 @@ display: none;
 `;
 
 const DesktopSubMenu = styled.ul`
+@media(max-width: 1000px){ 
+  display: none; 
+}
   position: absolute; 
   background: var(--lightBlue);
   width: 100%;
-  top: 60px; 
+  top: 59px; 
   left: 0;
   z-index: 1;  
   display: flex; 
   flex-wrap: wrap; 
   justify-content: center; 
   align-items: center;  
-  height: 200px;
+  height: 250px;
+  padding-bottom: 20px; 
+ 
   li{ 
     width: 300px;
-    padding: 20px;  
-    display: flex; 
-    align-items: center; 
     cursor: pointer; 
+    padding: 0; 
     a{ 
+      display: flex; 
+      align-items: center; 
+      padding: 20px; 
      margin-left: 10px;
+     span{ 
+      margin-left: 10px; 
+     }
     }
   }
 `

@@ -68,16 +68,19 @@ margin: 0 auto;
 padding: 0 10px 70px 10px; 
   margin-top: 100px; 
   h2 {
+    margin: 50px 0 10px 0; 
     font-weight: 700;
     @media(max-width: 800px){ 
         font-size: 1.5rem; 
     }
   }
+ 
   p{ 
         margin-top: 10px; 
+       
   }
   ul{ 
-    margin-top: 5px; 
+    margin-top: 10px; 
     margin-left: 30px; 
     li{ 
         color: var(--blue);
@@ -97,14 +100,14 @@ padding: 0 10px 70px 10px;
   .wp-block-group{ 
     background-color: #F4F7FE;
     padding: 40px;
-    margin-top: 50px;
+    margin: 50px 0;
     color: #053152;
     @media(max-width: 800px){ 
         padding: 10px; 
     }
     .wp-block-columns{ 
         background: white; 
-        padding: 30px 20px;
+        padding: 0 20px;
         display: flex; 
         align-items: center;
         figure{ 
@@ -115,13 +118,21 @@ padding: 0 10px 70px 10px;
                 display: none; 
             }
         }
+        h2 {
+          margin: 30px 0 30px 0; 
+          font-weight: 700;
+          @media(max-width: 800px){ 
+              font-size: 1.5rem; 
+          }
+        }
     }
    
   }
   h3{ 
     font-size: 1.5rem; 
-    margin-top: 30px; 
-    margin-bottom: -10px;
+    margin-top: 40px; 
+  
+    line-height: 2rem; 
 }
 h4{ 
     margin-top: 20px; 
