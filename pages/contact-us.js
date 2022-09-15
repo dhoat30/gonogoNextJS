@@ -43,6 +43,6 @@ export async function getStaticProps(context) {
      testimonialsData: testimonialsData,     
      allModulesData: allModulesData
     },
-    revalidate: 8600
+    revalidate: 604800
   }
 }

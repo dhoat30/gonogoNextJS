@@ -12,7 +12,7 @@ function Features({ featuresData }) {
     />;
   });
   return (
-    <Section className="fifth-section">
+    <Section className="fifth-section" id="features">
       <div className="max-width">
         <h3>Key Features</h3>
         <FeatureContainer>

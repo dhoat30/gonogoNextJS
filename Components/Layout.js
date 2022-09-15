@@ -39,7 +39,7 @@ function Layout(props) {
         allModulesData={props.children.props.allModulesData}
         allBlogData={props.children.props.allBlogData}
       />
-      <div>{props.children}</div>
+      <main>{props.children}</main>
 
       {videoCtx.videoModal && (
         <>

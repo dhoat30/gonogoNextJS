@@ -18,6 +18,7 @@ export default function Home({pageData, featuresData, testimonialsData, contactD
       seo={seo}
     /> 
     <ModuleArchive
+    testimonialsData={testimonialsData}
       allModulesData={allModulesData}
       pageData={pageData[0]}
     /> 
@@ -44,6 +45,6 @@ export async function getStaticProps(context) {
      allModulesData: allModulesData, 
      allBlogData: allBlogData
     },
-    revalidate: 8600
+    revalidate: 604800
   }
 }

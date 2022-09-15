@@ -1,22 +1,38 @@
 import React from "react";
 import Link from "next/link";
 import styled from 'styled-components'
+import FooterLinkColumn from "./FooterLinkColumns/FooterLinkColumn";
+import linksData from "./linksData";
 function Footer({ allModulesData }) {
+
   if(!allModulesData){ 
     return
   }
-  const modulesSubmenu = allModulesData.map((data) => {
+
+  const modulesLinks = allModulesData.map((data) => {
     return (
-      <li key={data.id}>
-        <Link href={`/modules/${data.slug}`} passHref>
-          <a dangerouslySetInnerHTML={{ __html: data.title.rendered }} />
-        </Link>
-      </li>
+      <FooterLinkColumn 
+      key={data.id}
+      slug={`/modules/${data.slug}`}
+      title={data.title.rendered}
+      /> 
     );
   });
 
+  // extra links 
+  const extraLinks = linksData[0].links.map((data, index)=> {
+   
+    return (
+      <FooterLinkColumn 
+      key={index}
+      slug={data.slug}
+      title={data.title}
+      /> 
+    );
+  })
+
   return (
-    <Section >
+    <FooterStyle >
       <div className="site-footer max-width">
         <div className="newsletter">
           <span className="footer_head_text">Subscribe to our newsletter</span>
@@ -38,23 +54,12 @@ function Footer({ allModulesData }) {
         </div>
         <div className="solutions">
           <span className="footer_head_text">Solutions</span>
-          <ul>{modulesSubmenu}</ul>
+          <ul>{modulesLinks}</ul>
         </div>
         <div className="links">
           <span className="footer_head_text">Links</span>
           <ul>
-            {/* <li>
-              <a href="/">About Us</a>
-            </li>
-            <li>
-              <a href="/">Contact Us</a>
-            </li>
-            <li>
-              <a href="/">Book A Demo</a>
-            </li>
-            <li>
-              <a href="/">Get A Quote</a>
-            </li> */}
+            {extraLinks}
           </ul>
         </div>
         <div className="legal">
@@ -68,11 +73,11 @@ function Footer({ allModulesData }) {
           <p>Copyright © 2022 GonoGo | Build By Webduel</p>
         </div>
       </div>
-    </Section>
+    </FooterStyle>
   );
 }
 
 export default Footer;
-const Section = styled.section`
+const FooterStyle = styled.footer`
 background: #F6F6F6; 
 `

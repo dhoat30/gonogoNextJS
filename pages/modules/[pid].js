@@ -3,14 +3,24 @@ import getSingleCpt from '../../util/get-single-cpt'
 import getCPT from '../../util/get-cpt'
 import Module from '../../Components/Pages/HomePage/Modules/Module'
 import getContact from '../../util/get-contact'
+import SEO from '../../Components/SEO'
 function modules({moduleData, featuresData, stillThinkingData}) {
+  const seo = {
+    title: moduleData[0].yoast_head_json.title,
+    description: moduleData[0].yoast_head_json.description,
+    imageSrc: moduleData[0].yoast_head_json.og_image &&  homePageData[0].yoast_head_json.og_image[0].url
+  }
   return (
-    
+    <>
+    <SEO
+      seo={seo}
+    /> 
     <Module
     featuresData={featuresData}
     moduleData={moduleData[0]}
     stillThinkingData={stillThinkingData[0]}
     /> 
+    </>
 
   )
 }
@@ -34,7 +44,7 @@ export async function getStaticProps(context) {
      allModulesData: allModulesData
 
     },
-    revalidate: 8600
+    revalidate: 604800
   }
 }
 export async function getStaticPaths(){ 

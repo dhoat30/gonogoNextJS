@@ -116,6 +116,7 @@ const Nav = styled.nav`
   ul {
     list-style: none;
     a {
+      padding: 0 10px;
       font-size: 0.9rem;
       color: var(--blue);
     }
@@ -212,7 +213,7 @@ const DesktopSubMenu = styled.ul`
     a{ 
       display: flex; 
       align-items: center; 
-      padding: 20px; 
+      padding: 20px 30px; 
      margin-left: 10px;
      span{ 
       margin-left: 10px; 

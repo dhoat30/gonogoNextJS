@@ -51,6 +51,7 @@ function Hero({
       src={desktopImage}
       layout="fill"
       objectFit="cover"
+      alt={title}
       /> 
       <div className="hero-text">
         <h1>{title}</h1>

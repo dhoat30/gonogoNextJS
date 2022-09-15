@@ -7,6 +7,7 @@ import ArrowIcon from "../Icons/ArrowIcon";
 function Testimonial({ testimonialsData }) {
   const singleTestimonial = testimonialsData.map((data, index) => {
     return (
+
       <SingleTestimonial
         key={index}
         title={data.title.rendered}
@@ -36,7 +37,8 @@ function Testimonial({ testimonialsData }) {
   };
 
   return (
-    <Section className="testimonial-section">
+    <Section className=" box-shadow" id="testimonials">
+      <h3>Testimonials</h3>
       <Carousel
       showStatus={false}
         renderArrowNext={(onClickHandler, hasNext, label) =>
@@ -67,6 +69,7 @@ function Testimonial({ testimonialsData }) {
         showArrows={true}
         autoPlay={true}
       >
+         
         {singleTestimonial}
       </Carousel>
     </Section>
@@ -77,12 +80,17 @@ export default Testimonial;
 //  style="transform: rotate(180deg);"
 
 const Section = styled.section`
-  padding: 70px 0;
-  display: flex;
-  justify-content: center;
-   
+  padding: 50px 0;
+   max-width: 1000px; 
+   margin: 70px auto; 
   .carousel { 
     overflow: visible !important; 
+    max-width: 800px;
+    margin: 0 auto; 
+  }
+  h3{ 
+    text-align: center; 
+    margin-bottom: 30px; 
   }
   p{ 
     @media(max-width: 600px){ 

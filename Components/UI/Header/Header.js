@@ -9,7 +9,7 @@ function Header({ logo, allModulesData, allBlogData }) {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
 
   return (
-    <section className="light-blue-bk">
+    <header className="light-blue-bk">
       <div className="max-width">
         <DesktopHeader className="site-header">
           <NavContainer>
@@ -73,7 +73,7 @@ function Header({ logo, allModulesData, allBlogData }) {
           </Link>
         </MobileHeader>
       </div>
-    </section>
+    </header>
   );
 }
 
