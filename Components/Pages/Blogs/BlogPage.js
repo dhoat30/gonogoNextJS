@@ -33,7 +33,7 @@ function BlogPage({ blogData }) {
 }
 
 export default BlogPage;
-const Main = styled.main`
+const Main = styled.section`
 background: var(--lightBlue);
 .blog-hero {
     display: flex;
@@ -41,11 +41,18 @@ background: var(--lightBlue);
     align-items: center; 
     justify-content: space-between;
     gap: 0 30px; 
+  
+    @media(max-width: 900px){ 
+      flex-wrap: wrap-reverse;
+    }
     .blog-text-section{ 
         .author{ 
             font-size: 0.8rem; 
             margin-bottom: 10px; 
         }
+        @media(max-width: 900px){ 
+          width: 100%; 
+                }
         width: 50%; 
         h1{ 
             color:var(--blue);
@@ -60,7 +67,10 @@ const ImageContainer = styled.div`
 position: relative; 
 width:50%;
 height: 100%; 
-
+ @media(max-width: 900px){ 
+          width: 100%;
+          height: 300px;  
+                }
 `
 const MainContent=styled.section`
 max-width: 900px; 

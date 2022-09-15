@@ -62,7 +62,7 @@ const Heading = styled.h1`
 const FlexBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 100px 40px;
+  gap: 60px 40px;
   margin-top: 50px;
   @media (max-width: 800px) {
     grid-template-columns: 1fr 1fr;
@@ -87,6 +87,7 @@ const Content = styled.div`
     line-height: 1.7rem;
   }
   a {
+    cursor: pointer; 
     color: var(--yellow);
     text-decoration: underline;
     font-size: 0.8rem;

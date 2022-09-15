@@ -27,7 +27,7 @@ function BlogArchive({allBlogData}) {
     })
   return (
     <Section className="max-width box-shadow">
-        <Heading>Our Blog</Heading>
+        <Heading>Our Blogs</Heading>
         <FlexBox >
             {blogCards}
         </FlexBox> 
@@ -38,25 +38,35 @@ function BlogArchive({allBlogData}) {
 export default BlogArchive
 const Section = styled.section`
 margin: 70px auto;
-
+@media (max-width: 1100px) {
+    padding: 50px 20px; 
+  }
 `
 const Heading = styled.h1`
 color: var(--blue); 
 text-align: center; 
 `
 const FlexBox = styled.div`
-display: flex; 
-justify-content: center; 
-gap: 20px; 
-margin-top: 50px; 
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 50px 40px;
+margin-top: 50px;
+@media (max-width: 900px) {
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 600px) {
+  grid-template-columns: 1fr;
+}
 `
 const Card = styled.div`
-width: 50%; 
+width: 100%; 
+cursor: pointer; 
+
 `
 const ImageContainer = styled.div`
 position: relative; 
 width: 100%; 
-height: 400px; 
+height: 300px; 
 `
 const Content = styled.div`
 margin-top: 10px; 
