@@ -1,27 +1,19 @@
 import React, {useState} from 'react'
 import styled from "styled-components";
+import PrimaryButton from '../Buttons/PrimaryButton'
 
 function Form({emailTo, emailRouteUrl, formName, cta}) {
   
-    // const [enteredFirstName, setEnteredFirstName] = useState('')
-    // const [enteredFirstNameTouched, setEnteredFirstNameTouched] = useState(false)
+  const [showLoader, setShowLoader] = useState(false)
+  const [response, setResponse] = useState('')
+  const [formSubmitted, setFormSubmitted] = useState(false)
 
-    // const [enteredLastName, setEnteredLastName] = useState('')
-    // const [enteredLastNameTouched, setEnteredLastNameTouched] = useState(false)
-
-    // const [enteredEmail, setEnteredEmail] = useState('')
-    // const [enteredEmailTouched, setEnteredEmailTouched] = useState(false) 
-    
-    // const [enteredPhone, setEnteredPhone] = useState('')
-    // const [enteredPhoneTouched, setEnteredPhoneTouched] = useState(false)
-
-
-    // const [enteredMessage, setEnteredMessage] = useState('')
-  const [showLoading, setShowLoading] = useState(false)
-    const [response, setResponse] = useState('')
     // submit handler
     const submitHandler = (e) => {
       e.preventDefault()
+      if(formSubmitted){ 
+        return
+    }
        const body = { 
         firstName: e.target[0].value, 
         lastName: e.target[1].value, 
@@ -33,7 +25,7 @@ function Form({emailTo, emailRouteUrl, formName, cta}) {
         formName: formName, 
         emailTo: emailTo
        }
-      setShowLoading(true) 
+      setShowLoader(true) 
       fetch(emailRouteUrl, {
           method: "POST",
           headers: {
@@ -43,17 +35,23 @@ function Form({emailTo, emailRouteUrl, formName, cta}) {
       })
           .then(res => res.json())
           .then(res => {
+            console.log(res)
               if (res === 200) {
-                setShowLoading(false) 
+                setShowLoader(false) 
                 setResponse("Sent!")
+                setFormSubmitted(true)
               }
               else if (res === 400) {
-                  setResponse("Error!")
-                  setShowLoading(false) 
+                setResponse("Try again!")
+                setShowLoader(false) 
 
               }
           })
-          .catch(err => console.log(err))
+          .catch(err => { 
+            console.log(err)
+            setShowLoader(false) 
+            setResponse("Try again!") 
+        })
   }
   return (
     <FormStyle action="" className="box-shadow" onSubmit={submitHandler}>
@@ -100,11 +98,7 @@ function Form({emailTo, emailRouteUrl, formName, cta}) {
     </div>
 
     <div className="book-demo-btn">
-      <button className="primary-btn" type="submit">
-       
-        {showLoading ? "Sending..." : cta}
-
-      </button>
+      <PrimaryButton cta={response ? response : cta} showLoader={showLoader}/> 
       
     </div>
     

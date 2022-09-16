@@ -8,7 +8,7 @@ function modules({moduleData, featuresData, stillThinkingData}) {
   const seo = {
     title: moduleData[0].yoast_head_json.title,
     description: moduleData[0].yoast_head_json.description,
-    imageSrc: moduleData[0].yoast_head_json.og_image &&  homePageData[0].yoast_head_json.og_image[0].url
+    imageSrc: moduleData[0].yoast_head_json.og_image &&  moduleData[0].yoast_head_json.og_image[0].url
   }
   return (
     <>

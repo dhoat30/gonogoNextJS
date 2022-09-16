@@ -2,10 +2,10 @@ import React from 'react'
 import getCPT from '../util/get-cpt'
 import SEO from '../Components/SEO'
 import getPage from '../util/get-page'
-import ContactUs from '../Components/Pages/ContactUs'
 import getContact from '../util/get-contact'
+import LegalPage from '../Components/Pages/legal/LegalPage'
 
-function contactUs({pageData, featuresData, testimonialsData, contactData}) {
+function termsConditions({pageData, featuresData, testimonialsData, contactData}) {
   console.log(pageData)
 
   const seo = {
@@ -18,21 +18,22 @@ function contactUs({pageData, featuresData, testimonialsData, contactData}) {
      <SEO
       seo={seo}
     /> 
-    <ContactUs
-    pageData={pageData[0]}
-    contactData={contactData}
-    testimonialsData={testimonialsData}
+    <LegalPage
+     pageData={pageData[0] }
+     contactData={contactData}
+     testimonialsData={testimonialsData}
     /> 
+
 
     </React.Fragment>     
 
   )
 }
 
-export default contactUs
+export default termsConditions
 export async function getStaticProps(context) {
   // get home page data using category from hero images 
-  const pageData = await getPage("contact-us")
+  const pageData = await getPage("terms-and-conditions")
   const featuresData = await getCPT("features")
   const testimonialsData = await getCPT("testimonials")
   const allModulesData = await getCPT('modules')

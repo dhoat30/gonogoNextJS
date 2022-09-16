@@ -24,6 +24,7 @@ function Navbar({allModulesData, allBlogData, onClick}) {
           layout="fixed"
           width="40px"
           height="40px"
+          alt={ data.title.rendered}
         />
           <span dangerouslySetInnerHTML={{ __html: data.title.rendered }}/> 
         </a>

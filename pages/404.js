@@ -2,37 +2,37 @@ import React from 'react'
 import getCPT from '../util/get-cpt'
 import SEO from '../Components/SEO'
 import getPage from '../util/get-page'
-import ContactUs from '../Components/Pages/ContactUs'
 import getContact from '../util/get-contact'
-
-function contactUs({pageData, featuresData, testimonialsData, contactData}) {
+import LegalPage from '../Components/Pages/legal/LegalPage'
+import Head from 'next/head'
+import Link from 'next/link'
+function termsConditions({pageData, featuresData, testimonialsData, contactData}) {
   console.log(pageData)
 
-  const seo = {
-    title: pageData[0].yoast_head_json.title,
-    description: pageData[0].yoast_head_json.description,
-    imageSrc: pageData[0].yoast_head_json.og_image > 0 &&  pageData[0].yoast_head_json.og_image[0].url
-  }
   return (
     <React.Fragment> 
-     <SEO
-      seo={seo}
-    /> 
-    <ContactUs
-    pageData={pageData[0]}
-    contactData={contactData}
-    testimonialsData={testimonialsData}
-    /> 
+        <Head>
+        <meta name="robots" content="noindex"/>
+        </Head>
+    
+    <h1>404 - Page Not Found</h1>
+    <Link href="/">
+      <a>
+        Go back home
+      </a>
+    </Link>
+
+
 
     </React.Fragment>     
 
   )
 }
 
-export default contactUs
+export default termsConditions
 export async function getStaticProps(context) {
   // get home page data using category from hero images 
-  const pageData = await getPage("contact-us")
+  const pageData = await getPage("terms-and-conditions")
   const featuresData = await getCPT("features")
   const testimonialsData = await getCPT("testimonials")
   const allModulesData = await getCPT('modules')

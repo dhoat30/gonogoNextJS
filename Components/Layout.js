@@ -53,6 +53,7 @@ function Layout(props) {
           />
         </>
       )}
+     
       {loading && (
         <>
           <Overlay />
@@ -60,7 +61,7 @@ function Layout(props) {
         </>
       )}
 
-      <Footer allModulesData={props.children.props.allModulesData} />
+      <Footer allModulesData={props.children.props.allModulesData} socialMediaData={props.children.props.contactData.socialMediaData}/>
     </div>
   );
 }

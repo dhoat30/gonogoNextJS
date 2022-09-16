@@ -53,6 +53,7 @@ function ModulesFilters({ allModulesData }) {
                 layout="fixed"
                 width="70px"
                 height="70px"
+                alt={data.acf.hero_section.title}
               />
             )}
           </div>
@@ -60,7 +61,7 @@ function ModulesFilters({ allModulesData }) {
             <h4>{data.acf.hero_section.title} </h4>
             <p>{data.acf.hero_section.subtitle}</p>
             <Link href={`/modules/${data.slug}`} passHref>
-              <a>Learn more</a>
+              <a>Explore</a>
             </Link>
           </div>
         </Card>
@@ -90,6 +91,7 @@ function ModulesFilters({ allModulesData }) {
                     activeModuleImage[0].acf.module_image.width) *
                   100
                 }
+                alt="GonoGo modules"
               />
             ) : (
               <Image
@@ -101,6 +103,8 @@ function ModulesFilters({ allModulesData }) {
                     moduleIDs[0].acf.module_image.width) *
                   100
                 }
+                alt="GonoGo modules"
+
               />
             )}
           </div>

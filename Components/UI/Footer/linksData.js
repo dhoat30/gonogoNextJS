@@ -1,4 +1,4 @@
-const linksData = [
+const linksData = 
   {
     links: [
       { slug: "/blogs", title: "Blogs" },
@@ -23,15 +23,14 @@ const linksData = [
         title: "Features",
       },
     ],
-  },
-  {
     legal: [
-      { slug: "/privacy-policy", title: "Privacy Policy" },
+      { slug: "/privacy-policy", 
+      title: "Privacy Policy" 
+    },
       {
         slug: "/terms-conditions",
         title: "Terms & Conditions",
       },
-    ],
-  },
-];
+    ]
+  };
 export default linksData;

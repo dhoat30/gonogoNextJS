@@ -1,76 +1,86 @@
 import React from "react";
 import Link from "next/link";
-import styled from 'styled-components'
+import styled from "styled-components";
 import FooterLinkColumn from "./FooterLinkColumns/FooterLinkColumn";
 import linksData from "./linksData";
-function Footer({ allModulesData }) {
-
-  if(!allModulesData){ 
-    return
+import SubscriberForm from "../Forms/SubscriberForm";
+import Image from 'next/image'
+function Footer({ allModulesData, socialMediaData }) {
+  if (!allModulesData) {
+    return;
   }
-
+ 
   const modulesLinks = allModulesData.map((data) => {
     return (
-      <FooterLinkColumn 
-      key={data.id}
-      slug={`/modules/${data.slug}`}
-      title={data.title.rendered}
-      /> 
+      <FooterLinkColumn
+        key={data.id}
+        slug={`/modules/${data.slug}`}
+        title={data.title.rendered}
+      />
     );
   });
 
-  // extra links 
-  const extraLinks = linksData[0].links.map((data, index)=> {
-   
-    return (
-      <FooterLinkColumn 
-      key={index}
-      slug={data.slug}
-      title={data.title}
-      /> 
-    );
+  // extra links
+  const extraLinks = linksData.links.map((data, index) => {
+    return <FooterLinkColumn key={index} slug={data.slug} title={data.title} />;
+  });
+
+  // extra links
+  const legalLinks = linksData.legal.map((data, index) => {
+    return <FooterLinkColumn key={index} slug={data.slug} title={data.title} />;
+  });
+
+  // social media 
+  const socialMedia = socialMediaData.map((data, index)=> { 
+    console.log(data)
+    return(
+      <a href={data.social_media_link}  key={index} target="_blank">
+        <Image src={data.social_media_icon.url}
+        alt="social media icon"
+        width="35px"
+        height="35px"
+        layout="fixed"
+        /> 
+      </a>
+    )
+
   })
 
   return (
-    <FooterStyle >
+    <FooterStyle>
       <div className="site-footer max-width">
         <div className="newsletter">
-          <span className="footer_head_text">Subscribe to our newsletter</span>
-          <form action="" className="subscription-area">
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email address"
-            />
-            <button type="submit" className="primary-btn">
-              Subscribe
-            </button>
-          </form>
+          <h6 className="footer_head_text">Subscribe to our newsletter</h6>
+          <SubscriberForm
+            emailRouteUrl={`${process.env.url}/wp-json/webduel/v1/subscription-form`}
+            formName="Subscription Form"
+            emailTo="designer@webduel.co.nz"
+            cta="Subscribe"
+          />
           <div className="follow-us">
-            <span className="footer_head_text">Follow Us</span>
-            <i className="fa-brands fa-facebook-f"></i>
-            <i className="fa-brands fa-youtube"></i>
+            <h6 className="footer_head_text">Follow Us</h6>
+            <div className="icons">
+              {socialMedia}
+            </div>
           </div>
         </div>
         <div className="solutions">
-          <span className="footer_head_text">Solutions</span>
+          <h6 className="footer_head_text">Solutions</h6>
           <ul>{modulesLinks}</ul>
         </div>
         <div className="links">
-          <span className="footer_head_text">Links</span>
-          <ul>
-            {extraLinks}
-          </ul>
+          <h6 className="footer_head_text">Links</h6>
+          <ul>{extraLinks}</ul>
         </div>
         <div className="legal">
-          <span className="footer_head_text">Legal</span>
-          
+          <h6 className="footer_head_text">Legal</h6>
+          <ul>{legalLinks}</ul>
         </div>
       </div>
 
       <div className="copyright">
         <div className="copyright-text">
-          <p>Copyright © 2022 GonoGo | Build By Webduel</p>
+          <p>Copyright © 2022 GonoGo | Build By WebDuel</p>
         </div>
       </div>
     </FooterStyle>
@@ -79,5 +89,5 @@ function Footer({ allModulesData }) {
 
 export default Footer;
 const FooterStyle = styled.footer`
-background: #F6F6F6; 
-`
+  background: #f6f6f6;
+`;

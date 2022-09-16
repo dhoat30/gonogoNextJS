@@ -9,7 +9,7 @@ export default function Home({homePageData, featuresData, testimonialsData, cont
   const seo = {
     title: homePageData[0].yoast_head_json.title,
     description: homePageData[0].yoast_head_json.description,
-    imageSrc: homePageData[0].yoast_head_json.og_image.length > 0 &&  homePageData[0].yoast_head_json.og_image[0].url
+    imageSrc: homePageData[0].yoast_head_json.og_image > 0 &&  homePageData[0].yoast_head_json.og_image[0].url
   }
   return (
   <React.Fragment> 

@@ -1,22 +1,29 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import VideoIcon from '../Icons/VideoIcon'
 import styled from 'styled-components'
 import Image from 'next/image'
+import VideoContext from '../../../Store/video-context'
+
 function Cloud({title, content, link, image}) {
+  const videoCtx = useContext(VideoContext)
+
   return (
     <section className="third-section">
       <div className="container max-width">
          <div className="third-section-text">
             <h3>{title}</h3>
             <div dangerouslySetInnerHTML={{__html: content}}/>
-            <AnchorStyle href={link} >
+            <AnchorStyle   onClick={()=>  videoCtx.getVideoModal(true)}>
                 <VideoIconStyle/> 
                 <span>watch a 9-min video</span>
             </AnchorStyle>
          </div>
-         <div className="third-section-img">
-           <Image src={image.url} alt={title ? title : content} layout="fixed" width="400px" height="250px"/>
-         </div>
+         <ImageContainer className="third-section-img">
+           <Image src={image.url} alt={title ? title : content}   layout="responsive"
+              width="100%"
+              quality="30%"
+              height={(image.height / image.width) * 100}/>
+         </ImageContainer>
       </div>
    </section>
   )
@@ -34,7 +41,8 @@ path{
     fill: var(--lightYellow);
 }
 `
-const AnchorStyle = styled.a`
+const AnchorStyle = styled.div`
+cursor:pointer; 
 margin-top: 10px;
 display: flex; 
 align-items:center; 
@@ -44,3 +52,11 @@ gap: 5px;
 `
 // style="display: flex; gap: 7px; align-items: center;"
 // style="font-weight: 600; font-size: 1.5rem; line-height: 36px; letter-spacing: 0.035em; color: #053152;"
+
+const ImageContainer= styled.div`
+display: block; 
+width: 40%; 
+@media(max-width: 700px){ 
+  width: 80%; 
+}
+`
