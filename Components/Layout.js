@@ -61,7 +61,7 @@ function Layout(props) {
         </>
       )}
 
-      <Footer allModulesData={props.children.props.allModulesData} socialMediaData={props.children.props.contactData.socialMediaData}/>
+      <Footer allModulesData={props.children.props.allModulesData} contactData={props.children.props.contactData}/>
     </div>
   );
 }

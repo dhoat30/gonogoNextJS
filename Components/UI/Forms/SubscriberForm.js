@@ -51,6 +51,7 @@ function SubscriberForm({emailTo, emailRouteUrl, formName, cta} ) {
               name="email"
               placeholder="Enter your email address"
               id="email"
+              required
             />
             <PrimaryButton cta={response ? response : cta} showLoader={showLoader} />
           </Form>
@@ -74,6 +75,9 @@ border: 0 ;
 width: 350px; 
 padding: 18px 5px; 
 border-radius:50px;
+@media(max-width: 500px){ 
+    width: 100% !important; 
+}
 &:focus {
     outline: none;
     box-shadow: 0px 0px 2px var(--blue);

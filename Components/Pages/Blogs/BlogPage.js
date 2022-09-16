@@ -44,8 +44,11 @@ background: var(--lightBlue);
   
     @media(max-width: 900px){ 
       flex-wrap: wrap-reverse;
+      height: auto; 
+   padding-bottom: 40px; 
     }
     .blog-text-section{ 
+        margin-top: 10px; 
         .author{ 
             font-size: 0.8rem; 
             margin-bottom: 10px; 

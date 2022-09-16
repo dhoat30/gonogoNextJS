@@ -57,7 +57,8 @@ function Navbar({allModulesData, allBlogData, onClick}) {
 
 
   return (
-    <Nav className="top-nav" >
+    <>
+     <Nav className="top-nav" >
       <ul>
         <li onClick={onClick}>
           <Link href="/" passHref>
@@ -105,8 +106,17 @@ function Navbar({allModulesData, allBlogData, onClick}) {
             <a>Contact Us</a>
           </Link>
         </li>
+            <li>
+            <Link href="/book-a-demo" passHref>
+            <BookDemoStyle className="primary-btn">book a demo</BookDemoStyle>
+          </Link>
+            </li>
       </ul>
+    
     </Nav>
+       
+    </>
+   
   );
 }
 
@@ -126,6 +136,7 @@ const Nav = styled.nav`
     display: flex;
     width: 100%;
     justify-content: space-between;
+ 
   }
   li {
     padding: 20px 0; 
@@ -152,7 +163,7 @@ const Nav = styled.nav`
         > a {
           display: block;
           padding: 20px 10px;
-          border-bottom: 1px solid var(--blue);
+          border-bottom: 1px solid var(--lightGrey);
         }
       }
     }
@@ -168,12 +179,13 @@ display: none;
   top: 50px;
   background: var(--lightBlue);
   z-index: 20;
+
   box-shadow: var(--boxShadow);
   li {
     background: var(--blue); 
     a {
       padding: 20px 20px;
-      border-bottom: 1px solid var(--midGrey);
+      border-bottom: 1px solid var(--lightGrey);
       width: 100%;
       display: block;
       color: white; 
@@ -206,7 +218,7 @@ const DesktopSubMenu = styled.ul`
   align-items: center;  
   height: 250px;
   padding-bottom: 20px; 
- 
+  
   li{ 
     width: 300px;
     cursor: pointer; 
@@ -221,4 +233,18 @@ const DesktopSubMenu = styled.ul`
      }
     }
   }
+`
+
+const BookDemoStyle = styled.a`
+display: block; 
+width: 95%; 
+max-width: 400px; 
+margin: 10px auto; 
+padding: 10px !important; 
+border-bottom: none !important;
+color: white !important; 
+display: none; 
+@media(max-width: 1000px){ 
+  display: block; 
+}
 `

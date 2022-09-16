@@ -68,9 +68,7 @@ function Header({ logo, allModulesData, allBlogData }) {
             <Navbar allModulesData={allModulesData} allBlogData={allBlogData} onClick={()=> setToggleMobileMenu(false)}/>
           )}
 
-          <Link href="/book-a-demo" passHref>
-            <a className="primary-btn">book a demo</a>
-          </Link>
+       
         </MobileHeader>
       </div>
     </header>

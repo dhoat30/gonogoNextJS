@@ -7,7 +7,6 @@ import LegalPage from '../Components/Pages/legal/LegalPage'
 import Head from 'next/head'
 import Link from 'next/link'
 function termsConditions({pageData, featuresData, testimonialsData, contactData}) {
-  console.log(pageData)
 
   return (
     <React.Fragment> 

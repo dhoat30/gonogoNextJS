@@ -19,17 +19,14 @@ module.exports = (phase, { defaultConfig }) => {
     }
   }
   return {
-    i18n: {
-      locales: ["en"],
-      defaultLocale: "en",
-    },
+   
     experimental: {
       // Enables the styled-components SWC transform
       styledComponents: true
     },
     env: {
       url: "https://test.webduel.co.nz",
-      SITE_URL: "https://vercel.com/webduel/gonogo"
+      SITE_URL: "https://gonogo.vercel.app/"
     },
     reactStrictMode: true,
     images: {

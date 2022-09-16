@@ -5,11 +5,12 @@ import FooterLinkColumn from "./FooterLinkColumns/FooterLinkColumn";
 import linksData from "./linksData";
 import SubscriberForm from "../Forms/SubscriberForm";
 import Image from 'next/image'
-function Footer({ allModulesData, socialMediaData }) {
-  if (!allModulesData) {
+function Footer({ allModulesData, contactData }) {
+  console.log(contactData)
+  if ( contactData.social_media.length < 1 ) {
     return;
   }
- 
+
   const modulesLinks = allModulesData.map((data) => {
     return (
       <FooterLinkColumn
@@ -31,10 +32,9 @@ function Footer({ allModulesData, socialMediaData }) {
   });
 
   // social media 
-  const socialMedia = socialMediaData.map((data, index)=> { 
-    console.log(data)
+  const socialMedia = contactData.social_media.map((data, index)=> { 
     return(
-      <a href={data.social_media_link}  key={index} target="_blank">
+      <a href={data.social_media_link}  key={index} target="_blank" rel="noreferrer">
         <Image src={data.social_media_icon.url}
         alt="social media icon"
         width="35px"
