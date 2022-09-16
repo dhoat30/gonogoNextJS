@@ -7,7 +7,7 @@ import SubscriberForm from "../Forms/SubscriberForm";
 import Image from 'next/image'
 function Footer({ allModulesData, contactData }) {
   console.log(contactData)
-  if ( contactData.social_media.length < 1 ) {
+  if ( contactData.social_media.length < 1 || !allModulesData) {
     return;
   }
 
