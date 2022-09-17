@@ -7,7 +7,7 @@ import HamburgerMenu from "../Icons/HamburgerMenu";
 import CloseIcon from "../Icons/CloseIcon";
 function Header({ logo, allModulesData, allBlogData }) {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
-
+ 
   return (
     <header className="light-blue-bk">
       <div className="max-width">

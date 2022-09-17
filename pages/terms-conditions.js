@@ -3,7 +3,7 @@ import getCPT from '../util/get-cpt'
 import SEO from '../Components/SEO'
 import getPage from '../util/get-page'
 import getContact from '../util/get-contact'
-import LegalPage from '../Components/Pages/legal/LegalPage'
+import LegalPage from '../Components/Pages/Legal/LegalPage'
 
 function termsConditions({pageData, featuresData, testimonialsData, contactData}) {
   console.log(pageData)

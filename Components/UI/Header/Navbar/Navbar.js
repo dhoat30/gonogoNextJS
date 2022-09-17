@@ -14,6 +14,7 @@ function Navbar({allModulesData, allBlogData, onClick}) {
   }
   // module menu
   const desktopSubMenu = allModulesData.map(data=> { 
+    console.log(data.title.rendered)
     return ( 
       <li 
       key={data.id}>
