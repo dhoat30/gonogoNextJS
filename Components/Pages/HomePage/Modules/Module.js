@@ -7,12 +7,14 @@ import StillThinkingRow from '../../../UI/Videos/StillThinkingRow'
 import Features from '../../../UI/Features/Features'
 import JustText from '../../../UI/RowLayout/JustText'
 function Module({moduleData, featuresData, stillThinkingData}) {
+  console.log(moduleData)
   if(!moduleData){ 
     return
   }
     const sections = moduleData.acf.sections.map((data, index)=> { 
        if(!data.layout.images ){ 
-        return <JustText 
+
+        return <JustText
         key={index}
             content={data.layout.content}
 
@@ -66,7 +68,10 @@ function Module({moduleData, featuresData, stillThinkingData}) {
         {sections}
         <Features featuresData={featuresData}/> 
         {/* still thinking section */}
-        <StillThinkingRow stillThinkingData={stillThinkingData}/> 
+        <StillThinkingRow 
+        thumbnail={ moduleData.acf.module_video.video_thumbnail ? moduleData.acf.module_video.video_thumbnail :  stillThinkingData.acf.video_thumbnail}
+        videoID={ moduleData.acf.module_video.video_id ? moduleData.acf.module_video.video_id : stillThinkingData.acf.video_id}
+/> 
     </main>
   )
 }

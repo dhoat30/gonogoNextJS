@@ -1,14 +1,19 @@
-import React from "react";
+import React, {useContext} from 'react'
 import YoutubeVideo from "./YoutubeVideo";
 import styled from "styled-components";
 import PrimaryAnchor from "../Anchor/PrimaryAnchor";
 import VideoTrigger from "./VideoTrigger";
-function StillThinkingTwoColumn({ stillThinkingData }) {
+import VideoContext from '../../../Store/video-context';
+import Overlay from '../Overlay/Overlay';
+function StillThinkingTwoColumn({ thumbnail, videoID, stillThinkingData }) {
+  const videoCtx = useContext(VideoContext);
+
   return (
-    <Section className="still-thinking">
+    <>
+     <Section className="still-thinking">
       <FlexBox className="max-width">
         <VideoContainer className="still-thinking-img">
-          <VideoTrigger thumbnail={stillThinkingData.acf.video_thumbnail} />
+          <VideoTrigger thumbnail={thumbnail} />
         </VideoContainer>
         <ContentContainer className="still-thinking-text">
           <h3>{stillThinkingData.title.rendered}</h3>
@@ -23,7 +28,21 @@ function StillThinkingTwoColumn({ stillThinkingData }) {
           </div>
         </ContentContainer>
       </FlexBox>
-    </Section>
+    </Section> 
+    {videoCtx.videoModal && (
+        <>
+          <YoutubeVideo
+            videoID={videoID}
+          />
+          <Overlay
+            onClick={() => {
+              videoCtx.getVideoModal(false);
+            }}
+          />
+        </>
+      )}
+    </>
+   
   );
 }
 

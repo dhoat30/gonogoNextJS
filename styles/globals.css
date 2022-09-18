@@ -1,7 +1,7 @@
 :root{ 
 --lightBlue: #F4F7FE;
---yellow: #FF9734; 
---darkYellow: #ff7b00; 
+--yellow: #ff7b00; 
+--darkYellow: #ff5e00; 
 
 --lightYellow: #FFC579; 
 --blue: #053152;
@@ -58,10 +58,10 @@ a {
   padding: 0 10px;
 }
 .primary-btn {
-  background-color: #FF9734;
+  background-color: var(--yellow);
   color: #F4F7FE;
   padding: 11px 22.5px;
-  border: 1px solid #FF9734;
+  border: 1px solid var(--yellow);
   border-radius: 50px;
   text-transform: uppercase;
   text-decoration: none;
@@ -72,9 +72,9 @@ a {
   text-align: center;
 }
 .primary-btn:hover {
-  background-color: #fd7a00;
+  background-color: var(--darkYellow);
 
-  border: 1px solid #fd7a00;
+  border: 1px solid var(--darkYellow);
 
 }
 @media(max-width: 500px){ 
@@ -96,11 +96,11 @@ a {
 .secondary-btn {
   background-color: #FFFFFF;
   padding: 11px 22.5px;
-  border: 1px solid #FF9734;
+  border: 1px solid var(--yellow);
   border-radius: 50px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #FF9734;
+  color: var(--yellow);
   font-size: 0.9rem; 
   letter-spacing: 0.05rem;
   display: flex;
@@ -125,9 +125,9 @@ cursor: pointer;
   }
 }
 .secondary-btn:hover {
-  background-color: #fd7a00;
+  background-color: var(--darkYellow);
   color: white; 
-  border: 1px solid #fd7a00;
+  border: 1px solid var(--darkYellow);
 }
 .box-shadow{ 
   box-shadow: var(--boxShadow);
@@ -1114,7 +1114,7 @@ p {
 }
 
 .contact-hero {
-  margin-bottom: 300px;
+  margin-bottom: 400px;
 }
 
 /* blog */

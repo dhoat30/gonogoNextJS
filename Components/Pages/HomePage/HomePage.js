@@ -88,7 +88,7 @@ function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingD
       <Testimonial testimonialsData={testimonialsData}/> 
 
       {/* still thinking  */}
-      <StillThinkingTwoColumn stillThinkingData={stillThinkingData} /> 
+      <StillThinkingTwoColumn videoID={stillThinkingData.acf.video_id} thumbnail={stillThinkingData.acf.video_thumbnail}  stillThinkingData={stillThinkingData}/> 
     </main>
   );
 }

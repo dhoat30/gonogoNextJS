@@ -1,27 +1,46 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import YoutubeVideo from './YoutubeVideo'
 import styled from 'styled-components'
 import PrimaryAnchor from '../Anchor/PrimaryAnchor'
 import VideoTrigger from './VideoTrigger'
-function Still({stillThinkingData}) {
+import VideoContext from '../../../Store/video-context'
+import Overlay from '../Overlay/Overlay'
+function Still({thumbnail, videoID}) {
+  const videoCtx = useContext(VideoContext);
+
   return (
-    <Section className="still-thinking">
+    <>
+ <Section className="still-thinking">
       <FlexBox className="max-width">
         <VideoContainer className="still-thinking-img">
-          <VideoTrigger thumbnail={stillThinkingData.acf.video_thumbnail}/> 
+          <VideoTrigger thumbnail={thumbnail}/> 
         </VideoContainer>
         <ContentContainer className="still-thinking-text">
             <h3>Still Thinking?</h3>
             <p>Experience the software for yourself with a personalised demo tailored to your organisation&apos;s specific health and safety needs.</p>
             <div className="still-thinking-btn">
                 <PrimaryAnchor 
-                link="/"
+                link="/book-a-demo"
                 text="BOOK A DEMO"
                 /> 
             </div>
         </ContentContainer>
       </FlexBox>
    </Section>
+{videoCtx.videoModal && (
+        <>
+          <YoutubeVideo
+            videoID={videoID}
+          />
+          <Overlay
+            onClick={() => {
+              videoCtx.getVideoModal(false);
+            }}
+          />
+        </>
+      )}
+    </>
+   
   
   )
 }

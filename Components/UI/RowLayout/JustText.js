@@ -2,9 +2,11 @@ import React from 'react'
 import styled from "styled-components";
 
 function JustText({content}) {
+  const smallText = content.length > 300 && "small-text"
+
   return (
     <Section>
-    <FlexBox className="max-width">
+    <FlexBox className={`${smallText} max-width`}>
     
       
         <div dangerouslySetInnerHTML={{ __html: content }} />
@@ -24,6 +26,12 @@ const Section = styled.section`
   @media (max-width: 500px) {
     margin-bottom: 0;
     padding: 40px 0 40px 0;
+  }
+  .small-text{ 
+    h3{ 
+      font-size: 1.2rem; 
+      line-height: 1.7rem;
+    }
   }
 `;
 const FlexBox = styled.div`

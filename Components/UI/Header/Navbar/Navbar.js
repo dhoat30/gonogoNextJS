@@ -14,7 +14,7 @@ function Navbar({allModulesData, allBlogData, onClick}) {
   }
   // module menu
   const desktopSubMenu = allModulesData.map(data=> { 
-    console.log(data.title.rendered)
+    // console.log(data.title.rendered)
     return ( 
       <li 
       key={data.id}>
@@ -56,7 +56,19 @@ function Navbar({allModulesData, allBlogData, onClick}) {
     setToggleMenu(toggleMenu ? false : true);
   };
 
-
+ const onMouseLeaveHandler=()=> { 
+  console.log('handerl')
+  // const timer = setTimeout(()=> { 
+  //   console.log('Initial timeout!')
+  // } , 2000);
+  // clearTimeout(timer);
+  setToggleMenu(false)
+//   setTimeout(() => {
+//     console.log("changing state ")
+//     setToggleMenu(false)
+// }, 1000)
+ }
+ console.log(toggleMenu)
   return (
     <>
      <Nav className="top-nav" >
@@ -67,7 +79,7 @@ function Navbar({allModulesData, allBlogData, onClick}) {
           </Link>
         </li>
 
-        <li onMouseEnter={()=> setToggleMenu(true)} onMouseLeave={()=> setToggleMenu(false)}>
+        <li onMouseEnter={()=> setToggleMenu(true)} onMouseLeave={onMouseLeaveHandler}>
           <Link href="/modules" passHref className="has-submenu">
             <a onClick={clickHandler}>
               Modules
@@ -174,6 +186,7 @@ const ArrowDownIconStyle = styled(ArrowDownIcon)`
   margin: 0 0 0 5px;
 `;
 const SubMenu = styled.ul`
+
 display: none; 
   position: absolute;
   width: 250px;
@@ -210,7 +223,7 @@ const DesktopSubMenu = styled.ul`
   position: absolute; 
   background: var(--lightBlue);
   width: 100%;
-  top: 59px; 
+  top: 35px; 
   left: 0;
   z-index: 1;  
   display: flex; 

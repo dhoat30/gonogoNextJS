@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import YouTube from 'react-youtube';
 import styled from 'styled-components'
-function YoutubeVideo({thumbnail, videoID}) {
+function YoutubeVideo({ videoID}) {
 
     const opts = {
         height: '350',
@@ -20,7 +20,7 @@ function YoutubeVideo({thumbnail, videoID}) {
   return (
   
    
-    <YoutubeStyle videoId="Bf5osq4gvlY" opts={opts}  onReady={onPlayerReady}/>
+    <YoutubeStyle videoId={videoID} opts={opts}  onReady={onPlayerReady}/>
 
     
   

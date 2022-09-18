@@ -2,15 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 function RowLayout({ title, content, images }) {
+  console.log(images)
   return (
-    <Section>
+    <Section imageExist={images[0].image}>
       <FlexBox className="max-width">
         <ContentBox>
           <h3>{title}</h3>
           <div dangerouslySetInnerHTML={{ __html: content }} />
         </ContentBox>
+        {images[0].image && (
         <ImageContainer className="box-shadow">
-          {images[0] && (
+        
             <Image
               src={images[0].image.url}
               layout="responsive"
@@ -18,8 +20,9 @@ function RowLayout({ title, content, images }) {
               width="100%"
               height={(images[0].image.height / images[0].image.width) * 100}
             />
-          )}
+         
         </ImageContainer>
+         )}
       </FlexBox>
     </Section>
   );
@@ -28,7 +31,7 @@ function RowLayout({ title, content, images }) {
 export default RowLayout;
 const Section = styled.section`
 padding: 70px 0;
-min-height: 90vh;
+min-height: ${(props)=> props.imageExist ? "90vh" : "0"};
 display: flex; 
 flex-direction: column; 
 justify-content: center; 

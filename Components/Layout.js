@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 
 import VideoContext from "../Store/video-context";
 import Overlay from "./UI/Overlay/Overlay";
-import YoutubeVideo from "./UI/Videos/YoutubeVideo";
 import Footer from "./UI/Footer/Footer";
 import LoadingAnimation from "./UI/LoadingAnimation/LoadingAnimation";
 function Layout(props) {
@@ -41,18 +40,7 @@ function Layout(props) {
       />
       <main>{props.children}</main>
 
-      {videoCtx.videoModal && (
-        <>
-          <YoutubeVideo
-            videoID={props.children.props.stillThinkingData[0].acf.video_id}
-          />
-          <Overlay
-            onClick={() => {
-              videoCtx.getVideoModal(false);
-            }}
-          />
-        </>
-      )}
+     
      
       {loading && (
         <>
@@ -61,7 +49,7 @@ function Layout(props) {
         </>
       )}
 
-      <Footer allModulesData={props.children.props.allModulesData} contactData={props.children.props.contactData}/>
+      <Footer    allModulesData={props.children.props.allModulesData} contactData={props.children.props.contactData}/>
     </div>
   );
 }

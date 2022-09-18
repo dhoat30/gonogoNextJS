@@ -72,7 +72,7 @@ function ModulesFilters({ allModulesData }) {
   return (
     <Section>
       <div className="container max-width">
-        <h3>Workplace Health & Safety Solutions</h3>
+        <h3>Workplace Health & Safety Modules</h3>
         <FlexBox>
           <ModuleCardsContainer>
             {moduleCard}

@@ -5,8 +5,9 @@ import FooterLinkColumn from "./FooterLinkColumns/FooterLinkColumn";
 import linksData from "./linksData";
 import SubscriberForm from "../Forms/SubscriberForm";
 import Image from 'next/image'
+
 function Footer({ allModulesData, contactData }) {
-  console.log(contactData)
+  // console.log(contactData)
   if ( contactData.social_media.length < 1 || !allModulesData) {
     return;
   }
@@ -45,27 +46,48 @@ function Footer({ allModulesData, contactData }) {
     )
 
   })
-
+ 
   return (
     <FooterStyle>
       <div className="site-footer max-width">
+      
+       
         <div className="newsletter">
+          
+          {contactData.show_subscription_box ?  
+          <>
           <h6 className="footer_head_text">Subscribe to our newsletter</h6>
-          <SubscriberForm
-            emailRouteUrl={`${process.env.url}/wp-json/webduel/v1/subscription-form`}
-            formName="Subscription Form"
-            emailTo="designer@webduel.co.nz"
-            cta="Subscribe"
-          />
-          <div className="follow-us">
+           <SubscriberForm
+           emailRouteUrl={`${process.env.url}/wp-json/webduel/v1/subscription-form`}
+           formName="Subscription Form"
+           emailTo="designer@webduel.co.nz"
+           cta="Subscribe"
+         />
+         </>
+          : 
+          <Image
+          src={contactData.logo.url}
+          alt="GonoGo logo"
+          layout="fixed"
+          width="280px"
+          height="115px"
+        />
+          }
+         
+          {contactData.show_social_media_box && 
+            <div className="follow-us">
             <h6 className="footer_head_text">Follow Us</h6>
             <div className="icons">
               {socialMedia}
             </div>
           </div>
+          }
+        
         </div>
+         
+        
         <div className="solutions">
-          <h6 className="footer_head_text">Solutions</h6>
+          <h6 className="footer_head_text">Modules</h6>
           <ul>{modulesLinks}</ul>
         </div>
         <div className="links">

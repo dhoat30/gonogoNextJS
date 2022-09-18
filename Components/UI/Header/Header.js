@@ -99,6 +99,10 @@ const DesktopHeader = styled.header`
   @media (max-width: 1000px) {
     display: none;
   }
+  .primary-btn{ 
+    position: relative; 
+    z-index: 20;
+  }
 `;
 const MobileHeader = styled.div`
   display: none;
