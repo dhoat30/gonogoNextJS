@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 function RowLayout({ title, content, images }) {
-  console.log(images)
   return (
     <Section imageExist={images[0].image}>
       <FlexBox className="max-width">

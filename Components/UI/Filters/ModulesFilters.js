@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 function ModulesFilters({ allModulesData }) {
+  console.log(allModulesData)
   // get active module ID
   const [activeModuleID, setActiveModuleID] = useState(allModulesData[0].id);
   const [activeModuleImage, setActiveModuleImage] = useState(false);

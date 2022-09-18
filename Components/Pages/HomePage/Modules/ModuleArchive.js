@@ -6,7 +6,8 @@ import Hero from "../../../UI/Hero/Hero";
 import Testimonials from "../../../UI/Testimonial/Testimonial";
 
 function ModuleArchive({ allModulesData, pageData, testimonialsData }) {
-  const blogCards = allModulesData.reverse().map((item) => {
+  
+  const blogCards = allModulesData.map((item) => {
     return (
       <Card key={item.id}>
         <ImageContainer>

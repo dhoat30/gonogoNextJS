@@ -13,7 +13,7 @@ function Layout(props) {
 
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-
+  const reverseModulesData = [...props.children.props.allModulesData].reverse()
   useEffect(() => {
     const handleStart = (url) => url !== router.asPath && setLoading(true);
     const handleComplete = (url) => url === router.asPath && setLoading(false);
@@ -35,7 +35,7 @@ function Layout(props) {
           props.children.props.contactData &&
           props.children.props.contactData.logo
         }
-        allModulesData={props.children.props.allModulesData}
+        allModulesData={reverseModulesData}
         allBlogData={props.children.props.allBlogData}
       />
       <main>{props.children}</main>
@@ -49,7 +49,7 @@ function Layout(props) {
         </>
       )}
 
-      <Footer    allModulesData={props.children.props.allModulesData} contactData={props.children.props.contactData}/>
+      <Footer    allModulesData={reverseModulesData} contactData={props.children.props.contactData}/>
     </div>
   );
 }

@@ -7,6 +7,8 @@ import getCPT from '../../util/get-cpt'
 import getPage from '../../util/get-page'
 import getSingleCpt from '../../util/get-single-cpt'
 export default function Home({pageData, featuresData, testimonialsData, contactData, stillThinkingData, allBlogData, allModulesData}) {
+  let reverseModulesData = [...allModulesData].reverse()
+
   const seo = {
     title: pageData[0].yoast_head_json.title,
     description: pageData[0].yoast_head_json.description,
@@ -19,7 +21,7 @@ export default function Home({pageData, featuresData, testimonialsData, contactD
     /> 
     <ModuleArchive
     testimonialsData={testimonialsData}
-      allModulesData={allModulesData}
+      allModulesData={reverseModulesData}
       pageData={pageData[0]}
     /> 
     </React.Fragment> 
@@ -35,6 +37,7 @@ export async function getStaticProps(context) {
   const allModulesData = await getCPT('modules')
   const contactData = await getContact();
   const allBlogData = await getCPT('posts')
+  console.log(allModulesData )
   return {
     props: {
      pageData: pageData, 

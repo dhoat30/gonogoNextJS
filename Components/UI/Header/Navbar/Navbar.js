@@ -57,7 +57,6 @@ function Navbar({allModulesData, allBlogData, onClick}) {
   };
 
  const onMouseLeaveHandler=()=> { 
-  console.log('handerl')
   // const timer = setTimeout(()=> { 
   //   console.log('Initial timeout!')
   // } , 2000);
@@ -68,7 +67,6 @@ function Navbar({allModulesData, allBlogData, onClick}) {
 //     setToggleMenu(false)
 // }, 1000)
  }
- console.log(toggleMenu)
   return (
     <>
      <Nav className="top-nav" >
