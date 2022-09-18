@@ -9,11 +9,16 @@ import LoadingAnimation from "./UI/LoadingAnimation/LoadingAnimation";
 function Layout(props) {
   // console.log(props.children.props.allModulesData)
   //get video contex for youtube modal
+ 
   const videoCtx = useContext(VideoContext);
 
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const reverseModulesData = [...props.children.props.allModulesData].reverse()
+  let reverseModulesData = []
+  if(props.children.props.allModulesData){ 
+    reverseModulesData = [...props.children.props.allModulesData].reverse()
+
+  }
   useEffect(() => {
     const handleStart = (url) => url !== router.asPath && setLoading(true);
     const handleComplete = (url) => url === router.asPath && setLoading(false);
@@ -49,7 +54,7 @@ function Layout(props) {
         </>
       )}
 
-      <Footer    allModulesData={reverseModulesData} contactData={props.children.props.contactData}/>
+      <Footer    allModulesData={reverseModulesData} contactData={props.children.props.contactData && props.children.props.contactData}/>
     </div>
   );
 }
