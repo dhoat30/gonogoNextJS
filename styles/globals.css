@@ -264,8 +264,8 @@ p {
   width: 350px; 
 }
 .site-footer>div{ 
-  width: 130px; 
-  margin: 20px 20px 0 0;
+  width: 150px; 
+  margin: 20px 10px 0 0;
 }
 .site-footer>div:nth-child(1){ 
   align-self: flex-start; 

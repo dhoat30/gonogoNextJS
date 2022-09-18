@@ -28,7 +28,7 @@ export default function Home({pageData, featuresData, testimonialsData, contactD
   )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   // get home page data using category from hero images 
   const pageData = await getPage('modules-page')
   const featuresData = await getCPT("features")
@@ -48,6 +48,6 @@ export async function getStaticProps(context) {
      allModulesData: allModulesData, 
      allBlogData: allBlogData
     },
-    revalidate: 86400
+    // revalidate: 86400
   }
 }

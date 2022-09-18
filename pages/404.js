@@ -27,7 +27,7 @@ function termsConditions({pageData, featuresData, testimonialsData, contactData}
 }
 
 export default termsConditions
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   // get home page data using category from hero images 
   const featuresData = await getCPT("features")
   const allModulesData = await getCPT('modules')
@@ -40,6 +40,6 @@ export async function getStaticProps(context) {
      contactData: contactData, 
 
     },
-    revalidate: 86400
+    // revalidate: 86400
   }
 }

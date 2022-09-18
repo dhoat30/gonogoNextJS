@@ -29,7 +29,7 @@ function modules({moduleData, featuresData, stillThinkingData, singleModuleData,
 }
 
 export default modules
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const {params} = context
   const slug = params.pid
   // get home page data using category from hero images 
@@ -48,16 +48,16 @@ export async function getStaticProps(context) {
      allModulesData: allModulesData, 
 
     },
-    revalidate: 86400
+    // revalidate: 86400
   }
 }
-export async function getStaticPaths(){ 
-     const allModulesData = await getCPT('modules')
-     const params = allModulesData.map((item)=>({ params: {pid: item.slug} }))
+// export async function getStaticPaths(){ 
+//      const allModulesData = await getCPT('modules')
+//      const params = allModulesData.map((item)=>({ params: {pid: item.slug} }))
 
-     return{ 
-      paths: params, 
-      fallback: false 
-     };
+//      return{ 
+//       paths: params, 
+//       fallback: false 
+//      };
 
-}
+// }

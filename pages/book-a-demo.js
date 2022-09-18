@@ -28,7 +28,7 @@ function bookADemo({pageData, featuresData, testimonialsData}) {
 }
 
 export default bookADemo
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   // get home page data using category from hero images 
   const pageData = await getPage("book-a-demo")
   const featuresData = await getCPT("features")
@@ -45,6 +45,6 @@ export async function getStaticProps(context) {
      contactData: contactData, 
 
     },
-    revalidate: 86400
+    // revalidate: 86400
   }
 }
