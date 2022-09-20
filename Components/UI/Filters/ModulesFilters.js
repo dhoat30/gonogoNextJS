@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
-function ModulesFilters({ allModulesData }) {
+function ModulesFilters({ allModulesData, title }) {
   console.log(allModulesData)
   // get active module ID
   const [activeModuleID, setActiveModuleID] = useState(allModulesData[0].id);
@@ -73,7 +73,7 @@ function ModulesFilters({ allModulesData }) {
   return (
     <Section>
       <div className="container max-width">
-        <h3>Workplace Health & Safety Modules</h3>
+        <h3>{title}</h3>
         <FlexBox>
           <ModuleCardsContainer>
             {moduleCard}

@@ -55,10 +55,12 @@ function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingD
       <Cloud 
       title={cloudData.title}
       content={cloudData.content}
-      link={cloudData.video_link}
+      linkText={cloudData.video_link_text}
       image={cloudData.image}
+
       /> 
       <ModulesFilters
+      title={homePageData[0].acf.module_section_title}
       allModulesData={allModulesData}
       /> 
       {/* features  */}

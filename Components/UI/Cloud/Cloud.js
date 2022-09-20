@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import VideoContext from '../../../Store/video-context'
 
-function Cloud({title, content, link, image}) {
+function Cloud({title, content, link, image, linkText}) {
   const videoCtx = useContext(VideoContext)
 
   return (
@@ -15,7 +15,7 @@ function Cloud({title, content, link, image}) {
             <div dangerouslySetInnerHTML={{__html: content}}/>
             <AnchorStyle   onClick={()=>  videoCtx.getVideoModal(true)}>
                 <VideoIconStyle/> 
-                <span>watch a 9-min video</span>
+                <span>{linkText}</span>
             </AnchorStyle>
          </div>
          <ImageContainer className="third-section-img">
