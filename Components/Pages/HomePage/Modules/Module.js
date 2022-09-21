@@ -26,6 +26,8 @@ function Module({moduleData, featuresData, stillThinkingData}) {
                 title={data.layout.title}
                 content={data.layout.content}
                 images={data.layout.images}
+                bgColor={ data.layout.background_color}
+
                 /> 
             }
             else if(data.layout.layout_type === "Two Column" && data.layout.two_column_graphics_alignment === "Left"){ 
@@ -68,6 +70,7 @@ function Module({moduleData, featuresData, stillThinkingData}) {
         <Features featuresData={featuresData}/> 
         {/* still thinking section */}
         <StillThinkingRow 
+        stillThinkingData={stillThinkingData}
         thumbnail={ moduleData.acf.module_video.video_thumbnail ? moduleData.acf.module_video.video_thumbnail :  stillThinkingData.acf.video_thumbnail}
         videoID={ moduleData.acf.module_video.video_id ? moduleData.acf.module_video.video_id : stillThinkingData.acf.video_id}
 /> 

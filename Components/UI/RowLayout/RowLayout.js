@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-function RowLayout({ title, content, images }) {
+function RowLayout({ title, content, images, bgColor }) {
   return (
-    <Section imageExist={images[0].image}>
+    <Section imageExist={images[0].image} bgColor={bgColor}>
       <FlexBox className="max-width">
         <ContentBox>
           <h3>{title}</h3>
@@ -34,8 +34,8 @@ min-height: ${(props)=> props.imageExist ? "90vh" : "0"};
 display: flex; 
 flex-direction: column; 
 justify-content: center; 
-background-color: var(--lightBlue);
-  text-align: center;
+background-color: ${props => props.bgColor === "Light Blue" && "var(--lightBlue)"}; 
+text-align: center;
   position: relative;
 
   @media (max-width: 500px) {

@@ -45,7 +45,7 @@ function TwoColumnLayout({title, content, images, bgColor, two_column_graphics_a
 export default TwoColumnLayout
 const Section = styled.section`
 
-background-color: ${props => props.bgColor === "Light Blue" && "var(--lightBlue)"}; 
+background-color: ${props => props.bgColor === "Light Blue" ? "var(--lightBlue)" : "white"}; 
 
 >div{ 
   padding: 70px 10px; 

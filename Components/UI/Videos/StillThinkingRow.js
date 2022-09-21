@@ -5,7 +5,7 @@ import PrimaryAnchor from '../Anchor/PrimaryAnchor'
 import VideoTrigger from './VideoTrigger'
 import VideoContext from '../../../Store/video-context'
 import Overlay from '../Overlay/Overlay'
-function Still({thumbnail, videoID}) {
+function Still({thumbnail, videoID, stillThinkingData}) {
   const videoCtx = useContext(VideoContext);
 
   return (
@@ -16,9 +16,12 @@ function Still({thumbnail, videoID}) {
           <VideoTrigger thumbnail={thumbnail}/> 
         </VideoContainer>
         <ContentContainer className="still-thinking-text">
-            <h3>Still Thinking?</h3>
-            <p>Experience the software for yourself with a personalised demo tailored to your organisation&apos;s specific health and safety needs.</p>
-            <div className="still-thinking-btn">
+        <h3>{stillThinkingData.title.rendered}</h3>
+            <div
+                  dangerouslySetInnerHTML={{
+                    __html: stillThinkingData.content.rendered,
+                  }}
+                />            <div className="still-thinking-btn">
                 <PrimaryAnchor 
                 link="/book-a-demo"
                 text="BOOK A DEMO"
