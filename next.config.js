@@ -13,12 +13,12 @@ module.exports = (phase, { defaultConfig }) => {
         styledComponents: true
       },
       env: {
-        url: "https://test.webduel.co.nz",
+        url: "https://data.gonogo.co.nz",
         SITE_URL: "http://localhost:3000"
       },
       reactStrictMode: true,
       images: {
-        domains: ['test.webduel.co.nz']
+        domains: ['data.gonogo.co.nz']
       }
     }
   }
@@ -32,12 +32,12 @@ module.exports = (phase, { defaultConfig }) => {
       styledComponents: true
     },
     env: {
-      url: "https://test.webduel.co.nz",
-      SITE_URL: "https://gonogo.vercel.app/"
+      url: "https://data.gonogo.co.nz",
+      SITE_URL: "https://gonogo.co.nz"
     },
     reactStrictMode: true,
     images: {
-      domains: ['test.webduel.co.nz']
+      domains: ['data.gonogo.co.nz']
     }
   }
 }

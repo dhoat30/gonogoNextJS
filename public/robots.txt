@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://gonogosafety.co.nz
+Host: https://gonogo.co.nz
 
 # Sitemaps
-Sitemap: https://gonogosafety.co.nz/sitemap.xml
+Sitemap: https://gonogo.co.nz/sitemap.xml

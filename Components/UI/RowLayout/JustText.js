@@ -29,8 +29,8 @@ const Section = styled.section`
   }
   .small-text{ 
     h3{ 
-      font-size: 1.2rem; 
-      line-height: 1.7rem;
+      font-size: 1.5rem; 
+      line-height: 2.4rem;
     }
   }
 `;

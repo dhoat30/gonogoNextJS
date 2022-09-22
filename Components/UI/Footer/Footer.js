@@ -65,13 +65,17 @@ function Footer({ allModulesData, contactData }) {
          />
          </>
           : 
-          <Image
-          src={contactData.logo.url}
-          alt="GonoGo logo"
-          layout="fixed"
-          width="280px"
-          height="115px"
-        />
+          <>
+            <Image
+              src={contactData.logo.url}
+              alt="GonoGo logo"
+              layout="fixed"
+              width="280px"
+              height="115px"
+            />
+            <h5>Managing Safety should be Simple</h5>
+          </>
+          
           }
          
           {contactData.show_social_media_box && 
@@ -112,4 +116,7 @@ function Footer({ allModulesData, contactData }) {
 export default Footer;
 const FooterStyle = styled.footer`
   background: #f6f6f6;
+  h5{ 
+    margin-top: 10px; 
+  }
 `;

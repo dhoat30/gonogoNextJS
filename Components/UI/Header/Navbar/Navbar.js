@@ -95,7 +95,7 @@ function Navbar({allModulesData, allBlogData, onClick}) {
              <DesktopSubMenu>
               {desktopSubMenu}
              </DesktopSubMenu>
-            }
+           }
        
         </li>
 
@@ -221,7 +221,7 @@ const DesktopSubMenu = styled.ul`
   position: absolute; 
   background: var(--lightBlue);
   width: 100%;
-  top: 35px; 
+  top: 40px; 
   left: 0;
   z-index: 1;  
   display: flex; 
