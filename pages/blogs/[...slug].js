@@ -1,7 +1,6 @@
 import React from 'react'
 import getSingleCpt from '../../util/get-single-cpt'
 import getCPT from '../../util/get-cpt'
-import Module from '../../Components/Pages/HomePage/Modules/Module'
 import getContact from '../../util/get-contact'
 import BlogPage from '../../Components/Pages/Blogs/BlogPage'
 function blogs({blogData, featuresData, stillThinkingData}) {
