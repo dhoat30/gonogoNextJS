@@ -33,7 +33,7 @@ module.exports = (phase, { defaultConfig }) => {
     },
     env: {
       url: "https://data.gonogo.co.nz",
-      SITE_URL: "https://gonogo.co.nz"
+      SITE_URL: "https://www.gonogo.co.nz"
     },
     reactStrictMode: true,
     images: {
