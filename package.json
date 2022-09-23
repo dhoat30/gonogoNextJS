@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
     "react-youtube": "^9.0.3",
+    "sharp": "^0.31.0",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

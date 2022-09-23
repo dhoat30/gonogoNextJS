@@ -8,13 +8,9 @@ module.exports = (phase, { defaultConfig }) => {
         locales: ['en'],
         defaultLocale: 'en',
       },
-      experimental: {
-        // Enables the styled-components SWC transform
-        styledComponents: true
-      },
       env: {
         url: "https://data.gonogo.co.nz",
-        SITE_URL: "http://localhost:3000"
+        SITE_URL: "http://localhost:30010"
       },
       reactStrictMode: true,
       images: {
@@ -27,13 +23,9 @@ module.exports = (phase, { defaultConfig }) => {
       locales: ['en'],
       defaultLocale: 'en',
     },
-    experimental: {
-      // Enables the styled-components SWC transform
-      styledComponents: true
-    },
     env: {
       url: "https://data.gonogo.co.nz",
-      SITE_URL: "https://www.gonogo.co.nz"
+      SITE_URL: "https://gonogo.co.nz"
     },
     reactStrictMode: true,
     images: {

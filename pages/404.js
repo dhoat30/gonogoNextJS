@@ -15,9 +15,9 @@ function termsConditions() {
     <div id='error-text'>
         
         <span>404 PAGE</span>
-        <p class="p-a">
+        <p className="p-a">
            . The page you were looking for could not be found</p>
-        <p class="p-b">
+        <p className="p-b">
             ... Back to previous page
         </p>
         <Link href="/">
