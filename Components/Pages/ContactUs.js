@@ -31,7 +31,6 @@ function ContactUs({ pageData, testimonialsData }) {
 
 export default ContactUs;
 const Section = styled.section`
-
   h1 {
     color: white;
   }

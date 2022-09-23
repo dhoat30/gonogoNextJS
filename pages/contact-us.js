@@ -30,7 +30,7 @@ function contactUs({pageData, featuresData, testimonialsData, contactData}) {
 }
 
 export default contactUs
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   // get home page data using category from hero images 
   const pageData = await getPage("contact-us")
   const featuresData = await getCPT("features")
@@ -47,6 +47,6 @@ export async function getServerSideProps(context) {
      contactData: contactData, 
 
     },
-    // revalidate: 86400
+    revalidate: 86400
   }
 }

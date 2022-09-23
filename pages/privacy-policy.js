@@ -31,7 +31,7 @@ function privacyPolicy({pageData, featuresData, testimonialsData, contactData}) 
 }
 
 export default privacyPolicy
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   // get home page data using category from hero images 
   const pageData = await getPage("privacy-policy")
   const featuresData = await getCPT("features")
@@ -48,6 +48,6 @@ export async function getServerSideProps(context) {
      contactData: contactData, 
 
     },
-    // revalidate: 86400
+    revalidate: 86400
   }
 }
