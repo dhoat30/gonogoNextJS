@@ -8,7 +8,6 @@ function JustText({content}) {
     <Section>
     <FlexBox className={`${smallText} max-width`}>
     
-      
         <div dangerouslySetInnerHTML={{ __html: content }} />
     
     
@@ -29,7 +28,7 @@ const Section = styled.section`
   }
   .small-text{ 
     h3{ 
-      font-size: 1.5rem; 
+      font-size: 1.8rem; 
       line-height: 2.4rem;
     }
   }

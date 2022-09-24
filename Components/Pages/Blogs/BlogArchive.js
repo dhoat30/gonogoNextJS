@@ -4,6 +4,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 function BlogArchive({allBlogData}) {
     const blogCards = allBlogData.map(item=>{ 
+      console.log(item)
+      const date = new Date (item.date_gmt)
+      let month = date.getMonth()+1
+      if (month < 10){ 
+        month = "0" + month
+      }
+      const publishDate = `${date.getDate()}/${month}/${date.getFullYear()}`
+    
         return (
             <Card key={item.id}>
                 <Link href={`/blogs/${item.slug}`}>
@@ -17,6 +25,8 @@ function BlogArchive({allBlogData}) {
                     /> 
                 </ImageContainer>
                 <Content>
+                    <h3 className="author">Writen by {item.author_meta.first_name} {item.author_meta.last_name} | {publishDate}</h3>
+
                     <h2>{item.title.rendered} </h2>
                     <div dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}/>
                 </Content>
@@ -26,9 +36,12 @@ function BlogArchive({allBlogData}) {
         )
     })
   return (
-    <Section className="max-width box-shadow">
-        <Heading>Our Blogs</Heading>
-        <FlexBox >
+    <Section >
+      <div className='hero-section'> 
+      <Heading>Our Blogs</Heading>
+
+      </div>
+        <FlexBox className="max-width">
             {blogCards}
         </FlexBox> 
     </Section>
@@ -37,20 +50,28 @@ function BlogArchive({allBlogData}) {
 
 export default BlogArchive
 const Section = styled.section`
-margin: 70px auto;
+
 @media (max-width: 1100px) {
     padding: 50px 20px; 
   }
+  .hero-section{ 
+    background: linear-gradient(180deg, #FF8B67 0%, #FB7F09 100%);
+    padding: 150px 0 100px 0;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+   
+  }
 `
 const Heading = styled.h1`
-color: var(--blue); 
 text-align: center; 
+color: white;
 `
 const FlexBox = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 gap: 50px 40px;
-margin-top: 50px;
+margin: 100px auto;
 @media (max-width: 900px) {
   grid-template-columns: 1fr 1fr;
 }
@@ -61,7 +82,7 @@ margin-top: 50px;
 const Card = styled.div`
 width: 100%; 
 cursor: pointer; 
-
+background: var(--lightBlue);
 `
 const ImageContainer = styled.div`
 position: relative; 
@@ -69,7 +90,13 @@ width: 100%;
 height: 300px; 
 `
 const Content = styled.div`
-margin-top: 10px; 
+padding: 10px 10px 20px 10px; 
+h3{ 
+  font-size: 0.8rem; 
+  font-weight: 400; 
+  line-height: 1.3rem;
+  margin:0 0 10px 0; 
+}
 h2{ 
     font-size: 1.3rem; 
     font-weight: 700; 

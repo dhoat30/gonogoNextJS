@@ -3,10 +3,16 @@ import styled from "styled-components";
 import Image from "next/image";
 import PrimaryAnchor from "../../UI/Anchor/PrimaryAnchor";
 function BlogPage({ blogData }) {
-  console.log(blogData);
   if (!blogData) {
     return;
   }
+  const date = new Date (blogData.date_gmt)
+  let month = date.getMonth()+1
+  if (month < 10){ 
+    month = "0" + month
+  }
+  const publishDate = `${date.getDate()}/${month}/${date.getFullYear()}`
+
   return (
     <>
       <Main>
@@ -14,7 +20,7 @@ function BlogPage({ blogData }) {
           <div className="blog-text-section">
             <div className="blog-hero-text">
               <h1>{blogData.title.rendered}</h1>
-              <p className="author">Writen by Craig Anderson</p>
+              <p className="author">Writen by {blogData.author_meta.first_name} {blogData.author_meta.last_name} | {publishDate}</p>
               <div
                 dangerouslySetInnerHTML={{ __html: blogData.excerpt.rendered }}
               />

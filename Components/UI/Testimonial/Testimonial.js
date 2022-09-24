@@ -40,6 +40,7 @@ function Testimonial({ testimonialsData }) {
     <Section className=" box-shadow" id="testimonials">
       <h3>Testimonials</h3>
       <Carousel
+      infiniteLoop={true}
       showStatus={false}
         renderArrowNext={(onClickHandler, hasNext, label) =>
             hasNext && (
