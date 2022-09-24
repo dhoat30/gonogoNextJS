@@ -9,12 +9,12 @@ module.exports = (phase, { defaultConfig }) => {
         defaultLocale: 'en',
       },
       env: {
-        url: "https://test.webduel.co.nz",
+        url: "https://data.gonogo.co.nz",
         SITE_URL: "http://localhost:30010"
       },
       reactStrictMode: true,
       images: {
-        domains: ['test.webduel.co.nz']
+        domains: ['data.gonogo.co.nz']
       }
     }
   }
@@ -24,12 +24,12 @@ module.exports = (phase, { defaultConfig }) => {
       defaultLocale: 'en',
     },
     env: {
-      url: "https://test.webduel.co.nz",
+      url: "https://data.gonogo.co.nz",
       SITE_URL: "https://gonogo.co.nz"
     },
     reactStrictMode: true,
     images: {
-      domains: ['test.webduel.co.nz']
+      domains: ['data.gonogo.co.nz']
     }
   }
 }

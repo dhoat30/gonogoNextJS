@@ -9,7 +9,7 @@ function Header({ logo, allModulesData, allBlogData }) {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
  
   return (
-    <header className="light-blue-bk">
+    <Container className="light-blue-bk">
       <div className="max-width">
         <DesktopHeader className="site-header">
           <NavContainer>
@@ -71,12 +71,18 @@ function Header({ logo, allModulesData, allBlogData }) {
        
         </MobileHeader>
       </div>
-    </header>
+    </Container>
   );
 }
 
 export default Header;
-
+const Container = styled.div`
+  position: fixed; 
+  top: 0;
+  left: 0; 
+  z-index: 10; 
+  width:  100%; 
+`
 const NavContainer = styled.div`
   display: flex;
   align-items: center;

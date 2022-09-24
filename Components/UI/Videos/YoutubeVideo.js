@@ -13,7 +13,7 @@ function YoutubeVideo({ videoID}) {
       };
       const onPlayerReady = (event) => {
         // access to player in all event handlers via event.target
-        event.target.pauseVideo();
+       
       }
 
   
