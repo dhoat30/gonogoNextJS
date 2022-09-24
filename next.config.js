@@ -9,7 +9,7 @@ module.exports = (phase, { defaultConfig }) => {
         defaultLocale: 'en',
       },
       env: {
-        url: "http://data.gonogo.co.nz",
+        url: "https://data.gonogo.co.nz",
         SITE_URL: "http://localhost:30010"
       },
       reactStrictMode: true,
@@ -24,8 +24,8 @@ module.exports = (phase, { defaultConfig }) => {
       defaultLocale: 'en',
     },
     env: {
-      url: "http://data.gonogo.co.nz",
-      SITE_URL: "http://gonogo.co.nz"
+      url: "https://data.gonogo.co.nz",
+      SITE_URL: "https://gonogo.co.nz"
     },
     reactStrictMode: true,
     images: {
