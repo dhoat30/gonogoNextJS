@@ -48,10 +48,12 @@ function Hero({
       mobileImage={mobileImage}
       desktopImage={desktopImage}/>  */}
       <ImageStyle
+      placeholder="blur"
       src={desktopImage}
       layout="fill"
       objectFit="cover"
       alt={title}
+      blurDataURL={`/_next/image?url=${desktopImage}&w=16&q=1`}
       /> 
       <div className="hero-text">
         <h1>{title}</h1>
@@ -84,7 +86,9 @@ align-items:center;
 height:95vh; 
 width: 100%; 
 text-align: center; 
-
+@media(max-width: 500px){ 
+  height:75vh; 
+}
 `;
 const ImageStyle = styled(Image)``
 const HeroBtnContainer = styled.div`

@@ -25,8 +25,8 @@ function SecondaryAnchor({ text, link, icon, onClick }) {
 export default SecondaryAnchor;
 
 const VideoIconStyle = styled(VideoIcon) `
-width: 15px; 
-height: 15px; 
+width: 15px !important; 
+height: 15px !important; 
 margin-right: 5px;
 @media(max-width: 500px){ 
   width: 10px !important; 

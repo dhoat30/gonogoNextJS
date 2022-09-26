@@ -31,8 +31,8 @@ function Cloud({title, content, link, image, linkText}) {
 
 export default Cloud
 const VideoIconStyle = styled(VideoIcon)`
-width: 20px; 
-height: 20px ; 
+width: 20px !important; 
+height: 20px !important; 
 fill: var(--blue) !important; 
 circle{ 
     fill: var(--blue) !important; 

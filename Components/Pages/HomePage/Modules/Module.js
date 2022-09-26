@@ -54,7 +54,7 @@ function Module({moduleData, featuresData, stillThinkingData}) {
         {/* hero section  */}
         <Hero
         desktopImage={moduleData.acf.hero_section.desktop_hero_image.url}
-        mobileImage={moduleData.acf.hero_section.mobile_hero_image.url}
+        // mobileImage={moduleData.acf.hero_section.mobile_hero_image.url}
         title={moduleData.acf.hero_section.title}
         subtitle={moduleData.acf.hero_section.subtitle}
         primaryButtonData={
