@@ -5,9 +5,7 @@ import Module from '../../Components/Pages/HomePage/Modules/Module'
 import getContact from '../../util/get-contact'
 import SEO from '../../Components/SEO'
 function modules({moduleData, featuresData, stillThinkingData, singleModuleData, allModulesData}) {
-  allModulesData.map(item=>{ 
-    console.log(item.title.rendered)
-  })
+
   const seo = {
     title: moduleData[0].yoast_head_json.title,
     description: moduleData[0].yoast_head_json.description,

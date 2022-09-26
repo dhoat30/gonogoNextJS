@@ -11,6 +11,7 @@ export default function Home({homePageData, featuresData, testimonialsData, cont
     description: homePageData[0].yoast_head_json.description,
     imageSrc: homePageData[0].yoast_head_json.og_image > 0 &&  homePageData[0].yoast_head_json.og_image[0].url
   }
+  console.log(allBlogData)
   return (
   <React.Fragment> 
     <SEO

@@ -64,6 +64,7 @@ function BlogPage({ blogData }) {
 
 export default BlogPage;
 const Main = styled.section`
+margin-top: 60px; 
   background: var(--lightBlue);
   .blog-hero {
     display: flex;
