@@ -1,4 +1,5 @@
 module.exports = {
-    siteUrl: process.env.SITE_URL || 'https://www.gonogo.co.nz',
+    siteUrl: 'http://localhost:3000' || 'https://gonogo.co.nz',
+        // siteUrl: process.env.SITE_URL || 'http://localhost:3000',
     generateRobotsTxt: true
 }

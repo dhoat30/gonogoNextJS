@@ -10,7 +10,7 @@ module.exports = (phase, { defaultConfig }) => {
       },
       env: {
         url: "https://data.gonogo.co.nz",
-        SITE_URL: "http://localhost:30010"
+        SITE_URL: "http://localhost:3000"
       },
       reactStrictMode: true,
       images: {

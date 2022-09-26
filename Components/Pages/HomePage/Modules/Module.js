@@ -13,13 +13,10 @@ function Module({moduleData, featuresData, stillThinkingData}) {
   }
     const sections = moduleData.acf.sections.map((data, index)=> { 
        if(!data.layout.images ){ 
-
         return <JustText
         key={index}
             content={data.layout.content}
-
         />
-
       }
            else if(data.layout.layout_type === "Row"){ 
                 return <RowLayout
