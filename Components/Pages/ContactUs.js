@@ -16,7 +16,7 @@ function ContactUs({ pageData, testimonialsData }) {
         <Form 
         emailRouteUrl={`${process.env.url}/wp-json/webduel/v1/contact-form`}
         formName="Contact Form"
-        emailTo="designer@webduel.co.nz"
+        emailTo="craig@gonogo.co.nz"
         cta="Send Now"
         /> 
       </div>

@@ -15,7 +15,7 @@ function BookADemo({ pageData, testimonialsData }) {
         <Form 
         emailRouteUrl={`${process.env.url}/wp-json/webduel/v1/contact-form`}
         formName="Book a Demo Form"
-        emailTo="designer@webduel.co.nz"
+        emailTo="craig@gonogo.co.nz"
         cta="BOOK A DEMO"
         /> 
       </div>
