@@ -15,9 +15,9 @@ function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingD
   const twoColumnLayout = homePageData[0].acf.layout.map((data, index) => {
     let content = data.content.replace(/(<p[^>]+?>|<p>|<\/p>)/gim, "");
     return (
-      <SecondSection key={index} imageAlignment={data.image_alignment}>
-        <div className="max-width">
-          <ImgContainer className="first-section-img">
+ 
+        <>
+          <ImgContainer className="first-section-img" key={index}>
             <ImageStyle
               src={data.images[0].image.url}
               alt="Safety Managment"
@@ -26,11 +26,10 @@ function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingD
               height={(data.images[0].image.height / data.images[0].image.width) * 100}
             />
           </ImgContainer>
-          <div className="first-section-text">
+          {/* <div className="first-section-text">
             <Heading3 dangerouslySetInnerHTML={{ __html: content }} />
-          </div>
-        </div>
-      </SecondSection>
+          </div> */}
+    </>
       
     );
   });
@@ -51,7 +50,9 @@ function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingD
         }
       />
       {/* second column  */}
+      <SecondSection >
       {twoColumnLayout}
+      </SecondSection>
       <Cloud 
       title={cloudData.title}
       content={cloudData.content}
@@ -100,30 +101,27 @@ const SecondSection = styled.section`
 
   background-color: ${(props) =>
     props.imageAlignment === "Right" && "var(--lightBlue);"};
-  > div {
     display: flex;
     align-items: center;
-    @media (max-width: 1000px) {
-      justify-content: center; 
-    }
     flex-wrap: wrap; 
-    flex-direction: ${(props) =>
-      props.imageAlignment === "Right" && "row-reverse"};
+    justify-content: center; 
+    gap: 40px; 
     > div {
-      width: 50%;
-      @media (max-width: 1000px) {
-        width: 100%; 
-      }
+            width: 45%;
+      @media (max-width: 700px) {
+        width: 90%; 
+        gap: 0; 
+
     }
   }
-  padding-bottom: 70px;
+  padding: 70px 0;
 `;
 const ImgContainer = styled.div`
  
   display: block;
   max-width: 400px;
   width: 100%;
-  margin: 0 auto;
+
 
 `;
 const Heading3 = styled.h3`

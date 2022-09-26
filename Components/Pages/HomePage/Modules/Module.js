@@ -7,6 +7,7 @@ import StillThinkingRow from '../../../UI/Videos/StillThinkingRow'
 import Features from '../../../UI/Features/Features'
 import JustText from '../../../UI/RowLayout/JustText'
 function Module({moduleData, featuresData, stillThinkingData}) {
+  console.log(moduleData)
   if(!moduleData){ 
     return
   }
