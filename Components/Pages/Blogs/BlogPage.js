@@ -126,7 +126,7 @@ const MainContent = styled.section`
     li {
       color: var(--blue);
       padding: 0 0 15px 0;
-      font-weight: 600;
+   
     }
   }
   ol {
@@ -135,7 +135,7 @@ const MainContent = styled.section`
     li {
       color: var(--blue);
       padding: 0 0 15px 0;
-      font-weight: 600;
+   
     }
   }
   .wp-block-group {
