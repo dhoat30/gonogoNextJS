@@ -1,8 +1,9 @@
 import React from 'react'
 
-function ArrowIcon({className}) {
+function ArrowIcon({className, onClick}) {
   return (
     <svg
+    onClick={onClick}
     className={className}
     width="41"
     height="41"

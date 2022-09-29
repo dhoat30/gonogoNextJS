@@ -6,6 +6,7 @@ import VideoContext from "../Store/video-context";
 import Overlay from "./UI/Overlay/Overlay";
 import Footer from "./UI/Footer/Footer";
 import LoadingAnimation from "./UI/LoadingAnimation/LoadingAnimation";
+import FooterArrow from "./UI/Footer/FooterArrow/FooterArrow";
 function Layout(props) {
   // console.log(props.children.props.allModulesData)
   //get video contex for youtube modal
@@ -53,7 +54,7 @@ function Layout(props) {
           <LoadingAnimation />
         </>
       )}
-
+      <FooterArrow/> 
       <Footer    allModulesData={reverseModulesData} contactData={props.children.props.contactData && props.children.props.contactData}/>
     </div>
   );

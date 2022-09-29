@@ -30,6 +30,7 @@ function BookADemo({ pageData, testimonialsData }) {
 
 export default BookADemo;
 const Section = styled.section`
+margin-top: 50px; 
   h1 {
     color: white;
   }
