@@ -11,8 +11,7 @@ function Layout(props) {
   // console.log(props.children.props.allModulesData)
   //get video contex for youtube modal
  
-  const videoCtx = useContext(VideoContext);
-
+console.log(props)
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   let reverseModulesData = []
