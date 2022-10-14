@@ -48,14 +48,16 @@ const Section = styled.section`
 background-color: ${props => props.bgColor === "Light Blue" ? "var(--lightBlue)" : "white"}; 
 
 >div{ 
-  padding: 70px 10px; 
-  min-height: 90vh;
+  padding: 140px 10px; 
+  
   display: flex; 
 
 justify-content: space-around; 
 align-items: center; 
 @media(max-width: 800px){ 
   flex-wrap: wrap-reverse; 
+  padding: 70px 10px; 
+
 }
 }
 

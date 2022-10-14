@@ -139,8 +139,7 @@ const ImageStyle = styled(Image)`
 const AboutSection = styled.section`
   background-color: var(--lightBlue);
   > div {
-    min-height: 70vh; 
-
+    padding: 70px 0; 
     display: flex;
     align-items: center; 
   
@@ -151,6 +150,7 @@ const AboutSection = styled.section`
       width: 50%;
       @media (max-width: 1000px) {
         width: 100%; 
+
       }
     }
   }

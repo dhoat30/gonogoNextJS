@@ -119,9 +119,11 @@ export default ModulesFilters;
 
 const Section = styled.section`
   background: var(--lightBlue);
-  padding: 70px 0;
-  min-height: 90vh;
-
+  padding: 140px 0;
+  @media(max-width: 800px){ 
+    padding: 70px 0 ;  
+  
+  }
 `;
 const FlexBox = styled.div`
   margin-top: 30px;

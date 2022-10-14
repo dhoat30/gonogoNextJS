@@ -26,11 +26,15 @@ function Features({ featuresData }) {
 
 export default Features;
 const Section = styled.section`
-padding: 70px 0 ;  
-min-height: 90vh;
+padding: 140px 0 ;  
+
 display: flex; 
 flex-direction: column; 
 justify-content: center; 
+@media(max-width: 800px){ 
+  padding: 70px 0 ;  
+
+}
 `
 const FeatureContainer = styled.div`
 margin-top: 30px; 

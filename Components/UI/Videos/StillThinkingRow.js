@@ -50,15 +50,18 @@ function Still({thumbnail, videoID, stillThinkingData}) {
 
 export default Still
 const Section = styled.section`
-padding: 70px 0;
+padding: 140px 0;
 display: flex; 
 justify-content: center; 
 text-align:center; 
 background: var(--lightBlue); 
-min-height: 90vh;
 display: flex; 
 flex-direction: column; 
 justify-content: center; 
+@media(max-width: 800px){ 
+  padding: 70px 0;
+
+}
 `
 const FlexBox = styled.div`
 max-width: 700px;
