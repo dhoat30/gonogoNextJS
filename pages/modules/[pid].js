@@ -46,7 +46,7 @@ export async function getStaticProps(context) {
      allModulesData: allModulesData, 
 
     },
-    revalidate: 86400
+    revalidate: 60
   }
 }
 export async function getStaticPaths(){ 
@@ -54,7 +54,7 @@ export async function getStaticPaths(){
      const params = allModulesData.map((item)=>({ params: {pid: item.slug} }))
      return{ 
       paths: params, 
-      fallback: false 
+      fallback: 'blocking' 
      };
 
 }

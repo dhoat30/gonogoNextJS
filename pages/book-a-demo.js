@@ -45,6 +45,6 @@ export async function getStaticProps(context) {
      contactData: contactData, 
 
     },
-    revalidate: 86400
+    revalidate: 60
   }
 }

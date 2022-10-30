@@ -37,16 +37,16 @@ const singleBlogData = allBlogData.filter(item=> item.slug === slug)
       allBlogData: allBlogData, 
       singleBlogData: singleBlogData
     },
-    revalidate: 86400
+    revalidate: 60
   }
 }
 
 export async function getStaticPaths(){ 
   const allBlogData = await getCPT('posts')
-  const params = allBlogData.map((item)=>({ params: {pid: item.slug} }))
+  const paths = allBlogData.map((item)=>({ params: {pid: item.slug} }))
   return{ 
-   paths: params, 
-   fallback: false 
+   paths: paths, 
+   fallback: 'blocking' 
   };
 
 }
