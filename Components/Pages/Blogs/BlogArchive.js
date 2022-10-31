@@ -83,7 +83,13 @@ const Card = styled.div`
 width: 100%; 
 cursor: pointer; 
 background: var(--lightBlue);
+transition: 200ms easi-in-out; 
+&:hover{ 
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+}
 `
+
 const ImageContainer = styled.div`
 position: relative; 
 width: 100%; 

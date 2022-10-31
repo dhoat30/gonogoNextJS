@@ -106,7 +106,7 @@ function Footer({ allModulesData, contactData }) {
 
       <div className="copyright">
         <div className="copyright-text">
-          <p>Copyright © 2022 GonoGo | Build By WebDuel</p>
+          <p>Copyright © 2022 GonoGo | Built By WebDuel</p>
         </div>
       </div>
     </FooterStyle>
