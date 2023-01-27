@@ -18,7 +18,7 @@ function Header({ logo, allModulesData, allBlogData }) {
                 <a>
                   {logo && (
                     <ImageStyle
-                      src={logo.url}
+                      src="/logo.png"
                       alt="GonoGo logo"
                       layout="fixed"
                       width="100px"
@@ -54,7 +54,7 @@ function Header({ logo, allModulesData, allBlogData }) {
               <a>
                 {logo && (
                   <ImageStyle
-                    src={logo.url}
+                    src="/logo.png"
                     alt="GonoGo logo"
                     layout="fixed"
                     width="80px"
