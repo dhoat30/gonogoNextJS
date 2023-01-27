@@ -7,7 +7,7 @@ import HamburgerMenu from "../Icons/HamburgerMenu";
 import CloseIcon from "../Icons/CloseIcon";
 function Header({ logo, allModulesData, allBlogData }) {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
- 
+
   return (
     <Container className="light-blue-bk">
       <div className="max-width">
@@ -23,6 +23,7 @@ function Header({ logo, allModulesData, allBlogData }) {
                       layout="fixed"
                       width="100px"
                       height="41px"
+
                     />
                   )}
                 </a>
@@ -35,18 +36,18 @@ function Header({ logo, allModulesData, allBlogData }) {
           </Link>
         </DesktopHeader>
         <MobileHeader className="site-header">
-          {toggleMobileMenu ? 
-             <CloseIcon  clickHandler={() =>
+          {toggleMobileMenu ?
+            <CloseIcon clickHandler={() =>
               setToggleMobileMenu(toggleMobileMenu ? false : true)
-            }/> 
-           : 
-           <HamburgerMenu
-           clickHandler={() =>
-             setToggleMobileMenu(toggleMobileMenu ? false : true)
-           }
-         /> 
-        }
-        
+            } />
+            :
+            <HamburgerMenu
+              clickHandler={() =>
+                setToggleMobileMenu(toggleMobileMenu ? false : true)
+              }
+            />
+          }
+
 
           <MobileLogoContainer>
             <Link href="/" passHref>
@@ -65,10 +66,10 @@ function Header({ logo, allModulesData, allBlogData }) {
           </MobileLogoContainer>
 
           {toggleMobileMenu && (
-            <Navbar allModulesData={allModulesData} allBlogData={allBlogData} onClick={()=> setToggleMobileMenu(false)}/>
+            <Navbar allModulesData={allModulesData} allBlogData={allBlogData} onClick={() => setToggleMobileMenu(false)} />
           )}
 
-       
+
         </MobileHeader>
       </div>
     </Container>
