@@ -6,9 +6,9 @@ function BlogPage({ blogData }) {
   if (!blogData) {
     return;
   }
-  const date = new Date (blogData.date_gmt)
-  let month = date.getMonth()+1
-  if (month < 10){ 
+  const date = new Date(blogData.date_gmt)
+  let month = date.getMonth() + 1
+  if (month < 10) {
     month = "0" + month
   }
   const publishDate = `${date.getDate()}/${month}/${date.getFullYear()}`
@@ -43,19 +43,19 @@ function BlogPage({ blogData }) {
       <CallToActionSection>
         <div className="img-container">
           <Image
-             src={blogData.acf.call_to_action_section.image.url}
-             layout="responsive"
-             alt={blogData.acf.call_to_action_section.title}
-             width="100%"
-             height={(blogData.acf.call_to_action_section.image.height / blogData.acf.call_to_action_section.image.width) * 100}
-          /> 
+            src={blogData.acf.call_to_action_section.image.url}
+            layout="responsive"
+            alt={blogData.acf.call_to_action_section.title}
+            width="100"
+            height={(blogData.acf.call_to_action_section.image.height / blogData.acf.call_to_action_section.image.width) * 100}
+          />
         </div>
         <div className="content">
           <h5>{blogData.acf.call_to_action_section.title}</h5>
           <p>{blogData.acf.call_to_action_section.content} </p>
-          <PrimaryAnchor 
-          link={blogData.acf.call_to_action_section.button_link}
-          text={blogData.acf.call_to_action_section.button_text}/>
+          <PrimaryAnchor
+            link={blogData.acf.call_to_action_section.button_link}
+            text={blogData.acf.call_to_action_section.button_text} />
         </div>
       </CallToActionSection>
     </>

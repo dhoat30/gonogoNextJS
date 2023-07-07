@@ -14,15 +14,15 @@ function Header({ logo, allModulesData, allBlogData }) {
         <DesktopHeader className="site-header">
           <NavContainer>
             <LogoContainer>
-              <Link href="/" passHref>
+              <Link legacyBehavior href="/" passHref>
                 <a>
                   {logo && (
                     <ImageStyle
                       src="/logo.png"
                       alt="GonoGo logo"
                       layout="fixed"
-                      width="100px"
-                      height="41px"
+                      width="100"
+                      height="41"
 
                     />
                   )}
@@ -31,7 +31,7 @@ function Header({ logo, allModulesData, allBlogData }) {
             </LogoContainer>
             <Navbar allModulesData={allModulesData} allBlogData={allBlogData} />
           </NavContainer>
-          <Link href="/book-a-demo" passHref>
+          <Link legacyBehavior href="/book-a-demo" passHref>
             <a className="primary-btn">book a demo</a>
           </Link>
         </DesktopHeader>
@@ -50,15 +50,15 @@ function Header({ logo, allModulesData, allBlogData }) {
 
 
           <MobileLogoContainer>
-            <Link href="/" passHref>
+            <Link legacyBehavior href="/" passHref>
               <a>
                 {logo && (
                   <ImageStyle
                     src="/logo.png"
                     alt="GonoGo logo"
                     layout="fixed"
-                    width="80px"
-                    height="33px"
+                    width="80"
+                    height="33"
                   />
                 )}
               </a>

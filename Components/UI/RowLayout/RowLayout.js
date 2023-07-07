@@ -17,7 +17,7 @@ function RowLayout({ title, content, images, bgColor }) {
               src={images[0].image.url}
               layout="responsive"
               alt={title}
-              width="100%"
+              width="100"
               height={(images[0].image.height / images[0].image.width) * 100}
             />
 

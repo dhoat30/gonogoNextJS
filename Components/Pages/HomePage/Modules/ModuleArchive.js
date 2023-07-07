@@ -6,7 +6,7 @@ import Hero from "../../../UI/Hero/Hero";
 import Testimonials from "../../../UI/Testimonial/Testimonial";
 
 function ModuleArchive({ allModulesData, pageData, testimonialsData }) {
-  
+
   const blogCards = allModulesData.map((item) => {
     return (
       <Card key={item.id}>
@@ -14,8 +14,8 @@ function ModuleArchive({ allModulesData, pageData, testimonialsData }) {
           <Image
             src={item.acf.module_icon.url}
             layout="fixed"
-            width="100px"
-            height="100px"
+            width="100"
+            height="100"
             alt={item.title.rendered}
             objectFit="cover"
           />
@@ -23,7 +23,7 @@ function ModuleArchive({ allModulesData, pageData, testimonialsData }) {
         <Content>
           <h2 dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
           <p>{item.acf.hero_section.subtitle}</p>
-          <Link href={`/modules/${item.slug}`}>
+          <Link legacyBehavior href={`/modules/${item.slug}`}>
             <a>Explore</a>
           </Link>
         </Content>

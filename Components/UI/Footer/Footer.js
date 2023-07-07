@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 function Footer({ allModulesData, contactData }) {
   // console.log(contactData)
-  if ( contactData.social_media.length < 1 || !allModulesData) {
+  if (contactData.social_media.length < 1 || !allModulesData) {
     return;
   }
 
@@ -33,63 +33,63 @@ function Footer({ allModulesData, contactData }) {
   });
 
   // social media 
-  const socialMedia = contactData.social_media.map((data, index)=> { 
-    return(
-      <a href={data.social_media_link}  key={index} target="_blank" rel="noreferrer">
+  const socialMedia = contactData.social_media.map((data, index) => {
+    return (
+      <a href={data.social_media_link} key={index} target="_blank" rel="noreferrer">
         <Image src={data.social_media_icon.url}
-        alt="social media icon"
-        width="35px"
-        height="35px"
-        layout="fixed"
-        /> 
+          alt="social media icon"
+          width="35"
+          height="35"
+          layout="fixed"
+        />
       </a>
     )
 
   })
- 
+
   return (
     <FooterStyle>
       <div className="site-footer max-width">
-      
-       
+
+
         <div className="newsletter">
-          
-          {contactData.show_subscription_box ?  
-          <>
-          <h6 className="footer_head_text">Subscribe to our newsletter</h6>
-           <SubscriberForm
-           emailRouteUrl={`${process.env.url}/wp-json/webduel/v1/subscription-form`}
-           formName="Subscription Form"
-           emailTo="designer@webduel.co.nz"
-           cta="Subscribe"
-         />
-         </>
-          : 
-          <>
-            <Image
-              src={contactData.logo.url}
-              alt="GonoGo logo"
-              layout="fixed"
-              width="280px"
-              height="115px"
-            />
-            <h5>Managing Safety should be Simple</h5>
-          </>
-          
+
+          {contactData.show_subscription_box ?
+            <>
+              <h6 className="footer_head_text">Subscribe to our newsletter</h6>
+              <SubscriberForm
+                emailRouteUrl={`${process.env.url}/wp-json/webduel/v1/subscription-form`}
+                formName="Subscription Form"
+                emailTo="designer@webduel.co.nz"
+                cta="Subscribe"
+              />
+            </>
+            :
+            <>
+              <Image
+                src={contactData.logo.url}
+                alt="GonoGo logo"
+                layout="fixed"
+                width="280"
+                height="115"
+              />
+              <h5>Managing Safety should be Simple</h5>
+            </>
+
           }
-         
-          {contactData.show_social_media_box && 
+
+          {contactData.show_social_media_box &&
             <div className="follow-us">
-            <h6 className="footer_head_text">Follow Us</h6>
-            <div className="icons">
-              {socialMedia}
+              <h6 className="footer_head_text">Follow Us</h6>
+              <div className="icons">
+                {socialMedia}
+              </div>
             </div>
-          </div>
           }
-        
+
         </div>
-         
-        
+
+
         <div className="solutions">
           <h6 className="footer_head_text">Modules</h6>
           <ul>{modulesLinks}</ul>

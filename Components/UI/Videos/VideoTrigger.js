@@ -1,35 +1,35 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import YouTube from 'react-youtube';
 import styled from 'styled-components'
 import Image from 'next/image'
 import VideoIcon from '../Icons/VideoIcon';
 import VideoContext from '../../../Store/video-context';
-function VideoTrigger({thumbnail, videoID}) {
+function VideoTrigger({ thumbnail, videoID }) {
   const videoCtx = useContext(VideoContext)
-  
-     
 
-      const clickHandler = ()=> {
-        videoCtx.getVideoModal(true)
-      }
+
+
+  const clickHandler = () => {
+    videoCtx.getVideoModal(true)
+  }
   return (
     <>
-    <VideoThumbnailContainer>
+      <VideoThumbnailContainer>
         <Image
           src={thumbnail.url}
           layout="responsive"
-          width="100%"
-          height="60%"
+          width="100"
+          height="60"
           objectFit="cover"
           alt="video thumbnail"
-        /> 
-        <VideoIconStyle onClick={clickHandler}/> 
-  </VideoThumbnailContainer>
-</>
-    
-  
+        />
+        <VideoIconStyle onClick={clickHandler} />
+      </VideoThumbnailContainer>
+    </>
+
+
   );
-  
+
 }
 export default VideoTrigger
 const VideoThumbnailContainer = styled.div`

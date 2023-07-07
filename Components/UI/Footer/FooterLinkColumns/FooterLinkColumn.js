@@ -1,14 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-function FooterLinkColumn({slug, title}) {
+function FooterLinkColumn({ slug, title }) {
 
   return (
     <li>
-    <Link href={slug} passHref>
-      <AnchorStyle dangerouslySetInnerHTML={{ __html: title }} />
-    </Link>
-  </li>
+      <Link legacyBehavior href={slug} passHref>
+        <AnchorStyle dangerouslySetInnerHTML={{ __html: title }} />
+      </Link>
+    </li>
   )
 }
 

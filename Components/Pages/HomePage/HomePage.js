@@ -9,28 +9,28 @@ import StillThinkingTwoColumn from "../../UI/Videos/StillThinkingTwoColumn";
 import ModulesFilters from "../../UI/Filters/ModulesFilters";
 
 function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingData, allModulesData }) {
-  
+
   const cloudData = homePageData[0].acf.cloud_section
   // second and third section
   const twoColumnLayout = homePageData[0].acf.layout.map((data, index) => {
     let content = data.content.replace(/(<p[^>]+?>|<p>|<\/p>)/gim, "");
     return (
- 
-        <>
-          <ImgContainer className="first-section-img" key={index}>
-            <ImageStyle
-              src={data.images[0].image.url}
-              alt="Safety Managment"
-              layout="responsive"
-              width="100%"
-              height={(data.images[0].image.height / data.images[0].image.width) * 100}
-            />
-          </ImgContainer>
-          {/* <div className="first-section-text">
+
+      <>
+        <ImgContainer className="first-section-img" key={index}>
+          <ImageStyle
+            src={data.images[0].image.url}
+            alt="Safety Managment"
+            layout="responsive"
+            width="100"
+            height={(data.images[0].image.height / data.images[0].image.width) * 100}
+          />
+        </ImgContainer>
+        {/* <div className="first-section-text">
             <Heading3 dangerouslySetInnerHTML={{ __html: content }} />
           </div> */}
-    </>
-      
+      </>
+
     );
   });
 
@@ -51,47 +51,47 @@ function HomePage({ homePageData, featuresData, testimonialsData, stillThinkingD
       />
       {/* second column  */}
       <SecondSection >
-      {twoColumnLayout}
+        {twoColumnLayout}
       </SecondSection>
-      <Cloud 
-      title={cloudData.title}
-      content={cloudData.content}
-      linkText={cloudData.video_link_text}
-      image={cloudData.image}
+      <Cloud
+        title={cloudData.title}
+        content={cloudData.content}
+        linkText={cloudData.video_link_text}
+        image={cloudData.image}
 
-      /> 
+      />
       <ModulesFilters
-      title={homePageData[0].acf.module_section_title}
-      allModulesData={allModulesData}
-      /> 
+        title={homePageData[0].acf.module_section_title}
+        allModulesData={allModulesData}
+      />
       {/* features  */}
-      <Features featuresData={featuresData} /> 
+      <Features featuresData={featuresData} />
 
-        {/* about us */}
-        <AboutSection id="about-us">
+      {/* about us */}
+      <AboutSection id="about-us">
         <div className="max-width">
           <ImgContainer className="first-section-img">
             <ImageStyle className="img"
               src={homePageData[0].acf.about_us.image.url}
               alt="Craig Anderson"
               layout="fixed"
-              width="300px"
-              height="300px"
-              objectFit="cover" 
+              width="300"
+              height="300"
+              objectFit="cover"
             />
           </ImgContainer>
           <div className="first-section-text">
             <Heading3><strong>{homePageData[0].acf.about_us.title}</strong></Heading3>
-            <div dangerouslySetInnerHTML={{ __html: homePageData[0].acf.about_us.content }}/> 
+            <div dangerouslySetInnerHTML={{ __html: homePageData[0].acf.about_us.content }} />
           </div>
         </div>
       </AboutSection>
 
       {/*  testimonial section */}
-      <Testimonial testimonialsData={testimonialsData}/> 
+      <Testimonial testimonialsData={testimonialsData} />
 
       {/* still thinking  */}
-      <StillThinkingTwoColumn videoID={stillThinkingData.acf.video_id} thumbnail={stillThinkingData.acf.video_thumbnail}  stillThinkingData={stillThinkingData}/> 
+      <StillThinkingTwoColumn videoID={stillThinkingData.acf.video_id} thumbnail={stillThinkingData.acf.video_thumbnail} stillThinkingData={stillThinkingData} />
     </main>
   );
 }

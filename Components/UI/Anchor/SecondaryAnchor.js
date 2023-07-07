@@ -5,26 +5,26 @@ import Link from 'next/link'
 function SecondaryAnchor({ text, link, icon, onClick }) {
   return (
     <>
-    {icon === "videoIcon" ? 
-    <button onClick={onClick} className="secondary-btn"><VideoIconStyle/>{text} </button>
-    : 
-    <Link href={link} passHref>
-        <a  className="secondary-btn">
-          
-         {text}
-       </a>
-       </Link>
-}
-   
+      {icon === "videoIcon" ?
+        <button onClick={onClick} className="secondary-btn"><VideoIconStyle />{text} </button>
+        :
+        <Link legacyBehavior href={link} passHref>
+          <a className="secondary-btn">
+
+            {text}
+          </a>
+        </Link>
+      }
+
     </>
-   
-   
+
+
   );
 }
 
 export default SecondaryAnchor;
 
-const VideoIconStyle = styled(VideoIcon) `
+const VideoIconStyle = styled(VideoIcon)`
 width: 15px !important; 
 height: 15px !important; 
 margin-right: 5px;

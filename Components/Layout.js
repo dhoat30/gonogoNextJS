@@ -10,15 +10,16 @@ import FooterArrow from "./UI/Footer/FooterArrow/FooterArrow";
 function Layout(props) {
   // console.log(props.children.props.allModulesData)
   //get video contex for youtube modal
- 
-console.log(props)
+
+  console.log(props)
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   let reverseModulesData = []
-  if(props.children.props.allModulesData){ 
+  if (props.children.props.allModulesData) {
     reverseModulesData = [...props.children.props.allModulesData].reverse()
 
   }
+  console.log(loading)
   useEffect(() => {
     const handleStart = (url) => url !== router.asPath && setLoading(true);
     const handleComplete = (url) => url === router.asPath && setLoading(false);
@@ -32,7 +33,7 @@ console.log(props)
       router.events.off("routeChangeComplete", handleComplete);
       router.events.off("routeChangeError", handleComplete);
     };
-  });
+  }, []);
   return (
     <div>
       <Header
@@ -45,16 +46,16 @@ console.log(props)
       />
       <main>{props.children}</main>
 
-     
-     
-      {loading && (
+
+
+      {/* {loading && (
         <>
           <Overlay />
           <LoadingAnimation />
         </>
-      )}
-      <FooterArrow/> 
-      <Footer    allModulesData={reverseModulesData} contactData={props.children.props.contactData && props.children.props.contactData}/>
+      )} */}
+      <FooterArrow />
+      <Footer allModulesData={reverseModulesData} contactData={props.children.props.contactData && props.children.props.contactData} />
     </div>
   );
 }

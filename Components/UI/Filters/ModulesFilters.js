@@ -13,12 +13,12 @@ function ModulesFilters({ allModulesData, title }) {
   useEffect(() => {
     setActiveModuleImage(
       allModulesData.filter((item) => item.id === activeModuleID)
-      
+
     );
-   
+
   }, [activeModuleID]);
 
-  
+
 
   // get all showing modules
   const moduleIDs = allModulesData.filter((data) => {
@@ -52,8 +52,8 @@ function ModulesFilters({ allModulesData, title }) {
               <Image
                 src={data.acf.module_icon.url}
                 layout="fixed"
-                width="70px"
-                height="70px"
+                width="70"
+                height="70"
                 alt={data.acf.hero_section.title}
               />
             )}
@@ -61,7 +61,7 @@ function ModulesFilters({ allModulesData, title }) {
           <div className="content">
             <h4>{data.acf.hero_section.title} </h4>
             <p>{data.acf.hero_section.subtitle}</p>
-            <Link href={`/modules/${data.slug}`} passHref>
+            <Link legacyBehavior href={`/modules/${data.slug}`} passHref>
               <a>Explore</a>
             </Link>
           </div>
@@ -77,7 +77,7 @@ function ModulesFilters({ allModulesData, title }) {
         <FlexBox>
           <ModuleCardsContainer>
             {moduleCard}
-            <Link href="/modules" passHref>
+            <Link legacyBehavior href="/modules" passHref>
               <a className="secondary-btn">View All</a>
             </Link>
           </ModuleCardsContainer>
@@ -86,7 +86,7 @@ function ModulesFilters({ allModulesData, title }) {
               <Image
                 src={activeModuleImage[0].acf.module_image.url}
                 layout="responsive"
-                width="100%"
+                width="100"
                 height={
                   (activeModuleImage[0].acf.module_image.height /
                     activeModuleImage[0].acf.module_image.width) *
@@ -98,7 +98,7 @@ function ModulesFilters({ allModulesData, title }) {
               <Image
                 src={moduleIDs[0].acf.module_image.url}
                 layout="responsive"
-                width="100%"
+                width="100"
                 height={
                   (moduleIDs[0].acf.module_image.height /
                     moduleIDs[0].acf.module_image.width) *

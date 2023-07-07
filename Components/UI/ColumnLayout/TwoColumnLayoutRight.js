@@ -1,45 +1,45 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
-function TwoColumnLayoutRight({title, content, images, dangerouslySetInnerHTML, two_column_graphics_alignment, bgColor}) {
-  const imagesBox = images.map(imgData=> { 
+function TwoColumnLayoutRight({ title, content, images, dangerouslySetInnerHTML, two_column_graphics_alignment, bgColor }) {
+  const imagesBox = images.map(imgData => {
     // if two images 
-    if(images.length ===2 ){ 
+    if (images.length === 2) {
       return (
         <DoubleImage key={imgData.image.id} className="box-shadow">
-          <ImageStyle src={imgData.image.url} layout="responsive" alt={title} width="100%" height={`${(imgData.image.height/imgData.image.width*100)}`}/> 
-        </DoubleImage> 
+          <ImageStyle src={imgData.image.url} layout="responsive" alt={title} width="100" height={`${Math.round((imgData.image.height / imgData.image.width * 100))}`} />
+        </DoubleImage>
       )
     }
     // if single image 
-    if(images.length ===1 ){ 
+    if (images.length === 1) {
       return (
         <SingleImage key={imgData.image.id} >
-          <ImageStyle src={imgData.image.url} layout="responsive" alt={title} width="100%" height={`${(imgData.image.height/imgData.image.width*100)}`}/> 
-        </SingleImage> 
+          <ImageStyle src={imgData.image.url} layout="responsive" alt={title} width="100" height={`${Math.round((imgData.image.height / imgData.image.width * 100))}`} />
+        </SingleImage>
       )
     }
-  })  
+  })
   return (
     <Section bgColor={bgColor}>
-    <div className="max-width" >
-    <ContentBox>
-             <h3>{title}</h3>
-            <div dangerouslySetInnerHTML={{ __html: content }}/>
-       </ContentBox>
-      {
-        images.length === 2  ? 
-          <DoubleImagesContainer>   {imagesBox}</DoubleImagesContainer>
-          : 
-          <ImagesContainer>
-          {imagesBox}
-       </ImagesContainer>
+      <div className="max-width" >
+        <ContentBox>
+          <h3>{title}</h3>
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </ContentBox>
+        {
+          images.length === 2 ?
+            <DoubleImagesContainer>   {imagesBox}</DoubleImagesContainer>
+            :
+            <ImagesContainer>
+              {imagesBox}
+            </ImagesContainer>
         }
-      
-      
-    
-    </div>
- </Section>
+
+
+
+      </div>
+    </Section>
   )
 }
 

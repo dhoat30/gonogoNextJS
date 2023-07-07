@@ -1,31 +1,31 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import YouTube from 'react-youtube';
 import styled from 'styled-components'
-function YoutubeVideo({ videoID}) {
+function YoutubeVideo({ videoID }) {
 
-    const opts = {
-        height: '350',
-        width: '100%',
-        playerVars: {
-          // https://developers.google.com/youtube/player_parameters
-          autoplay: 1,
-        },
-      };
-      const onPlayerReady = (event) => {
-        // access to player in all event handlers via event.target
-       
-      }
+  const opts = {
+    height: '350',
+    width: '100',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  };
+  const onPlayerReady = (event) => {
+    // access to player in all event handlers via event.target
 
-  
+  }
+
+
   return (
-  
-   
-    <YoutubeStyle videoId={videoID} opts={opts}  onReady={onPlayerReady}/>
 
-    
-  
+
+    <YoutubeStyle videoId={videoID} opts={opts} onReady={onPlayerReady} />
+
+
+
   );
-  
+
 }
 export default YoutubeVideo
 

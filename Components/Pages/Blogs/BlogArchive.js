@@ -2,48 +2,48 @@ import React from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 import Link from 'next/link'
-function BlogArchive({allBlogData}) {
-    const blogCards = allBlogData.map(item=>{ 
-      console.log(item)
-      const date = new Date (item.date_gmt)
-      let month = date.getMonth()+1
-      if (month < 10){ 
-        month = "0" + month
-      }
-      const publishDate = `${date.getDate()}/${month}/${date.getFullYear()}`
-    
-        return (
-            <Card key={item.id}>
-                <Link href={`/blogs/${item.slug}`}>
-                    <div>
-                <ImageContainer>
-                    <Image
-                    src={item.acf.hero_image.url}
-                    layout="fill"
-                    alt={item.title.rendered}
-                    objectFit="cover"
-                    /> 
-                </ImageContainer>
-                <Content>
-                    <h3 className="author">Writen by {item.author_meta.first_name} {item.author_meta.last_name} | {publishDate}</h3>
+function BlogArchive({ allBlogData }) {
+  const blogCards = allBlogData.map(item => {
+    console.log(item)
+    const date = new Date(item.date_gmt)
+    let month = date.getMonth() + 1
+    if (month < 10) {
+      month = "0" + month
+    }
+    const publishDate = `${date.getDate()}/${month}/${date.getFullYear()}`
 
-                    <h2>{item.title.rendered} </h2>
-                    <div dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}/>
-                </Content>
-                </div>
-                </Link>
-            </Card>
-        )
-    })
+    return (
+      <Card key={item.id}>
+        <Link legacyBehavior href={`/blogs/${item.slug}`}>
+          <div>
+            <ImageContainer>
+              <Image
+                src={item.acf.hero_image.url}
+                layout="fill"
+                alt={item.title.rendered}
+                objectFit="cover"
+              />
+            </ImageContainer>
+            <Content>
+              <h3 className="author">Writen by {item.author_meta.first_name} {item.author_meta.last_name} | {publishDate}</h3>
+
+              <h2>{item.title.rendered} </h2>
+              <div dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
+            </Content>
+          </div>
+        </Link>
+      </Card>
+    )
+  })
   return (
     <Section >
-      <div className='hero-section'> 
-      <Heading>Our Blogs</Heading>
+      <div className='hero-section'>
+        <Heading>Our Blogs</Heading>
 
       </div>
-        <FlexBox className="max-width">
-            {blogCards}
-        </FlexBox> 
+      <FlexBox className="max-width">
+        {blogCards}
+      </FlexBox>
     </Section>
   )
 }

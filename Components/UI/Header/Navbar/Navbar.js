@@ -4,130 +4,130 @@ import styled from "styled-components";
 import ArrowDownIcon from "../../Icons/ArrowDownIcon";
 import Image from 'next/image'
 
-function Navbar({allModulesData, allBlogData, onClick}) {
+function Navbar({ allModulesData, allBlogData, onClick }) {
 
   const [toggleMenu, setToggleMenu] = useState(false);
   // const [toggleBlogMenu, setToggleBlogMenu] = useState(false)
-  
-  if(!allModulesData){ 
+
+  if (!allModulesData) {
     return
   }
   // module menu
-  const desktopSubMenu = allModulesData.map(data=> { 
+  const desktopSubMenu = allModulesData.map(data => {
     // console.log(data.title.rendered)
-    return ( 
-      <li 
-      key={data.id}>
-      
-      <Link href={`/modules/${data.slug}`} passHref>
-        <a onClick={() => setToggleMenu(false)}>
-        <Image src={data.acf.module_icon.url}
-          layout="fixed"
-          width="40px"
-          height="40px"
-          alt={ data.title.rendered}
-        />
-          <span dangerouslySetInnerHTML={{ __html: data.title.rendered }}/> 
-        </a>
-      
-      </Link>
-    </li>
+    return (
+      <li
+        key={data.id}>
+
+        <Link legacyBehavior href={`/modules/${data.slug}`} passHref>
+          <a onClick={() => setToggleMenu(false)}>
+            <Image src={data.acf.module_icon.url}
+              layout="fixed"
+              width="40"
+              height="40"
+              alt={data.title.rendered}
+            />
+            <span dangerouslySetInnerHTML={{ __html: data.title.rendered }} />
+          </a>
+
+        </Link>
+      </li>
     )
   })
   // module menu
-  const modulesSubmenu = allModulesData.map(data=> { 
-    return ( 
-      <li 
-      key={data.id}
-      onClick={onClick }>
-      <Link href={`/modules/${data.slug}`} passHref>
-        <a dangerouslySetInnerHTML={{ __html: data.title.rendered }}
-          onClick={() => setToggleMenu(false)}
-        />
-      </Link>
-    </li>
+  const modulesSubmenu = allModulesData.map(data => {
+    return (
+      <li
+        key={data.id}
+        onClick={onClick}>
+        <Link legacyBehavior href={`/modules/${data.slug}`} passHref>
+          <a dangerouslySetInnerHTML={{ __html: data.title.rendered }}
+            onClick={() => setToggleMenu(false)}
+          />
+        </Link>
+      </li>
     )
   })
 
 
-  
+
   const clickHandler = (e) => {
     e.preventDefault();
     setToggleMenu(toggleMenu ? false : true);
   };
 
- const onMouseLeaveHandler=()=> { 
-  // const timer = setTimeout(()=> { 
-  //   console.log('Initial timeout!')
-  // } , 2000);
-  // clearTimeout(timer);
-  setToggleMenu(false)
-//   setTimeout(() => {
-//     console.log("changing state ")
-//     setToggleMenu(false)
-// }, 1000)
- }
+  const onMouseLeaveHandler = () => {
+    // const timer = setTimeout(()=> { 
+    //   console.log('Initial timeout!')
+    // } , 2000);
+    // clearTimeout(timer);
+    setToggleMenu(false)
+    //   setTimeout(() => {
+    //     console.log("changing state ")
+    //     setToggleMenu(false)
+    // }, 1000)
+  }
   return (
     <>
-     <Nav className="top-nav" >
-      <ul>
-        <li onClick={onClick}>
-          <Link href="/" passHref>
-            <a>Home</a>
-          </Link>
-        </li>
+      <Nav className="top-nav" >
+        <ul>
+          <li onClick={onClick}>
+            <Link legacyBehavior href="/" passHref>
+              <a>Home</a>
+            </Link>
+          </li>
 
-        <li onMouseEnter={()=> setToggleMenu(true)} onMouseLeave={onMouseLeaveHandler}>
-          <Link href="/modules" passHref className="has-submenu">
-            <a onClick={clickHandler}>
-              Modules
-              <ArrowDownIconStyle/>
-            </a>
-          </Link>
-          <SubMenu>
-            {toggleMenu && 
-            modulesSubmenu
+          <li onMouseEnter={() => setToggleMenu(true)} onMouseLeave={onMouseLeaveHandler}>
+            <Link legacyBehavior href="/modules" passHref className="has-submenu">
+              <a onClick={clickHandler}>
+                Modules
+                <ArrowDownIconStyle />
+              </a>
+            </Link>
+            <SubMenu>
+              {toggleMenu &&
+                modulesSubmenu
+              }
+
+            </SubMenu>
+
+            {toggleMenu &&
+              <DesktopSubMenu>
+                {desktopSubMenu}
+              </DesktopSubMenu>
             }
-           
-          </SubMenu>
-          
-          {toggleMenu && 
-             <DesktopSubMenu>
-              {desktopSubMenu}
-             </DesktopSubMenu>
-           }
-       
-        </li>
 
-        <li onClick={onClick}>
-          <Link href="/blogs" passHref className="has-submenu">
-            <a >
-              Blogs
-            </a>
-          </Link>
-     
-        </li>
-        <li onClick={onClick}>
-          <Link href="/#about-us" passHref>
-            <a>About Us</a>
-          </Link>
-        </li>
-        <li onClick={onClick}>
-          <Link href="/contact-us" passHref>
-            <a>Contact Us</a>
-          </Link>
-        </li>
-            <li>
-            <Link href="/book-a-demo" passHref>
-            <BookDemoStyle className="primary-btn">book a demo</BookDemoStyle>
-          </Link>
-            </li>
-      </ul>
-    
-    </Nav>
-       
+          </li>
+
+          <li onClick={onClick}>
+            <Link legacyBehavior href="/blogs" passHref className="has-submenu">
+              <a >
+                Blogs
+              </a>
+            </Link>
+
+          </li>
+          <li onClick={onClick}>
+            <Link legacyBehavior href="/#about-us" passHref>
+              <a>About Us</a>
+            </Link>
+          </li>
+          <li onClick={onClick}>
+            <Link legacyBehavior href="/contact-us" passHref>
+              <a>Contact Us</a>
+            </Link>
+          </li>
+          <li>
+            <Link legacyBehavior href="/book-a-demo" passHref>
+              <BookDemoStyle className="primary-btn">book a demo</BookDemoStyle>
+            </Link>
+          </li>
+        </ul>
+
+      </Nav>
+
     </>
-   
+
   );
 }
 
