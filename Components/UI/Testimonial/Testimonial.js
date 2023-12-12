@@ -5,6 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
 import ArrowIcon from "../Icons/ArrowIcon";
 function Testimonial({ testimonialsData }) {
+  console.log(testimonialsData)
   const singleTestimonial = testimonialsData.map((data, index) => {
     return (
 
@@ -40,37 +41,37 @@ function Testimonial({ testimonialsData }) {
     <Section className=" box-shadow" id="testimonials">
       <h3>Testimonials</h3>
       <Carousel
-      infiniteLoop={true}
-      showStatus={false}
+        infiniteLoop={true}
+        showStatus={false}
         renderArrowNext={(onClickHandler, hasNext, label) =>
-            hasNext && (
-              <ButtonStyle
-                type="button"
-                onClick={onClickHandler}
-                title={label}
-                style={{ ...arrowStyles, right: 15 }}
-              >
-                <ArrowIconNextStyle/> 
-              </ButtonStyle>
-            )
-          }
-          renderArrowPrev={(onClickHandler, hasNext, label) =>
-            hasNext && (
-              <ButtonStyle
-                type="button"
-                onClick={onClickHandler}
-                title={label}
-                style={{ ...arrowStyles, left: 15 }}
-              >
-                <ArrowIconStyle/> 
-              </ButtonStyle>
-            )
-          }
+          hasNext && (
+            <ButtonStyle
+              type="button"
+              onClick={onClickHandler}
+              title={label}
+              style={{ ...arrowStyles, right: 15 }}
+            >
+              <ArrowIconNextStyle />
+            </ButtonStyle>
+          )
+        }
+        renderArrowPrev={(onClickHandler, hasNext, label) =>
+          hasNext && (
+            <ButtonStyle
+              type="button"
+              onClick={onClickHandler}
+              title={label}
+              style={{ ...arrowStyles, left: 15 }}
+            >
+              <ArrowIconStyle />
+            </ButtonStyle>
+          )
+        }
         showThumbs={false}
         showArrows={true}
         autoPlay={true}
       >
-         
+
         {singleTestimonial}
       </Carousel>
     </Section>

@@ -1,15 +1,15 @@
 import React from 'react'
 import Image from 'next/image'
+import styled from 'styled-components'
 function SingleTestimonial({ title, designation, content, imageData }) {
   return (
-    <div>
-      <div className="testimonial-img">
+    <Container>
+      <div className="testimonial-img" style={{ width: imageData.sizes['medium-width'], height: imageData.sizes['medium-height'] }}>
         <Image
           src={imageData.url}
           alt={title}
-          layout="fixed"
-          width={imageData.width}
-          height={imageData.height}
+          layout="fill"
+
         />
       </div>
       <div className="testimonial-text">
@@ -18,8 +18,18 @@ function SingleTestimonial({ title, designation, content, imageData }) {
         <div dangerouslySetInnerHTML={{ __html: content }} />
 
       </div>
-    </div>
+    </Container>
   )
 }
 
 export default SingleTestimonial
+const Container = styled.div`
+.testimonial-img{ 
+  position: relative ;
+  
+  margin: 0 auto 16px auto; 
+ img{ 
+
+ }
+}
+`
