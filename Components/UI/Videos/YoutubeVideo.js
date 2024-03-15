@@ -4,8 +4,8 @@ import styled from 'styled-components'
 function YoutubeVideo({ videoID }) {
 
   const opts = {
-    height: '350',
-    width: '100',
+    width: "100%",
+    height: "100%",
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
@@ -19,8 +19,10 @@ function YoutubeVideo({ videoID }) {
 
   return (
 
+    <Container className='video-container'>
+      <YoutubeStyle videoId={videoID} opts={opts} onReady={onPlayerReady} />
 
-    <YoutubeStyle videoId={videoID} opts={opts} onReady={onPlayerReady} />
+    </Container>
 
 
 
@@ -28,13 +30,18 @@ function YoutubeVideo({ videoID }) {
 
 }
 export default YoutubeVideo
-
+const Container = styled.section`
+position: fixed ;
+z-index: 30;
+padding-bottom: 56.25%;
+width: 95%; 
+left: 50%; 
+top: 50%;
+transform: translate(-50%, -50%);
+`
 const YoutubeStyle = styled(YouTube)`
-  position: fixed; 
-  top: 50%; 
-  left: 50%; 
-  z-index: 30;
-    width: 95%; 
-    max-width: 700px; 
-    transform: translate(-50%, -50%);
+    position: absolute; 
+    width: 100%; 
+    height: 100%;
+
 `
