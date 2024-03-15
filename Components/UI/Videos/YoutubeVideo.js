@@ -37,7 +37,12 @@ padding-bottom: 56.25%;
 width: 95%; 
 left: 50%; 
 top: 50%;
+
 transform: translate(-50%, -50%);
+@media(min-width: 1400px){
+width: 50%; 
+padding-bottom: 28%;
+} 
 `
 const YoutubeStyle = styled(YouTube)`
     position: absolute; 
