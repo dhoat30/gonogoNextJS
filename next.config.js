@@ -9,12 +9,12 @@ module.exports = (phase, { defaultConfig }) => {
         defaultLocale: 'en',
       },
       env: {
-        url: "https://data.tasteofturkish.co.nz",
+        url: "https://data.gonogo.co.nz",
         SITE_URL: "http://localhost:3000"
       },
       reactStrictMode: true,
       images: {
-        domains: ['data.tasteofturkish.co.nz']
+        domains: ['data.gonogo.co.nz']
       }
     }
   }
@@ -24,12 +24,12 @@ module.exports = (phase, { defaultConfig }) => {
       defaultLocale: 'en',
     },
     env: {
-      url: "https://data.tasteofturkish.co.nz",
-      SITE_URL: "https://tasteofturkish.co.nz"
+      url: "https://data.gonogo.co.nz",
+      SITE_URL: "https://gonogo.co.nz"
     },
     reactStrictMode: true,
     images: {
-      domains: ['data.tasteofturkish.co.nz']
+      domains: ['data.gonogo.co.nz']
     }
   }
 }
